@@ -1,6 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms'
 import {HttpClient} from '@angular/common/http'
+import { Router } from '@angular/router';
 
 
 function validatePhoneNumberLength(control: FormControl): { [key: string]: boolean } | null {
@@ -36,25 +37,23 @@ loginForm = new FormGroup({
   
 })
 
-constructor(private http:HttpClient){}
+constructor(private http:HttpClient,private route:Router){}
 onSubmit(){
    
   if(this.loginForm.valid){
   if(this.loginForm.value.password===this.loginForm.value.re_password){
     const formData = this.loginForm.value
-    this.http.post('http://localhost:4000/userlogin',formData).subscribe((res)=>{
+    this.http.post('http://localhost:4000/userRegister',formData).subscribe((res)=>{
      
     console.log("saved successfull");
       
     },(err)=>{
    console.log("error",err);
-   
     })
-
-  }
-
-   
-  }
-  
+}} 
  }
+
+
+
+
 }
