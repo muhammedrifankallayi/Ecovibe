@@ -43,6 +43,7 @@ onSubmit(){
   if(this.loginForm.valid){
   if(this.loginForm.value.password===this.loginForm.value.re_password){
     const formData = this.loginForm.value
+    
     this.http.post('http://localhost:4000/userRegister',formData).subscribe((res)=>{
      
     console.log("saved successfull");

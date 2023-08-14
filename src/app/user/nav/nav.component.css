@@ -1,0 +1,30 @@
+nav{
+    padding: 3%;
+     background-color: blue;
+   
+ }
+ 
+ nav a{
+     color: aliceblue;
+     font-size: large;
+ }
+ 
+ .navbar-toggler-icon{
+     height: 2px;
+     margin-bottom: 10px;
+     
+ } 
+ .toggle-button{
+   
+     display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: -8px;
+ }
+ .logout{
+     margin-left: 5px ;
+ }
+ .navbar-toggler{
+    border: 3px solid rgb(27, 15, 15);
+    border-radius: 3px;
+ }

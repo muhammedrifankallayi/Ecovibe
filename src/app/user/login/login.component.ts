@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private route:Router , private http:HttpClient){}
-
+title = 'Ecovibe'
   loginData = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required])
@@ -19,14 +19,23 @@ export class LoginComponent {
 
   onSubmit(){
     const FormData = this.loginData.value
-this.http.post("http://localhost:4200/user",{FormData}).subscribe((res)=>{
-  console.log(res);
+   
+    
+this.http.post("http://localhost:4000/userLogin",{FormData}).subscribe((res)=>{
+ 
+this.route.navigate(['/home'])
   
 },(err)=>{
-console.log('Error',err);
+console.log('Error',err.message);
 
 })
   }
+
+
+show(){
+  console.log(this.loginData.value);
+  
+}
 
   
     register(){
