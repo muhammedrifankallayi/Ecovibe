@@ -14,6 +14,13 @@ export class NavComponent {
     const currentUrl = this.router.url;
 
    
-    return !currentUrl.includes('login') && !currentUrl.includes('register');
+    return !currentUrl.includes('login') && !currentUrl.includes('register') && !currentUrl.includes('admin');
   }
+
+logout(){
+  localStorage.removeItem("token")
+  this.router.navigate(["/login"])
+}
+
+
 }

@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './user/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
-import { CustomValidatorComponent } from './custom-validator/custom-validator.component';
+import { CustomValidatorComponent } from './super-Admin/custom-validator.component';
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './user/home/home.component';
 import { NavComponent } from './user/nav/nav.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { StoreModule } from '@ngrx/store';
+
 
 
 
@@ -22,6 +25,8 @@ import { NavComponent } from './user/nav/nav.component';
     LoginComponent,
     HomeComponent,
     NavComponent,
+    ProfileComponent,
+  
     
     
   ],
@@ -30,7 +35,8 @@ import { NavComponent } from './user/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({})
     
   ],
   providers: [],
