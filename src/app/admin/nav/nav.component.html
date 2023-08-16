@@ -1,0 +1,35 @@
+
+
+  <nav style="z-index: 2;"  class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+     
+      <button  (click)="toggleSidebar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="btn btn-light" href="">Logout</a>
+    </div>
+  </nav>
+<nav style="z-index: 1;" class="bg-dark " id="sidebar" [@sidebarState]="sidebarCollapsed ? 'collapsed' : 'expanded'">
+   
+   
+    <ul class="list-unstyled components">
+        <li class=" pt-2 " >
+            <a class="text-larger  " routerLink="/dashboard">Home</a>
+        </li>
+        <li class="pt-2" >
+            <a class="text-larger" routerLink="/About" >Users</a>
+        </li>
+        <li class="pt-2" >
+            <a class="text-larger" routerLink="/images" >Resorts</a>
+        </li>
+        <a href="admin/bookings" >
+          <li class="pt-2" >
+            <a class="text-larger" >Bookings</a>
+        </li>
+        </a>
+       
+    </ul>
+</nav>
+
+
+

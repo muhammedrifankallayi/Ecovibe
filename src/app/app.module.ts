@@ -12,7 +12,13 @@ import { HomeComponent } from './user/home/home.component';
 import { NavComponent } from './user/nav/nav.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { StoreModule } from '@ngrx/store';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button'
+import { MatIconModule  } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -36,7 +42,14 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule
     
   ],
   providers: [],

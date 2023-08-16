@@ -1,0 +1,64 @@
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #343a40;
+    padding-top: 20px;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.list-unstyled {
+    padding: 0;
+    margin: 0;
+    padding-top: 60px; 
+}
+
+.list-unstyled li {
+    margin: 0;
+    padding: 0;
+}
+
+.list-unstyled li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.list-unstyled li a:hover {
+    background-color: #6c757d;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.toggle-button .navbar-toggler-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.text-larger{
+    font-size: larger;
+}
+.active{
+    background-color: #6c757d;
+
+}
