@@ -14,7 +14,7 @@ export class NavComponent {
     const currentUrl = this.router.url;
 
    
-    return !currentUrl.includes('login') && !currentUrl.includes('register') && !currentUrl.includes('admin');
+    return !currentUrl.includes('login') && !currentUrl.includes('register') && !currentUrl.includes('admin')&& !currentUrl.includes("superAdmin");
   }
 
 logout(){

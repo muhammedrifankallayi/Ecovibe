@@ -20,6 +20,7 @@ const route:Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(route)
-  ]
+  ],
+  exports:[RouterModule]
 })
 export class UserRoutingModule { }

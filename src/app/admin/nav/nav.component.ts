@@ -31,4 +31,22 @@ export class NavComponent {
   this.route.navigate(['admin/bookings'])
   }
 
+  logout(){
+    this.route.navigate(['admin/logout'])
+  }
+  about(){
+    this.route.navigate(['admin/about'])
+  }
+
+  gallery(){
+    this.route.navigate(['admin/gallery'])
+  }
+
+  dashboard(){
+    this.route.navigate(['admin/'])
+  }
+
+  facilities(){
+    this.route.navigate(['admin/facilities'])
+  }
 }

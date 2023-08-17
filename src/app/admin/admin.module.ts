@@ -3,13 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { NavComponent } from './nav/nav.component';
-import { MatToolbarModule } from '@angular/material/toolbar'
-import {  MatSidenavModule } from '@angular/material/sidenav'
-import { MatIconModule } from '@angular/material/icon'
-import {  MatListModule } from '@angular/material/list'
-import {  MatButtonModule } from '@angular/material/button'
-import {MatBadgeModule} from '@angular/material/badge';
-import { BookingsComponent } from './bookings/bookings.component'
+
+import { BookingsComponent } from './bookings/bookings.component';
+import { AboutComponent } from './about/about.component'
 
 
 
@@ -21,18 +17,14 @@ import { BookingsComponent } from './bookings/bookings.component'
 DashboardComponent,
 NavComponent,
 BookingsComponent,
+AboutComponent,
 
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatBadgeModule,
+   
   
   ]
 })
