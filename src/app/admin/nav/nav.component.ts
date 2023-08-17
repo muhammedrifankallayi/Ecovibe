@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -17,9 +18,17 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ]
 })
 export class NavComponent {
+
+  constructor(private route:Router){}
+
   sidebarCollapsed = true;
 
   toggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed;
   }
+
+  NavigattBooking(){
+  this.route.navigate(['admin/bookings'])
+  }
+
 }

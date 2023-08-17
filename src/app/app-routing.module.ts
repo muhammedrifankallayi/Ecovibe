@@ -1,15 +1,15 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RegisterComponent} from './user/register/register.component'
-import {LoginComponent } from './user/login/login.component'
-import { HomeComponent } from './user/home/home.component';
-import { ProfileComponent } from './user/profile/profile.component';
 
+// child rounting 
 
 const routes: Routes = [
-  // redirection
+  
+  {path:"",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule)},
+
   {path:"admin",loadChildren:()=>import("./admin/admin.module").then(m=>m.AdminModule)},
-  {path:"",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule)}
+ 
+  {path:"superAdmin",loadChildren:()=>import("./super-Admin/super-admin.module").then(m=>m.SuperAdminModule)}
 
 
 

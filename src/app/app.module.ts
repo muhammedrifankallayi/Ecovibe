@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './user/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
-import { CustomValidatorComponent } from './super-Admin/custom-validator.component';
+
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './user/home/home.component';
 import { NavComponent } from './user/nav/nav.component';
@@ -19,6 +19,8 @@ import {MatButtonModule} from '@angular/material/button'
 import { MatIconModule  } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { DashboardComponent } from './super-Admin/dashboard/dashboard.component';
+import { UsersComponent } from './super-Admin/users/users.component';
 
 
 
@@ -27,11 +29,13 @@ import { MatBadgeModule } from '@angular/material/badge';
   declarations: [
     AppComponent,
     RegisterComponent,
-    CustomValidatorComponent,
+  
     LoginComponent,
     HomeComponent,
     NavComponent,
     ProfileComponent,
+    DashboardComponent,
+    UsersComponent,
   
     
     
