@@ -1,6 +1,6 @@
 
 
-<nav style="z-index: 2;"  class="navbar navbar-dark bg-dark">
+<nav style="z-index: 2; "  class="navbar navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
      
       <button  (click)="toggleSidebar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,21 +15,21 @@
    
     <ul class="list-unstyled components">
         <li class=" pt-2 " >
-            <a class="text-larger  " routerLink="/dashboard">dashboard</a>
+            <a class="text-larger  " routerLink="/superAdmin/dashboard">Dashboard</a>
         </li>
         <li class="pt-2" >
-            <a  class="text-larger" routerLink="/About" >About</a>
+            <a  class="text-larger" routerLink="/superAdmin/users" >Users</a>
         </li>
         <li  class="pt-2" >
-            <a   class="text-larger" routerLink="/images" >Gallery</a>
+            <a   class="text-larger" routerLink="/superAdmin/resorts" >Resorts</a>
         </li>
 
         <li   class="pt-2" >
-          <a class="text-larger" >facilities</a>
+          <a class="text-larger" routerLink="/superAdmin/requests" >Requests</a>
       </li>
         
           <li  class="pt-2" >
-            <a class="text-larger" >Bookings</a>
+            <a class="text-larger" routerLink="/superAdmin/subscription" >Subscriptions</a>
         </li>
 
         <li  class="pt-2" >
