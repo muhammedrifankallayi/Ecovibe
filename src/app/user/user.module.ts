@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { RegisterComponent } from './register/register.component';
 
-import { UsersComponent } from '../super-Admin/users/users.component';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
@@ -23,7 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms'
     NavComponent,
     ProfileComponent,
    
-    UsersComponent,
+   
 
   ],
   imports: [

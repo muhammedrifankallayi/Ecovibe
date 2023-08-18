@@ -4,13 +4,15 @@ import { RouterModule,Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 const route:Routes = [
-  { path:'',component:DashboardComponent },
+  { path:'',component:LoginComponent },
+  {path:'dashboard',component:DashboardComponent},
   {path:'bookings',component:BookingsComponent},
-  { path:'about',component:AboutComponent }
+  {path:'about',component:AboutComponent }
 
 ]
 

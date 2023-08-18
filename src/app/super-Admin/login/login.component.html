@@ -1,1 +1,54 @@
-<p>login works!</p>
+<section>
+
+
+
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h1 >Login</h1>
+<p>welcome to Ecovibe admin login</p>
+              <div class="d-flex justify-content-end social_icon">
+                <a href="#" class="btn btn-link"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="btn btn-link"><i class="fab fa-google-plus-square"></i></a>
+                <a href="#" class="btn btn-link"><i class="fab fa-twitter-square"></i></a>
+              </div>
+            </div>
+            <div class="card-body">
+              <form  [formGroup]="FormData" (ngSubmit)="OnSubmit()"  >
+                <div class="mb-3">
+                  <label for="username" class="form-label text-light">Email</label>
+                  <input type="text" class="form-control" formControlName="email" id="username" placeholder="Enter your email">
+    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="FormData.get('email')?.invalid&& FormData.get('email')?.touched " >Email is incorrect!</p>
+
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label text-light">Password</label>
+                  <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter your password">
+    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="FormData.get('password')?.invalid&& FormData.get('password')?.touched" >must be 8 digits!</p>
+
+                </div>
+                <p class="Error-show"  >{{errMessage}}</p>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="remember">
+                  <label class="form-check-label" for="remember">Remember me</label>
+                </div>
+                <a class="text-info" >Forgot your password?</a>
+              
+                <div class="d-flex justify-content-center mt-2">
+                    <a >
+                        <button [disabled]="FormData.invalid"  type="submit"  class="btn btn-primary">Login</button>
+                    </a>
+                
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+             
+             
+            </div>
+          </div>
+	</div>
+</div>
+
+</section>

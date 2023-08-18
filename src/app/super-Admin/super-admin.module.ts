@@ -5,6 +5,7 @@ import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    SuperAdminRoutingModule
+    SuperAdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class SuperAdminModule { }
