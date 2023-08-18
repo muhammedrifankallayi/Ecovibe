@@ -3,7 +3,7 @@ import { Component ,OnInit } from '@angular/core';
 import { Validators ,FormControl ,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
-
+import { SuperAdminService } from 'src/app/services/superAdmin/super-admin.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +11,7 @@ import { catchError, throwError } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   
-  constructor(private http:HttpClient, private route:Router){}
+  constructor(private http:HttpClient, private route:Router ,private service:SuperAdminService){}
 
   // error msg shows
 
@@ -31,18 +31,7 @@ OnSubmit() {
 
   const data = this.FormData.value;
 
-  this.http.post("http://localhost:4000/superAdmin/login", { data })
-    .pipe(
-      catchError((error: HttpErrorResponse) => {
-        let errorMessage = 'An error occurred';
-        if (error.error instanceof ErrorEvent) {
-          errorMessage = error.error.message;
-        } else {
-          errorMessage = error.error.message || 'Server error';
-        }
-        return throwError(errorMessage);
-      })
-    )
+ this.service.login(data)
     .subscribe(
       (res: any) => {
         console.log(res.message);

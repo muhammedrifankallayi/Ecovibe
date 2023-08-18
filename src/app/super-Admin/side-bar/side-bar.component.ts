@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output  } from '@angular/core';
 import { trigger,state,style,transition,animate } from '@angular/animations';
 
 @Component({
@@ -24,4 +24,8 @@ export class SideBarComponent {
     this.sidebarCollapsed = !this.sidebarCollapsed;
    this.sidebarToggled.emit(this.sidebarCollapsed);
     }
+
+
+
+   
 }

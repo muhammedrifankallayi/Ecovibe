@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
