@@ -8,3 +8,8 @@ body::-webkit-scrollbar {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.motion-slow {
+  transition: padding-left 1s ease; /* Adjust the duration and timing function as needed */
+}

@@ -1,8 +1,8 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
+import { AdminService } from 'src/app/services/admin/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { catchError, throwError } from 'rxjs';
 export class LoginComponent {
   erroMessage: string='';
  
-  constructor(private route:Router,private http:HttpClient){}
+  constructor(private route:Router,private service:AdminService){}
 
 
   formData = new FormGroup({
@@ -28,16 +28,8 @@ export class LoginComponent {
     console.log("working");
     
     const data = this.formData.value
-var erroMessage:any;
-    this.http.post("http://localhost:4000/admin/login",{data}).pipe(catchError((error:HttpErrorResponse)=>{
-       this.erroMessage  = "an error occured";
-      if(error.error instanceof ErrorEvent){
-        erroMessage = error.error.message
-      }else{
-        erroMessage = error.error.message || 'server error'
-      }
-      return throwError(erroMessage);
-    })).subscribe((res:any)=>{
+
+this.service.login(data).subscribe((res:any)=>{
       console.log(res.message);
 
       this.route.navigate(['admin/dashboard'])

@@ -8,8 +8,10 @@ export class SuperAdminService {
 
   constructor(private http:HttpClient) { }
 
+// Super Admin Login 
+
   login(data: any) {
-    return this.http.post('http://localhost:4000/admin/login', { data }).pipe(
+    return this.http.post('http://localhost:4000/superAdmin/login', { data }).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'An error occurred';
         if (error.error instanceof ErrorEvent) {
