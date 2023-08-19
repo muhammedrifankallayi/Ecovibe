@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component ,OnInit } from '@angular/core';
+import { SuperAdminService } from 'src/app/services/superAdmin/super-admin.service';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +11,7 @@ export class UsersComponent implements OnInit  {
  ngOnInit(): void {
    this.getUser()
  }
-constructor(private http:HttpClient){}
+constructor(private http:HttpClient ,private service:SuperAdminService){}
 
 
   values = true
@@ -22,7 +23,7 @@ constructor(private http:HttpClient){}
   }
 
   getUser(){
-    this.http.get("http://localhost:4000/superAdmin/getUser").subscribe((res:any)=>{
+   this.service.getUserData().subscribe((res:any)=>{
     this.users$ = res.data
     console.log(res.data);
     

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
-import { catchError, throwError } from 'rxjs';
+import { catchError, throwError ,Observable } from 'rxjs';
+import { User } from 'src/app/super-Admin/state/model/user.model';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,4 +26,16 @@ export class SuperAdminService {
       })
     );
   }
+
+
+ // user Data getting 
+
+  getUserData():Observable<User[]>{
+  
+    return this.http.get<User[]>("http://localhost:4000/superAdmin/getUser")
+  }
+
+
 }
+
+
