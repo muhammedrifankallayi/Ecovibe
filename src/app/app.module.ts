@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 import {ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
-
+import { ToastrModule } from 'ngx-toastr';
 
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
+import { userReducer } from './super-Admin/state/user/user.reducer';
+import { userEffects } from './super-Admin/state/user/user.effects';
 
 
 
@@ -30,9 +32,10 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({users:userReducer}),
     BrowserAnimationsModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([userEffects]),
+    ToastrModule.forRoot()
    
     
   ],
