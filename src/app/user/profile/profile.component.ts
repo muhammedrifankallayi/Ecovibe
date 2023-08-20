@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,14 +8,17 @@ import { Router } from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent  {
+export class ProfileComponent implements OnInit  {
  
-
-  constructor(private router:Router){}
+ngOnInit(): void {
+  this.loadProfile()
+}
+  constructor(private router:Router,private http:HttpClient){}
 
 // Set the default active tab
 
   activeTab = 'timeline'; 
+  userData:string = ''
 
   switchTab(tab: string) {
     this.activeTab = tab;
@@ -55,6 +59,16 @@ showw(){
   
 }
 
+loadProfile(){
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  });
+  this.http.get("http://localhost:4000/getUser",{headers}).subscribe((res:any)=>{
+    this.userData = res.data
+    console.log(this.userData);
+    
+  })
+}
   
 
 }

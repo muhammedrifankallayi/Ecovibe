@@ -13,7 +13,7 @@ import { trigger,state,style,transition,animate } from '@angular/animations';
       state('expanded', style({
         width: '200px', // Adjust width as needed
       })),
-      transition('collapsed <=> expanded', animate('250ms ease-in')),
+      transition('collapsed <=> expanded', animate('600ms ease-in')),
     ]),
   ]
 })

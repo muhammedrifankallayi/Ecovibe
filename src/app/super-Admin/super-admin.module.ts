@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { ResortsComponent } from './resorts/resorts.component';
 
 
 
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     DashboardComponent,
     SideBarComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    ResortsComponent
 
   ],
   imports: [

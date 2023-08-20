@@ -1,0 +1,65 @@
+<div class="wrapper">
+    <app-side-bar (sidebarToggled)="sidebarToggled($event)"  ></app-side-bar>
+
+<div class="container-fluid motion-slow"   [style.paddingLeft.px]="values ? 50 : 200">
+    <div class="container mt-5">
+        <h1>Resort Information</h1>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Resort ID</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Hoster</th>
+              <th>Mobile No</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Resort A</td>
+              <td>Location X</td>
+              <td>John Doe</td>
+              <td>123-456-7890</td>
+              <td><button class="btn btn-danger">Block</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Resort B</td>
+              <td>Location Y</td>
+              <td>Jane Smith</td>
+              <td>987-654-3210</td>
+              <td><button class="btn btn-danger">Block</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Resort C</td>
+              <td>Location Z</td>
+              <td>Michael Johnson</td>
+              <td>555-123-4567</td>
+              <td><button class="btn btn-danger">Block</button></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Resort D</td>
+              <td>Location W</td>
+              <td>Susan Lee</td>
+              <td>222-333-4444</td>
+              <td><button class="btn btn-danger">Block</button></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Resort E</td>
+              <td>Location V</td>
+              <td>David Brown</td>
+              <td>777-888-9999</td>
+              <td><button class="btn btn-danger">Block</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
+
+
+</div>
