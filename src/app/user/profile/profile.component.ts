@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { User } from 'src/app/super-Admin/state/model/user.model';
+
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +20,7 @@ ngOnInit(): void {
 // Set the default active tab
 
   activeTab = 'timeline'; 
-  userData:string = ''
+  userData:any
 
   switchTab(tab: string) {
     this.activeTab = tab;
@@ -63,12 +65,21 @@ loadProfile(){
   const headers = new HttpHeaders({
     'Authorization': `Bearer ${localStorage.getItem('token')}`
   });
-  this.http.get("http://localhost:4000/getUser",{headers}).subscribe((res:any)=>{
-    this.userData = res.data
+  this.http.get<User>("http://localhost:4000/getUser", { headers }).subscribe(
+  (res: User) => {
+    this.userData = res.user; // Assign the whole response to userData
     console.log(this.userData);
+  },
+  (error) => {
+    console.error("Error fetching user data:", error);
+  }
+);
+
+   
     
-  })
+    
+  }
 }
   
 
-}
+

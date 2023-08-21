@@ -6,7 +6,8 @@ import { NavComponent } from './nav/nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component'
 
 
 
@@ -20,6 +21,7 @@ NavComponent,
 BookingsComponent,
 AboutComponent,
 LoginComponent,
+ProfileComponent,
 
 
   ],

@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -12,7 +13,8 @@ const route:Routes = [
   { path:'',component:LoginComponent },
   {path:'dashboard',component:DashboardComponent},
   {path:'bookings',component:BookingsComponent},
-  {path:'about',component:AboutComponent }
+  {path:'about',component:AboutComponent },
+  {path:"profile",component:ProfileComponent}
 
 ]
 
