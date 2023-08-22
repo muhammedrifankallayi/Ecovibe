@@ -16,25 +16,25 @@
    
     <ul class="list-unstyled components">
         <li class=" pt-2 " >
-            <a (click)="dashboard()" class="text-larger  " routerLink="/dashboard">dashboard</a>
+            <a class="text-larger  " routerLink="/admin/dashboard">dashboard</a>
         </li>
         <li class="pt-2" >
-            <a (click)=" about()"  class="text-larger" routerLink="/About" >About</a>
+            <a   class="text-larger" routerLink="/admin/About" >About</a>
         </li>
         <li  class="pt-2" >
-            <a  (click)="gallery()" class="text-larger" routerLink="/images" >Gallery</a>
+            <a  class="text-larger" routerLink="/admin/images" >Gallery</a>
         </li>
 
         <li  (click)="facilities()" class="pt-2" >
-          <a class="text-larger" >facilities</a>
+          <a class="text-larger" routerLink="/admin/facilities" >facilities</a>
       </li>
         
-          <li  (click)="NavigattBooking()" class="pt-2" >
-            <a class="text-larger" >Bookings</a>
+          <li  class="pt-2" >
+            <a routerLink="/admin/bookings" class="text-larger" >Bookings</a>
         </li>
 
-        <li (click)="logout()" class="pt-2" >
-          <a class="text-larger" >Logout</a>
+        <li  class="pt-2" >
+          <a (click)="logout()" class="text-larger" >Logout</a>
       </li>
        
        

@@ -102,3 +102,7 @@ body{
   .edit-save-btn{
     margin-left: auto;
   }
+
+  .btn-side{
+    width: 60%;
+  }

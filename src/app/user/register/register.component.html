@@ -12,7 +12,7 @@
          
         
       </div>
-<p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('userName')?.invalid&& loginForm.get('userName')?.touched else elseBlock" >please validate</p>
+<p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('userName')?.invalid&& loginForm.get('userName')?.touched else elseBlock" >please validate name</p>
 <ng-template #elseBlock>
    <p style="text-align: center; font-size: x-small; height: 5px; "   >  </p>
   </ng-template>
@@ -21,24 +21,24 @@
         <span class="far fa-user"></span>
         <input type="number" name="mobile" id="mobile" formControlName="mobile" placeholder="mobile">
     </div>
-    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('mobile')?.invalid && loginForm.get('mobile')?.touched  else elseBlock" >please validate</p>
+    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('mobile')?.invalid && loginForm.get('mobile')?.touched  else elseBlock" >please validate mobile.no</p>
     <div class="form-field d-flex align-items-center mb-0">
       <span class="far fa-user"></span>
       <input type="email" name="email" id="userName"  formControlName="email" placeholder="email">
      
   </div>
 
-  <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched  else elseBlock" >please validate</p>
+  <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched  else elseBlock" >please validate email</p>
       <div class="form-field d-flex align-items-center mb-0">
           <span class="fas fa-key"></span>
           <input type="password" name="password" id="pwd"  formControlName="password" placeholder="Password">
       </div>
-      <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched  else elseBlock" >please validate</p>
+      <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched  else elseBlock" >please validate password</p>
       <div class="form-field d-flex align-items-center mb-0 ">
         <span class="fas fa-key"></span>
         <input type="password" name="re-password" id="pwd"  formControlName="re_password" placeholder="Re-Password">
     </div>
-    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('re_password')?.invalid && loginForm.get('re-password')?.touched else elseBlock" >please validate</p>
+    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginForm.get('re_password')?.invalid && loginForm.get('re-password')?.touched else elseBlock" >please validate password</p>
       <button [disabled]="loginForm.invalid" class="btn mt-3">sign up</button>
   </form>
   <div class="text-center fs-6">

@@ -19,7 +19,7 @@ ngOnInit(): void {
 
 // Set the default active tab
 
-  activeTab = 'timeline'; 
+  activeTab = 'about'; 
   userData:any
 
   switchTab(tab: string) {

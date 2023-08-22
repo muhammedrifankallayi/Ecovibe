@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,EventEmitter,Output } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Router } from '@angular/router';
 @Component({
@@ -21,18 +21,26 @@ export class NavComponent {
 
   constructor(private route:Router){}
 
-  sidebarCollapsed = true;
+  sidebarCollapsed= true;
+
+  @Output() sideBarToggled = new EventEmitter<boolean>()
+
 
   toggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed;
+    this.sideBarToggled.emit(this.sidebarCollapsed)
   }
+
+
+// navigations   
 
   NavigattBooking(){
   this.route.navigate(['admin/bookings'])
   }
 
   logout(){
-    this.route.navigate(['admin/logout'])
+    localStorage.removeItem("adminToken")
+    this.route.navigate(['/admin'])
   }
   about(){
     this.route.navigate(['admin/about'])
@@ -49,4 +57,6 @@ export class NavComponent {
   facilities(){
     this.route.navigate(['admin/facilities'])
   }
+
+  
 }

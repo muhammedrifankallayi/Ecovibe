@@ -46,7 +46,7 @@ onSubmit(){
     
     this.http.post('http://localhost:4000/userRegister',formData).subscribe((res)=>{
      
-    console.log("saved successfull");
+   this.route.navigate(['/home'])
       
     },(err)=>{
    console.log("error",err);

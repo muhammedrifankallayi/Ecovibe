@@ -32,6 +32,8 @@ export class LoginComponent {
 this.service.login(data).subscribe((res:any)=>{
       console.log(res.message);
 
+      localStorage.setItem("adminToken",res.token)
+
       this.route.navigate(['admin/dashboard'])
       
     },

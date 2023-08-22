@@ -1,33 +1,36 @@
 <div class="wrapper">
-    <app-nav></app-nav>
+    <app-nav  (sideBarToggled)="handleSidebarToggle($event)"  ></app-nav>
 
-    <div class="container mt-5 mb-5">
+    <div class="container motion-slow"   [style.paddingLeft.px]="values ? 0 : 200">
         <div class="row no-gutters">
             <h2 style="text-align: center;" >Resort Profile</h2>
-            <div class="col-md-4 col-lg-4"><img src="https://gos3.ibcdn.com/a59d988a8e5e11ec9dc70a58a9feac02.jpg"></div>
+            <div class="col-md-4 col-lg-4"><img src="https://gos3.ibcdn.com/a59d988a8e5e11ec9dc70a58a9feac02.jpg"><h2>Canravans Resort</h2></div>
             <div class="col-md-8 col-lg-8">
                 <div class="d-flex flex-column">
+                    <p>Admin's name</p>
                     <div class="d-flex flex-row justify-content-between align-items-center p-5 bg-dark text-white">
-                        <h3 class="display-5">Amelly Anderson</h3><i class="fa fa-facebook"></i><i class="fa fa-google"></i><i class="fa fa-youtube-play"></i><i class="fa fa-dribbble"></i><i class="fa fa-linkedin"></i></div>
+                      
+                        <h3 class="display-5"> {{data.name}} </h3><i class="fa fa-facebook"></i><i class="fa fa-google"></i><i class="fa fa-youtube-play"></i><i class="fa fa-dribbble"></i><i class="fa fa-linkedin"></i></div>
                     <div class="p-3 bg-black text-white">
-                        <h6>Web designer &amp; Developer</h6>
+                        <h6>Resort : <span>Caravans Beach resort</span></h6>
+                        <h6>{{data.email}}</h6>
                     </div>
                     <div class="d-flex flex-row text-white">
                         <div class="p-4 bg-primary text-center skill-block">
-                            <h4>90%</h4>
-                            <h6>Bootstrap</h6>
+                            <h4> {{data.mobile}} </h4>
+                            <h6>Phone.no</h6>
                         </div>
                         <div class="p-3 bg-success text-center skill-block">
-                            <h4>70%</h4>
-                            <h6>Jquery</h6>
+                            <h4>Rs.348999</h4>
+                            <h6>Revenue this Month</h6>
                         </div>
                         <div class="p-3 bg-warning text-center skill-block">
-                            <h4>80%</h4>
-                            <h6>HTML</h6>
+                            <h4>subccrip expire date</h4>
+                            <h6>02/10/2023</h6>
                         </div>
                         <div class="p-3 bg-danger text-center skill-block">
-                            <h4>75%</h4>
-                            <h6>PHP</h6>
+                            <h4>355 booking</h4>
+                            <h6>total bookings</h6>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import { HttpClient ,HttpHeaders } from '@angular/common/http';
 import { Component ,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -44,16 +45,22 @@ this.http.post("http://localhost:4000/userLogin",{FormData}).subscribe((res:any)
 this.route.navigate(['/home'])
   
 },(err)=>{
-console.log('Error',err.message);
+
+  Swal.fire({
+    title: 'Error!',
+    text: err.error.message,
+    icon: 'error',
+    confirmButtonText: 'OK'
+  });
+  console.log(err);
+  
+console.log('Error',err.error.message);
 
 })
   }
 
 
-show(){
-  console.log(this.loginData.value);
-  
-}
+
 
   
     register(){
