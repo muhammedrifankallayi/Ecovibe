@@ -1,34 +1,54 @@
 
-<div class="wrapper mt-5"   >
-    
-    <div class="logo ">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk0Yhr1E1ImuScIrIf-B4_n6Mv8KfYUe9j0Q&usqp=CAU" alt="">
-    </div>
-    <div class="text-center mt-3 name">
-       {{title}}
-    </div>
-    <form   [formGroup]="loginData" (ngSubmit)="onSubmit()" class="p-3 mt-3">
-        
-    
-   
-      <div class="form-field d-flex align-items-center mb-0">
-        <span class="far fa-user"></span>
-        <input type="email" name="email" id="userName"  formControlName="email" placeholder="email">
-    </div>
-    <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginData.get('email')?.invalid&& loginData.get('email')?.touched " >please validate</p>
-  
-   
-        <div class="form-field d-flex align-items-center mb-0">
-            <span class="fas fa-key"></span>
-            <input type="password" name="password" id="pwd"  formControlName="password"   placeholder="Password">
-        </div>
-        <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginData.get('password')?.invalid&& loginData.get('password')?.touched " >please validate</p>
-       
+<section>
+
+  <div class="container" >  
+      <div class="col-lg-4 col-md-3 col-sm-2"></div>
+      <div class="col-lg-4 col-md-6 col-sm-8 m-4">
+          <div class="logo">
+              <!-- <img src="https://s16.postimg.org/3wg150ysl/download.jpg"  alt="Logo"  >  -->
+              <h1 class="singtext" >Ecovibe</h1>
+          </div>
+          <div class="row loginbox">                    
+              <div class="col-lg-12">
+                  <span class="singtext" >Sign in </span>   
+              </div>
+    <form  [formGroup]="loginData" (ngSubmit)="onSubmit()" >
+
+
       
-     
-      <button [disabled]="loginData.invalid" class="btn mt-3">sign in</button>
-    </form>
-    <div class="text-center fs-6">
-        <a href="#">Forget password?</a> or <a (click)="register()">Register</a>
-    </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                  <input class="form-control" type="text" formControlName="email" placeholder="Please enter your email" >
+  
+      <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginData.get('email')?.invalid&& loginData.get('email')?.touched " >please validate</p>
+  
+              </div>
+              <div class="col-lg-12  col-md-12 col-sm-12">
+                  <input class="form-control" type="password" formControlName="password" placeholder="Please enter password" >
+                  <p style="text-align: center; font-size: x-small; color: red;"  *ngIf="loginData.get('password')?.invalid&& loginData.get('password')?.touched " >please validate</p>
+  
+              </div>
+             
+              <div class="col-lg-12  col-md-12 col-sm-12">
+               
+                  <input  [disabled]="loginData.invalid"  class="btn  submitButton" type="submit" type="submit" value="submit">
+              </div>                     
+          </form>
+          </div>
+          <div  class="row forGotPassword">
+              <a >Forgot Password? </a>
+            
+          </div>
+          <br>                
+          <br>
+        ->
+  
+      </div>
+      <div class="col-lg-4 col-md-3 col-sm-2"></div>
   </div>
+  </section>
+
+
+
+
+
+ 

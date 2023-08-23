@@ -1,0 +1,19 @@
+<section class="bg-light" style="height: 100%; display: flex; justify-content: center; align-items: center;">
+    <h1 style="position: absolute; top: 50px; font-size: xx-large; font-family: cursive;" > <span style="font-size: 150%; font-family: fantasy;" >E</span>covibe</h1>
+
+    <form [formGroup]="otpData" (ngSubmit)="onSubmit()">
+        <div   style="width: 450px; height: 350px; background-color: white; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      
+          <h4 style="text-align: center; color: #333; font-family: monospace;">OTP sent to your Email. <a href="">Resend otp</a></h4>
+     
+          <mat-form-field appearance="outline" style="width: 80%;">
+            <mat-label>Enter OTP</mat-label>
+            <input matInput placeholder="  enter 6 - digit - otp    "  formControlName="otp" class="center-text" >
+          </mat-form-field>
+      
+          <button  [disabled]="otpData.invalid" mat-raised-button color="primary" type="submit" >Submit</button>
+         
+        </div>
+    </form>
+      </section>
+      

@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
+import { OtpComponent } from './otp/otp.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +14,9 @@ const route:Routes = [
   { path:'login',component:LoginComponent},
   { path:'home',component:HomeComponent},
   {path:'profile',component:ProfileComponent},
-  { path:'profile/edit',component:ProfileComponent }
+  { path:'profile/edit',component:ProfileComponent },
+  {path:"search",component:SearchComponent},
+  {path:"otp",component:OtpComponent}
 ]
 
 @NgModule({
