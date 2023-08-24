@@ -1,4 +1,4 @@
-<section class="bg-light" style="height: 100%; display: flex; justify-content: center; align-items: center;">
+<section  *ngIf="!success" class="bg-light" style="height: 100%; display: flex; justify-content: center; align-items: center;">
     <h1 style="position: absolute; top: 50px; font-size: xx-large; font-family: cursive;" > <span style="font-size: 150%; font-family: fantasy;" >E</span>covibe</h1>
 
     <form [formGroup]="otpData" (ngSubmit)="onSubmit()">
@@ -8,12 +8,37 @@
      
           <mat-form-field appearance="outline" style="width: 80%;">
             <mat-label>Enter OTP</mat-label>
-            <input matInput placeholder="  enter 6 - digit - otp    "  formControlName="otp" class="center-text" >
+            <input matInput placeholder="  enter 6 - digit - otp    " type="number"  formControlName="otp" class="center-text" >
           </mat-form-field>
       
           <button  [disabled]="otpData.invalid" mat-raised-button color="primary" type="submit" >Submit</button>
          
         </div>
     </form>
+      </section>
+      
+      <section   *ngIf="success" >
+       
+
+        <div class="congratulation-area text-center ">
+         
+          <div   class="container">
+           
+          
+              <div    class="congratulation-wrapper">
+                  <div  style="background-color: white; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); width: 450px; height: 300px; padding-top: 100px;" class="congratulation-contents center-text">
+                      <div class="congratulation-contents-icon">
+                        <i   class="material-icons">check_circle</i> <!-- Replace "favorite" with the icon you want -->
+
+                      </div>
+                      <h4 class="congratulation-contents-title"> Congratulations! </h4>
+                      <p class="congratulation-contents-para"> Your account is ready to submit proposals and get work. </p>
+                      <div class="btn-wrapper mt-4">
+                          <a (click)="NavigateHome()" class="cmn-btn btn-bg-1"> Go to Home </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
       </section>
       
