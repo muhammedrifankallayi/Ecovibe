@@ -1,0 +1,17 @@
+.form-div{
+    padding-left: 120px;
+    border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-head{
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    color: rgb(57, 57, 58);
+}
+
+.step-sec{
+    text-align: center;
+    font-weight: bolder;
+    
+}

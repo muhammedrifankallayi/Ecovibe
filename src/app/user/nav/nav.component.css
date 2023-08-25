@@ -1,6 +1,6 @@
 nav{
     padding: 3%;
-     background-color: blue;
+     background-color: rgb(72, 72, 205);
    
  }
  
@@ -34,3 +34,11 @@ nav{
     margin: 2%;
     border-radius: 20px;
  }
+
+
+
+
+    /* Custom CSS */
+    .dropdown-menu a.dropdown-item {
+      color: black; /* Change this to your desired text color */
+    }

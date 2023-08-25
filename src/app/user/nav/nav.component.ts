@@ -17,7 +17,7 @@ export class NavComponent {
     return !currentUrl.includes('login') && !currentUrl.includes('register') && !currentUrl.includes('admin')&& !currentUrl.includes("superAdmin");
   }
 
-logout(){
+Logout(){
   localStorage.removeItem("token")
   this.router.navigate(["/login"])
 }

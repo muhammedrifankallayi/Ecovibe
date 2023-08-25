@@ -63,7 +63,10 @@ if(otp===this.otp){
 }
 
 NavigateHome(){
+
+
   this.route.navigate(["/home"]);
+  
 }
 
 
