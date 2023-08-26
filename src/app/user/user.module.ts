@@ -15,10 +15,13 @@ import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
 import {  MatButtonModule} from "@angular/material/button"
 import {MatFormFieldModule}  from "@angular/material/form-field"
+import {  MatCardModule } from "@angular/material/card"
 import{ GoogleMapsModule } from "@angular/google-maps";
 import { OtpComponent } from './otp/otp.component';
 import { HosterReqComponent } from './hoster-req/hoster-req.component'
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { SuccessComponent } from './success/success.component';
+import { SubscriptionComponent } from './subscription/subscription.component'
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { MatSelectModule } from '@angular/material/select'
     ProfileComponent,
     SearchComponent,
     OtpComponent,
-    HosterReqComponent
+    HosterReqComponent,
+    SuccessComponent,
+    SubscriptionComponent
    
    
    
@@ -46,7 +51,7 @@ import { MatSelectModule } from '@angular/material/select'
     MatFormFieldModule,
     MatInputModule,GoogleMapsModule,
     MatButtonModule,
-
+    MatCardModule,
     MatSelectModule
 
 

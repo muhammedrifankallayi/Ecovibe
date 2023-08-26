@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { OtpComponent } from './otp/otp.component';
 import { HosterReqComponent } from './hoster-req/hoster-req.component';
+import { SuccessComponent } from './success/success.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const route:Routes = [
   { path:'profile/edit',component:ProfileComponent },
   {path:"search",component:SearchComponent},
   {path:"otp",component:OtpComponent},
-  {path:"hoster-req",component:HosterReqComponent}
+  {path:"hoster-req",component:HosterReqComponent},
+  {path:"approval",component:SuccessComponent},
+  {path:"subscription",component:SubscriptionComponent}
 ]
 
 @NgModule({
