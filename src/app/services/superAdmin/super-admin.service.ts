@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError ,Observable } from 'rxjs';
 import { User } from 'src/app/super-Admin/state/model/user.model';
 
-
+const url = "http://localhost:4000/superAdmin"
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +37,21 @@ export class SuperAdminService {
 
   blockUser(id:any){
     return this.http.post("http://localhost:4000/superAdmin/blockUser",{id})
+  }
+
+
+  getRequests(){
+    return this.http.get("http://localhost:4000/superAdmin/getRequests")
+  }
+
+  approveRequest(id: string): Observable<any> {
+    const url = `http://localhost:4000/superAdmin/approveRequest/${id}`;
+    return this.http.patch(url, {});
+  }
+
+  rejectedReqest(id:string):Observable<any>{
+    const url = `http://localhost:4000/superAdmin/rejectedRequest/${id}`;
+    return this.http.patch(url, {});
   }
 
 

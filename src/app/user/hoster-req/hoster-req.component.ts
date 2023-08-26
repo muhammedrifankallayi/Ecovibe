@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
+import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-hoster-req',
@@ -10,7 +12,7 @@ export class HosterReqComponent {
 
 
  
-  constructor() {}
+  constructor(private service : UserService) {}
 
   ngOnInit() {
  
@@ -30,8 +32,28 @@ export class HosterReqComponent {
    })
 
    OnSubmit(){
-    console.log(this.resortForm.value);
+
+if(this.resortForm.valid){
+  const data = this.resortForm.value
+
+  this.service.saveReq(data).subscribe((res:any)=>{
+    console.log(res.message);
+   Swal.fire({
+    icon:"success",
+    title:'Sent to Admin',
+    text:"Your information send to admin ",
+    confirmButtonText:'OK'
     
+   })
+    
+    
+  },(err)=>{
+    console.log(err.error.message);
+    
+  })
+
+}
+
    }
 
 }

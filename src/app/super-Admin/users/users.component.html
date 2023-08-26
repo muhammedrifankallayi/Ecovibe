@@ -1,32 +1,37 @@
 <div class="wrapper">
-    <app-side-bar (sidebarToggled)="sidebarToggled($event)"   ></app-side-bar>
-    <div class="container-fluid motion-slow "   [style.paddingLeft.px]="values ? 50 : 200" > 
+  <app-side-bar (sidebarToggled)="sidebarToggled($event)"></app-side-bar>
+  <div class="container-fluid motion-slow" [style.paddingLeft.px]="values ? 50 : 200">
       <div class="container mt-5">
-        <h1 style="text-align: center; font-weight: bolder; font-family: cursive;" >Users Management</h1>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>E-mail</th>
-              <th>Phone</th>
-              <th>Join Date</th>
-              <th>Block</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of users$; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.email }}</td>
-              <td>{{ item.mobile }}</td>
-              <td>{{ i + 5 }}/5/2023</td>
-              <td *ngIf="item.is_blocked === false"><button class="btn btn-danger"  (click)="action('block',item._id)" >Block</button></td>
-              <td *ngIf="item.is_blocked === true"><button class="btn btn-success"  (click)="action('unblock',item._id)" >Unblock</button></td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="table-responsive"> 
+             <h1 style="text-align: center;" >USER MANAGEMENT FORM</h1><!-- Add the table-responsive class -->
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>E-mail</th>
+                          <th>Phone</th>
+                          <th>Join Date</th>
+                          <th>Block</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of users$; let i = index">
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ item.name }}</td>
+                          <td>{{ item.email }}</td>
+                          <td>{{ item.mobile }}</td>
+                          <td>{{ i + 5 }}/5/2023</td>
+                          <td *ngIf="!item.is_blocked">
+                              <button class="btn btn-danger" (click)="action('block', item._id)">Block</button>
+                          </td>
+                          <td *ngIf="item.is_blocked">
+                              <button class="btn btn-success" (click)="action('unblock', item._id)">Unblock</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
       </div>
-        
-    </div>
+  </div>
 </div>

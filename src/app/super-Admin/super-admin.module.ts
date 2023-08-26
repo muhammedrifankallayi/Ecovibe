@@ -7,6 +7,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { ResortsComponent } from './resorts/resorts.component';
+import { RequestsComponent } from './requests/requests.component';
+import { MatButtonModule } from "@angular/material/button"
+import { MatCardModule } from "@angular/material/card"
 
 
 
@@ -18,13 +21,16 @@ import { ResortsComponent } from './resorts/resorts.component';
     SideBarComponent,
     UsersComponent,
     LoginComponent,
-    ResortsComponent
+    ResortsComponent,
+    RequestsComponent
 
   ],
   imports: [
     CommonModule,
     SuperAdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class SuperAdminModule { }

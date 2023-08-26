@@ -1,0 +1,30 @@
+<div class="wrapper bg-light"  >
+    <app-side-bar (sidebarToggled)="sidebarToggled($event)"></app-side-bar>
+    <div class="container-fluid motion-slow" [style.paddingLeft.px]="values ? 50 : 200">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div *ngFor="let item of data;let i = index" class="col">
+                    <mat-card>
+                        <!-- <img mat-card-image src="..." alt="..."> --> <!-- You can add an image if needed -->
+                        <mat-card-content>
+                            <h1 class="card-title mat-h1"> {{item.resortName }} </h1>
+                            <h4>{{item.location}}</h4>
+                            <p class="card-text mat-body-2">{{item.resortName}}  has requested to become hoster and part of Ecovide  <button mat-button color="accent"  (click)="showPop(item)" >view</button></p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button   (click)="approve(item._id)"  mat-raised-button color="primary"   class="me-2" >Approve</button>
+                            <button   (click)="reject(item._id)"  mat-raised-button color="warn">Reject</button>
+                         
+
+                        </mat-card-actions>
+                    </mat-card>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
