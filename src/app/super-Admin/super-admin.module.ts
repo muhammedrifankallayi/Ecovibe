@@ -9,7 +9,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ResortsComponent } from './resorts/resorts.component';
 import { RequestsComponent } from './requests/requests.component';
 import { MatButtonModule } from "@angular/material/button"
-import { MatCardModule } from "@angular/material/card"
+import { MatCardModule } from "@angular/material/card";
+import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule } from "@angular/material/dialog";
+import { SubscriptionComponent } from './subscription/subscription.component'
 
 
 
@@ -22,7 +25,8 @@ import { MatCardModule } from "@angular/material/card"
     UsersComponent,
     LoginComponent,
     ResortsComponent,
-    RequestsComponent
+    RequestsComponent,
+    SubscriptionComponent
 
   ],
   imports: [
@@ -30,7 +34,9 @@ import { MatCardModule } from "@angular/material/card"
     SuperAdminRoutingModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    MatDialogModule 
   ]
 })
 export class SuperAdminModule { }

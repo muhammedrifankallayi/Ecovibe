@@ -1,0 +1,137 @@
+<div class="wrapper">
+    <app-side-bar   (sidebarToggled)="sidebarToggled($event)" ></app-side-bar>
+    <div class="container"   [style.paddingLeft.px]="action ? 50 : 200" >
+
+
+
+
+        <div class="container">
+            <div class="p-5">
+
+                <div class="add-div d-flex justify-content-end mb-3">
+                     <button mat-button   color="primary" (click)="openUserDataTable()" class="mb-3" >Create</button>
+                  </div>
+                  
+              <div class="card-container row">
+                <div  class="card col-lg-3 col-md-4 col-sm-12 mb-4">
+                  <div style="width: 100%; height: 200px; background-color: rgb(72, 72, 205)">
+                    <h3 style="text-align: center; font-size: xx-large;" class="text-light mt-2">
+                      <strong>title</strong>
+                    </h3>
+                    <h1 style="text-align: center; color: rgb(240, 240, 245);"><strong>₹price</strong></h1>
+                    <h2 style="text-align: center;" class="text-light">duration</h2>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">des tiltle</h5>
+                    <p class="card-text">description</p>
+                  </div>
+                  <div class="card-footer">
+                    <button mat-raised-button color="primary" class="me-3" >Edit</button>
+                    <button mat-raised-button color="primary">Delete</button>
+                  </div>
+                </div>
+
+                <div  class="card col-lg-3 col-md-4 col-sm-12 mb-4">
+                    <div style="width: 100%; height: 200px; background-color: rgb(72, 72, 205)">
+                      <h3 style="text-align: center; font-size: xx-large;" class="text-light mt-2">
+                        <strong>title</strong>
+                      </h3>
+                      <h1 style="text-align: center; color: rgb(240, 240, 245);"><strong>₹price</strong></h1>
+                      <h2 style="text-align: center;" class="text-light">duration</h2>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">des tiltle</h5>
+                      <p class="card-text">description</p>
+                    </div>
+                    <div class="card-footer">
+                        <button mat-raised-button color="primary" class="me-3" >Edit</button>
+                        <button mat-raised-button color="primary">Delete</button>
+                    </div>
+                  </div>
+
+
+                  <div  class="card col-lg-3 col-md-4 col-sm-12 mb-4">
+                    <div style="width: 100%; height: 200px; background-color: rgb(72, 72, 205)">
+                      <h3 style="text-align: center; font-size: xx-large;" class="text-light mt-2">
+                        <strong>title</strong>
+                      </h3>
+                      <h1 style="text-align: center; color: rgb(240, 240, 245);"><strong>₹price</strong></h1>
+                      <h2 style="text-align: center;" class="text-light">duration</h2>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">des tiltle</h5>
+                      <p class="card-text">description</p>
+                    </div>
+                    <div class="card-footer">
+                        <button mat-raised-button color="primary" class="me-3" >Edit</button>
+                        <button mat-raised-button color="primary">Delete</button>
+                    </div>
+                  </div>
+
+
+                  <div  class="card col-lg-3 col-md-4 col-sm-12 mb-4">
+                    <div style="width: 100%; height: 200px; background-color: rgb(72, 72, 205)">
+                      <h3 style="text-align: center; font-size: xx-large;" class="text-light mt-2">
+                        <strong>title</strong>
+                      </h3>
+                      <h1 style="text-align: center; color: rgb(240, 240, 245);"><strong>₹price</strong></h1>
+                      <h2 style="text-align: center;" class="text-light">duration</h2>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">des tiltle</h5>
+                      <p class="card-text">description</p>
+                    </div>
+                    <div class="card-footer">
+                      <button mat-raised-button color="primary" class="me-3" >Edit</button>
+                      <button mat-raised-button color="primary">Delete</button>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+          
+
+
+
+
+
+
+<!-- form start -->
+
+
+<!-- <div class="container mt-5">
+    <div class="subscription-form">
+      <h2 class="mb-4"> Add Subscription </h2>
+      <form>
+        <div class="form-group">
+          <label for="duration">Duration of Subscription</label>
+          <input type="text" class="form-control" id="duration" placeholder="Enter duration">
+        </div>
+        <div class="form-group">
+          <label for="price">Price of Subscription</label>
+          <input type="text" class="form-control" id="price" placeholder="Enter price">
+        </div>
+        <div class="form-group mt-3">
+            <mat-form-field appearance="outline"   class="me-5" >
+                <mat-label>Subscription Type</mat-label>
+                <mat-select class="w-100"  formControlName="type" >
+                  <mat-option value="beach">Monthly</mat-option>
+                  <mat-option value="mountain">Yearly</mat-option>
+                </mat-select>
+              </mat-form-field>
+  
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="4" placeholder="Enter description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div> -->
+
+<!-- form end -->
+
+    </div>
+</div>
