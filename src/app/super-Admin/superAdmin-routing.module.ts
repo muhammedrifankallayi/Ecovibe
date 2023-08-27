@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ResortsComponent } from './resorts/resorts.component';
 import { RequestsComponent } from './requests/requests.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { AddSubsComponent } from './add-subs/add-subs.component';
 
 const routes:Routes=[
 {path:'',component:LoginComponent},
@@ -14,7 +15,8 @@ const routes:Routes=[
 {path:'users',component:UsersComponent},
 {path:"resorts",component:ResortsComponent},
 {path:"requests",component:RequestsComponent},
-{path:"subscriptions",component:SubscriptionComponent}
+{path:"subscriptions",component:SubscriptionComponent},
+{path:"add",component:AddSubsComponent}
 
 ]
 

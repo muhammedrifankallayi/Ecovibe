@@ -1,7 +1,7 @@
 import { createReducer,on } from "@ngrx/store";
 
 import * as userActions from '../user/user.actions'
-import { userState } from "../model/user.model";
+import { userState ,subcriptionState} from "../model/user.model";
 
 
 
@@ -11,6 +11,16 @@ export const initialState: userState = {
     loaded: false,
     error: null,
   };
+
+  export const subscriptionInitialState:subcriptionState = {
+
+    subscription:[],
+    loading:false,
+    loaded:false,
+    error:null
+
+  }
+
 
   export const userReducer = createReducer(
     initialState,
@@ -31,5 +41,28 @@ export const initialState: userState = {
         loading: false,
         error,
       }))
+
+  )
+
+
+//   subscription reducer
+
+  export const subscriptionReducer = createReducer(
+
+    subscriptionInitialState,
+    on(userActions.loadsubscription,(state)=>({
+      ...state,
+      loading:true
+    })),
+    on(userActions.loadsubscriptionSuccess,(state,{subscription})=>(
+      {
+        ...state,loaded:false,loading:true,subscription
+      }
+    )),
+    on(userActions.loadsubscriptionFailure,(state,{error})=>({
+     ...state,
+     loading:false,
+     error
+    }))
 
   )

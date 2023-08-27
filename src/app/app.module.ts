@@ -11,8 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
-import { userReducer } from './super-Admin/state/user/user.reducer';
-import { userEffects } from './super-Admin/state/user/user.effects';
+import { userReducer ,subscriptionReducer } from './super-Admin/state/user/user.reducer';
+import { userEffects, } from './super-Admin/state/user/user.effects';
 
 
 
@@ -34,7 +34,7 @@ import { userEffects } from './super-Admin/state/user/user.effects';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({users:userReducer}),
+    StoreModule.forRoot({users:userReducer,subscription:subscriptionReducer}),
     BrowserAnimationsModule,
     EffectsModule.forRoot([userEffects]),
     ToastrModule.forRoot()

@@ -1,3 +1,6 @@
+
+//users
+
 export interface User{
     user: any[];
     
@@ -16,4 +19,22 @@ export interface userState {
     loading: boolean;
     loaded: boolean;
     error: any;
+}
+
+
+// subscription
+
+export interface subscription{
+    title?:string,
+    price?:string,
+    type?:string,
+    duration?:string,
+    description?:string
+}
+
+export interface subcriptionState{
+    subscription:ReadonlyArray<subscription>;
+    loading:boolean;
+    loaded:boolean;
+    error:any
 }

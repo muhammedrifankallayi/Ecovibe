@@ -1,0 +1,38 @@
+import { Component } from '@angular/core';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { SuperAdminService } from 'src/app/services/superAdmin/super-admin.service';
+import {subscription }  from 'src/app/super-Admin/model/adminModel'
+
+@Component({
+  selector: 'app-add-subs',
+  templateUrl: './add-subs.component.html',
+  styleUrls: ['./add-subs.component.css']
+})
+export class AddSubsComponent {
+constructor(private service:SuperAdminService){}
+    
+FormData= new FormGroup({
+  title: new FormControl("",[Validators.required]),
+  price: new FormControl("",[Validators.required]),
+  type: new FormControl("",[Validators.required]),
+  description: new FormControl("",[Validators.required]),
+  duration: new FormControl("",[Validators.required])
+})  
+
+
+
+OnSubmit(){
+  const Data :any= this.FormData.value
+ console.log(Data);
+ 
+  if(Data){
+    this.service.addSubscription(Data).subscribe((res)=>{
+      alert("addedd successsfull..")
+    })
+  }
+
+
+}
+
+
+}

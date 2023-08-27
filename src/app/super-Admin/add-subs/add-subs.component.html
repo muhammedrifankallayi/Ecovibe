@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="subscription-form">
+      <h2 class="mb-4"> Add Subscription </h2>
+      <form  [formGroup]="FormData"  (ngSubmit)="OnSubmit()"  >
+        <div class="form-group">
+            <label for="duration">Title</label>
+            <input type="text" class="form-control" id="duration" formControlName="title" placeholder="Enter title">
+          </div>
+        <div class="form-group">
+          <label for="duration">Duration of Subscription</label>
+          <input type="text" class="form-control" id="duration" formControlName="duration"  placeholder="Enter duration">
+        </div>
+        <div class="form-group">
+          <label for="price">Price of Subscription</label>
+          <input type="number" class="form-control" id="price" formControlName="price" placeholder="Enter price">
+        </div>
+        <div class="form-group mt-3">
+            <mat-form-field appearance="outline"   class="me-5" >
+                <mat-label>Subscription Type</mat-label>
+                <mat-select class="w-100"  formControlName="type" >
+                  <mat-option value="beach">Monthly</mat-option>
+                  <mat-option value="mountain">Yearly</mat-option>
+                </mat-select>
+              </mat-form-field>
+  
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" formControlName="description" id="description" rows="4" placeholder="Enter description"></textarea>
+        </div>
+        <button type="submit" mat-raised-button color="primary"  >Done</button>
+      </form>
+    </div>
+  </div>
+

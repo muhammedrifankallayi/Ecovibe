@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 import { catchError, throwError ,Observable } from 'rxjs';
 import { User } from 'src/app/super-Admin/state/model/user.model';
-
-const url = "http://localhost:4000/superAdmin"
+import  { subscription } from "src/app/super-Admin/model/adminModel"
+ 
+const serverURL = "http://localhost:4000/superAdmin"
 @Injectable({
   providedIn: 'root'
 })
@@ -54,7 +55,18 @@ export class SuperAdminService {
     return this.http.patch(url, {});
   }
 
-  
+  addSubscription(data:subscription):Observable<subscription[]>{
+    const url = `${serverURL}/savesubscription`
+
+    return this.http.post<subscription[]>(url,{data})
+  }
+
+  getSubscriptions():Observable<subscription[]>{
+    const url = `${serverURL}/getsubscription`
+    return this.http.get<subscription[]>(url)
+  }
+
+
 
 
 

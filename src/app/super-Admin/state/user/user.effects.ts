@@ -10,6 +10,8 @@ import { SuperAdminService } from "src/app/services/superAdmin/super-admin.servi
 export class userEffects{
 constructor(private actions$:Actions,private service:SuperAdminService){}
 
+//  userdata fetching from backed 
+
 loaduser$=createEffect(()=>{
     return this.actions$.pipe(
         ofType(UserAction.loaduser),
@@ -22,5 +24,18 @@ loaduser$=createEffect(()=>{
     )
 })
 
+// subscription data fetching from backend 
+
+subscriLoad$ = createEffect(()=>{
+    return this.actions$.pipe(
+        ofType(UserAction.loadsubscription), mergeMap(()=>
+        this.service.getSubscriptions().pipe(
+            map(subscription=>(UserAction.loadsubscriptionSuccess({subscription:subscription}))),
+            catchError((error)=>of(UserAction.loadsubscriptionFailure({error})))
+        )  
+        
+        )
+    )
+})
 
 }

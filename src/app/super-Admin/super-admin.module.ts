@@ -12,7 +12,8 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatCardModule } from "@angular/material/card";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
-import { SubscriptionComponent } from './subscription/subscription.component'
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { AddSubsComponent } from './add-subs/add-subs.component'
 
 
 
@@ -26,7 +27,8 @@ import { SubscriptionComponent } from './subscription/subscription.component'
     LoginComponent,
     ResortsComponent,
     RequestsComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    AddSubsComponent
 
   ],
   imports: [
