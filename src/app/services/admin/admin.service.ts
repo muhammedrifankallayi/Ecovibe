@@ -4,6 +4,10 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 
 
+const serverURL = "http://localhost:4000/admin"
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +26,14 @@ login(data:any){
       }
       return throwError(this.erroMessage);
     }))
+}
+
+
+getResort(){
+
+  const token = localStorage.getItem("adminToken")
+
+  return this.http.get(`${serverURL}/getresortdata?token=${token}`)
 }
 
 
