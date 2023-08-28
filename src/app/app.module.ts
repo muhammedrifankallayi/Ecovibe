@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {ReactiveFormsModule} from '@angular/forms'
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { StoreModule } from '@ngrx/store';
@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { userReducer ,subscriptionReducer } from './super-Admin/state/user/user.reducer';
 import { userEffects, } from './super-Admin/state/user/user.effects';
+
+import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 
 
 
@@ -23,10 +25,6 @@ import { userEffects, } from './super-Admin/state/user/user.effects';
   declarations: [
     AppComponent,
   
-   
-  
-    
-    
   ],
   imports: [
     CommonModule,
@@ -41,7 +39,7 @@ import { userEffects, } from './super-Admin/state/user/user.effects';
    
     
   ],
-  providers: [],
+  providers: [    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

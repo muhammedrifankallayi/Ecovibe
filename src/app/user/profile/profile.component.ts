@@ -62,10 +62,8 @@ showw(){
 }
 
 loadProfile(){
-  const headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem('token')}`
-  });
-  this.http.get<User>("http://localhost:4000/getUser", { headers }).subscribe(
+
+  this.http.get<User>("http://localhost:4000/getUser", { withCredentials:true }).subscribe(
   (res: User) => {
     this.userData = res.user; // Assign the whole response to userData
     console.log(this.userData);
