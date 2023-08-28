@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { SuperAdminService } from 'src/app/services/superAdmin/super-admin.service';
-import {subscription }  from 'src/app/super-Admin/model/adminModel'
+import { loadsubscription } from '../state/user/user.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-add-subs',
@@ -9,7 +10,7 @@ import {subscription }  from 'src/app/super-Admin/model/adminModel'
   styleUrls: ['./add-subs.component.css']
 })
 export class AddSubsComponent {
-constructor(private service:SuperAdminService){}
+constructor(private service:SuperAdminService  , private store:Store){}
     
 FormData= new FormGroup({
   title: new FormControl("",[Validators.required]),
@@ -28,6 +29,7 @@ OnSubmit(){
   if(Data){
     this.service.addSubscription(Data).subscribe((res)=>{
       alert("addedd successsfull..")
+     this.store.dispatch(loadsubscription())
     })
   }
 

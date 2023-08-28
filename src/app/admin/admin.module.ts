@@ -8,6 +8,8 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component'
+import { MatFormFieldModule  } from "@angular/material/form-field"
+import { MatButtonModule  } from "@angular/material/button"
 
 
 
@@ -28,7 +30,9 @@ ProfileComponent,
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonModule
    
   
   ]

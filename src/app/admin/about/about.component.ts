@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  action:boolean = true
+  sidebarToggled(value:boolean){
+   this.action = value
+  }
+
+
 }

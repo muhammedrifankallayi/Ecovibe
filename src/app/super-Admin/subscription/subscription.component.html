@@ -6,15 +6,15 @@
 
 
         <div class="container">
-            <div class="p-5">
+            <div class="">
 
                 <div class="add-div d-flex justify-content-end mb-3">
                      <button mat-button   color="primary" (click)="openUserDataTable()" class="mb-3" >Create</button>
                   </div>
                   
               <div class="card-container row">
-                
-                <div   *ngFor="let item of subscription$'; " class="card col-lg-3 col-md-4 col-sm-12 mb-4">
+
+                <div   *ngFor="let item of subscription$;let i = index " class="card col-lg-3 col-md-4 col-sm-12 mb-4">
                   <div style="width: 100%; height: 200px; background-color: rgb(72, 72, 205)">
                     <h3 style="text-align: center; font-size: xx-large;" class="text-light mt-2">
                       <strong>{{item.title}}</strong>

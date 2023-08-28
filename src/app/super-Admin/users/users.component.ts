@@ -64,7 +64,7 @@ constructor(private service:SuperAdminService, private toaster:ToastrService ,pr
         if(res.isConfirmed){
        this.service.blockUser(id).subscribe((res)=>{
         this.store.dispatch(loaduser())
-        this.getUsers()
+        
 
        })
         }

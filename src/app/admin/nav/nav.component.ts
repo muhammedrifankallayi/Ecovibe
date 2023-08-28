@@ -21,14 +21,12 @@ export class NavComponent {
 
   constructor(private route:Router){}
 
-  sidebarCollapsed= true;
+  sidebarCollapsed:boolean= true;
 
   @Output() sideBarToggled = new EventEmitter<boolean>()
-
-
   toggleSidebar() {
     this.sidebarCollapsed = !this.sidebarCollapsed;
-    this.sideBarToggled.emit(this.sidebarCollapsed)
+    this.sideBarToggled.emit(this.sidebarCollapsed);
   }
 
 
