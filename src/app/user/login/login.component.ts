@@ -14,18 +14,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    this.http.get('http://localhost:4000/userLogin', { headers }).subscribe((res:any)=>{
-      if(res.Authorization===true){
-        this.route.navigate(['/home'])
-      }else{
-        console.log("Not authenticated");
-        
-        this.route.navigate(['/login'])
-      }
-    });
+   
   }
   constructor(private route:Router , private http:HttpClient){}
 title = 'Ecovibe'

@@ -21,7 +21,9 @@ import { OtpComponent } from './otp/otp.component';
 import { HosterReqComponent } from './hoster-req/hoster-req.component'
 import { MatSelectModule } from '@angular/material/select';
 import { SuccessComponent } from './success/success.component';
-import { SubscriptionComponent } from './subscription/subscription.component'
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { ForgetComponent } from './forget/forget.component';
+import { SetpasswordComponent } from './setpassword/setpassword.component'
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { SubscriptionComponent } from './subscription/subscription.component'
     OtpComponent,
     HosterReqComponent,
     SuccessComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    ForgetComponent,
+    SetpasswordComponent
    
    
    

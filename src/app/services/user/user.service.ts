@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+const serverURL = 'http://localhost:4000'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +22,14 @@ token = localStorage.getItem("token")
     return this.http.post('http://localhost:4000/hoster-req',{data,token})
   }
 
+
+  forgetOtp(email:any){
+    return  this.http.get(`${serverURL}/forget-otp?email=${email}`)
+  }
+
+  newPassword(email:string,password:any){
+    return  this.http.post(`${serverURL}/newpassword`,{email,password})
+  }
 
 
 }

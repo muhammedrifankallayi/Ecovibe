@@ -48,10 +48,11 @@ onSubmit(){
       const navigationExtras = {
         queryParams: {
           otp: JSON.stringify(res.otp),
-          token:JSON.stringify(res.token)
+          re_email:JSON.stringify(this.loginForm.value.email)
 
         },
       };
+    
    this.route.navigate(['/otp'],navigationExtras)
       
     },(err)=>{
