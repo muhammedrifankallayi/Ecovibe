@@ -29,12 +29,16 @@ login(data:any){
 }
 
 
-getResort(){
 
-  const token = localStorage.getItem("adminToken")
 
-  return this.http.get(`${serverURL}/getresortdata?token=${token}`)
+getAboutData(){
+  return this.http.get(`${serverURL}/getresort`,{withCredentials:true})
 }
+
+saveAboutData(data:any){
+  return this.http.post(`${serverURL}/saveaboutdata`,{data},{withCredentials:true})
+}
+
 
 
 }

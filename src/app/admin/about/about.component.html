@@ -3,19 +3,19 @@
      <div class="container"   [style.paddingLeft.px]="action ? 50 : 200" >
 
 
-        <form>
+        <form  [formGroup]="FormData"  (ngSubmit)="OnSubmit()" >
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">
-                  <input type="text" id="form6Example1" class="form-control" />
-                  <label class="form-label" for="form6Example1">First name</label>
+                  <input type="text" id="form6Example1" class="form-control"  formControlName="hoster"  value="{{user.name}}"  />
+                  <label class="form-label" for="form6Example1">Hoster</label>
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
-                  <input type="text" id="form6Example2" class="form-control" />
-                  <label class="form-label" for="form6Example2">Last name</label>
+                  <input type="text" id="form6Example2" class="form-control" formControlName="resortName" value="{{resortData.resortName}}" />
+                  <label class="form-label" for="form6Example2">ResortName</label>
                 </div>
               </div>
             </div>
@@ -24,50 +24,68 @@
             <div class="row mb-4">
                 <div class="col">
                   <div class="form-outline">
-                    <input type="text" id="form6Example1" class="form-control" />
-                    <label class="form-label" for="form6Example1">First name</label>
+                    <input type="text" id="form6Example1" class="form-control"  formControlName="email" value="{{resortData.email}}" />
+                    <label class="form-label" for="form6Example1">Email</label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-outline">
-                    <input type="text" id="form6Example2" class="form-control" />
-                    <label class="form-label" for="form6Example2">Last name</label>
+                    <input type="text" id="form6Example2" class="form-control"  formControlName="mobile"  value="{{resortData.mobile}}" />
+                    <label class="form-label" for="form6Example2">Mobile</label>
                   </div>
                 </div>
               </div>
           
             <!-- Text input -->
             <div class="form-outline mb-4">
-              <input type="text" id="form6Example4" class="form-control" />
+              <input type="text" id="form6Example4" class="form-control"  formControlName="address"  value="{{resortData.resortAdress}}" />
               <label class="form-label" for="form6Example4">Address</label>
             </div>
           
             <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form6Example5" class="form-control" />
-              <label class="form-label" for="form6Example5">Email</label>
-            </div>
+            <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="form6Example1" class="form-control" formControlName="occupency"  value="{{resortData.email}}" />
+                    <label class="form-label" for="form6Example1">Occupency</label>
+                  </div>
+                </div>
+                <div class="col">
+                <div class="form-outline">
+                    <select *ngIf="is_editShow"  class="form-select" style="width: 200px;" formControlName="type" id="mySelect">
+                        <option value="option1">Option 1</option>
+                        <option value="{{resortData.resort_type}}" selected >{{resortData.resort_type}}</option>
+                        <option value="option3">Option 3</option>
+                      </select>
+                </div>
+                   
+                      <div *ngIf="!is_editShow" class="form-outline">
+                        <input type="text" id="form6Example1" class="form-control" value="{{resortData.resort_type}}" />
+                        <label class="form-label" for="form6Example1">Type</label>
+                      </div>
+                  </div>
+                
+              </div>
           
             <!-- Number input -->
             <div class="form-outline mb-4">
-              <input type="number" id="form6Example6" class="form-control" />
-              <label class="form-label" for="form6Example6">Phone</label>
+              <input type="text" id="form6Example6" class="form-control" formControlName="location" value="{{resortData.location}}" />
+              <label class="form-label" for="form6Example6">Location</label>
             </div>
           
             <!-- Message input -->
             <div class="form-outline mb-4">
-              <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+              <textarea class="form-control" id="form6Example7"  formControlName="about"   rows="4">hai</textarea>
               <label class="form-label" for="form6Example7">Additional information</label>
             </div>
           
             <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-              <label class="form-check-label" for="form6Example8"> Create an account? </label>
-            </div>
+           
           
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+            <button *ngIf="!is_editShow"  (click)="showEdit(true)"  type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
+            <button *ngIf="is_editShow"  (click)="showEdit(false)"  color="warn"  mat-raised-button class="me-2"  > Cancel</button>
+            <button *ngIf="is_editShow" type="submit" color="primary"  mat-raised-button  >Save</button>
           </form>
         
         

@@ -35,7 +35,7 @@ OnSubmit() {
     .subscribe(
       (res: any) => {
         console.log(res.message);
-        
+        localStorage.setItem("superAdminToken",res.token)
         this.route.navigate(['superAdmin/dashboard']);
       },
       (err) => {

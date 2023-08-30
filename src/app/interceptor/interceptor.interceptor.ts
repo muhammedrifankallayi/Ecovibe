@@ -16,12 +16,16 @@ export class InterceptorInterceptor implements HttpInterceptor {
 
 const token = localStorage.getItem("token");
 const admintoken = localStorage.getItem("adminToken");
-const superAdminToken = localStorage.getItem("superadmintoken");
+const superAdminToken = localStorage.getItem("superAdminToken");
 
 if(token){
   const newReq = request.clone({
     headers:request.headers.set( 'Authorization', 'Bearer '+token)
   })
+  console.log(admintoken);
+  console.log(token);
+  
+  
 
   return next.handle(newReq);
 
@@ -29,8 +33,9 @@ if(token){
 }else if (admintoken) {
   
 const newReq = request.clone({
-  headers:request.headers.set('Authorisation','Bearer '+admintoken )
+  headers:request.headers.set('Authorization','Bearer '+admintoken )
 
+  
  
 })
 
