@@ -1,0 +1,94 @@
+<div class="wrapper">
+<app-nav   (sideBarToggled)="handleSidebarToggle($event)" ></app-nav>
+
+<div class="container  motion-slow"  [style.paddingLeft.px]="action ? 0 : 200">
+    <div  class="row row-cols-1 row-cols-md-2 g-4" >
+    <div class="todo-container">
+  <h2>Restaurants</h2>
+  <div class="add-task">
+    <input type="text" [(ngModel)]="restaurant" placeholder="Enter a new task" /> 
+    <input type="text" [(ngModel)]="distance" placeholder="Enter the distence from resort" />
+   <span  style="background-color: grey;">
+    <svg (click)="addTask()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+   </span>
+    
+  </div>
+  <ul class="task-list">
+    <li *ngFor="let task of restaurants; let i = index">
+     
+      <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.completed}">{{ task.restaurant }}</span>
+      <span  [ngClass]="{completed:task.completed}" >{{task.distance}}</span>
+     
+
+     
+      <button class="delete-btn me-2" (click)="deleteTask(i)">Delete</button>
+      <input class="unlist-btn " type="checkbox" [(ngModel)]="task.completed" />
+    </li>
+  </ul>
+</div>
+
+
+
+<!-- sta -->
+<div class="todo-container">
+    <h2>Restaurants</h2>
+    <div class="add-task">
+      <input type="text" [(ngModel)]="restaurant" placeholder="Enter a new task" /> 
+      <input type="text" [(ngModel)]="distance" placeholder="Enter the distence from resort" />
+     <span  style="background-color: grey;">
+      <svg (click)="addTask()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+     </span>
+      
+    </div>
+    <ul class="task-list">
+      <li *ngFor="let task of restaurants; let i = index">
+       
+        <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.completed}">{{ task.restaurant }}</span>
+        <span  [ngClass]="{completed:task.completed}" >{{task.distance}}</span>
+       
+  
+       
+        <button class="delete-btn me-2" (click)="deleteTask(i)">Delete</button>
+        <input class="unlist-btn " type="checkbox" [(ngModel)]="task.completed" />
+      </li>
+    </ul>
+  </div>
+<!-- end -->
+<div class="todo-container">
+    <h2>Restaurants</h2>
+    <div class="add-task">
+      <input type="text" [(ngModel)]="restaurant" placeholder="Enter a new task" /> 
+      <input type="text" [(ngModel)]="distance" placeholder="Enter the distence from resort" />
+     <span  style="background-color: grey;">
+      <svg (click)="addTask()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+     </span>
+      
+    </div>
+    <ul class="task-list">
+      <li *ngFor="let task of restaurants; let i = index">
+       
+        <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.completed}">{{ task.restaurant }}</span>
+        <span  [ngClass]="{completed:task.completed}" >{{task.distance}}</span>
+       
+  
+       
+        <button class="delete-btn me-2" (click)="deleteTask(i)">Delete</button>
+        <input class="unlist-btn " type="checkbox" [(ngModel)]="task.completed" />
+      </li>
+    </ul>
+  </div>
+
+
+
+
+</div>
+</div>
+
+
+</div>

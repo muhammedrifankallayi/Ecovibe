@@ -6,6 +6,8 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { FacilitiesComponent } from './facilities/facilities.component';
 
 
 
@@ -14,7 +16,9 @@ const route:Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'bookings',component:BookingsComponent},
   {path:'about',component:AboutComponent },
-  {path:"profile",component:ProfileComponent}
+  {path:"profile",component:ProfileComponent},
+  {path:"gallery",component:GalleryComponent},
+  {path:"facilities",component:FacilitiesComponent}
 
 ]
 

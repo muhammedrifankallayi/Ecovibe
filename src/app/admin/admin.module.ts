@@ -10,7 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component'
 import { MatFormFieldModule  } from "@angular/material/form-field"
 import { MatButtonModule  } from "@angular/material/button"
-import { MatSelectModule  } from "@angular/material/select"
+import { MatSelectModule  } from "@angular/material/select";
+import { GalleryComponent } from './gallery/gallery.component';
+import { FacilitiesComponent } from './facilities/facilities.component'
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,6 +28,8 @@ BookingsComponent,
 AboutComponent,
 LoginComponent,
 ProfileComponent,
+GalleryComponent,
+FacilitiesComponent,
 
 
   ],
@@ -34,7 +39,8 @@ ProfileComponent,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
    
   
   ]

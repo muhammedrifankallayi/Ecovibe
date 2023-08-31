@@ -1,0 +1,40 @@
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img{
+    max-height: 15cm;
+}
+
+.dropdown-toggle::after{
+ content: none;
+}
+
+
+.input-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .custom-file-upload {
+    border: 2px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #d52222;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+ 
+ 
+  

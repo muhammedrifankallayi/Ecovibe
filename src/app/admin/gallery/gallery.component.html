@@ -1,0 +1,106 @@
+<div class="wrapper">
+    <app-nav  (sideBarToggled)="handleSidebarToggle($event)" ></app-nav>
+    <div class="container motion-slow"   [style.paddingLeft.px]="action ? 0 : 200"  >
+      <p>Banner image</p>
+        <div class="card bg-dark text-white mb-3">
+            <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Last updated 3 mins ago</p>
+            </div>
+          </div>
+        
+          
+         <div>
+
+            <!-- dummy card -->
+            <p>images to show in user side</p>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100">
+                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a short card.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                      <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a short card.</p>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!-- dummy card end -->
+
+
+
+           
+            
+              
+              
+
+
+         </div>
+
+         <div class="input-container mt-3"  >
+            <form >
+            <label class="custom-file-upload">
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                (change)="handleFileInput($event)"
+                formControlName="images"
+              />
+              <span>import Images</span>
+            </label>
+        </form>
+          </div>
+         <div class="row row-cols-1 row-cols-md-2 g-4"  #cardContainer>
+            <div  *ngFor="let cardValue of cardValues" class="col">
+              <div class="card">
+                <img  [src]="cardValue.url" class="card-img-top"  height="350px" alt="...">
+                
+              </div>
+            </div>
+         
+
+          </div>
+          
+    </div>
+</div>
