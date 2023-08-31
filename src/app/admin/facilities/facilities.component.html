@@ -18,13 +18,13 @@
   <ul class="task-list">
     <li *ngFor="let task of restaurants; let i = index">
      
-      <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.completed}">{{ task.restaurant }}</span>
-      <span  [ngClass]="{completed:task.completed}" >{{task.distance}}</span>
+      <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.is_list}">{{ task.name }}</span>
+      <span  [ngClass]="{completed:task.is_list}" >{{task.distance}}</span>
      
 
      
       <button class="delete-btn me-2" (click)="deleteTask(i)">Delete</button>
-      <input class="unlist-btn " type="checkbox" [(ngModel)]="task.completed" />
+      <input class="unlist-btn " type="checkbox" [(ngModel)]="task.is_list" />
     </li>
   </ul>
 </div>
@@ -58,31 +58,51 @@
     </ul>
   </div>
 <!-- end -->
-<div class="todo-container">
-    <h2>surroundings</h2>
-    <div class="add-task">
-      <input type="text" [(ngModel)]="surrounding" placeholder="Enter a new task" /> 
-      <input type="text" [(ngModel)]="surr_description" placeholder="write description about it" />
-     <span  style="background-color: grey;">
-      <svg (click)="addSurroundings()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+<div class="surrounding-container">
+    <h2>Surroundings</h2>
+    <p>Add your surrounding type below</p>
+    <div class="add-surrounding">
+      <input type="text" [(ngModel)]="surrounding" placeholder="Enter a new surrounding" />
+      <input type="text" [(ngModel)]="surr_description" placeholder="Write description about it" />
+      <span class="add-icon" (click)="addSurroundings()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
         </svg>
-     </span>
-      
+      </span>
     </div>
-    <ul class="task-list">
-      <li *ngFor="let task of surroundingArray; let i = index">
+    <ul class="surrounding-list">
+     
+        
+    <h3> Current Surroundings types</h3>
+     
+      <li class="mb-2 item-area"  *ngFor="let surrounding of surroundingArray; let i = index">
        
-        <span style="width: 170px;" class="me-4" [ngClass]="{'completed': task.list}">{{ task.name }}</span>
-        <span  [ngClass]="{completed:task.list}" >{{task.description}}</span>
-       
-  
-       
-        <button class="delete-btn me-2" (click)="deleteSurroundings(i)">Delete</button>
-        <input class="unlist-btn " type="checkbox" [(ngModel)]="task.list" />
+        <input type="text"    #newItemName  placeholder="Enter {{ surrounding.type_name}} name" />
+        <input type="text"  #newItemDistence   placeholder="Enter the distance from resort" />
+        <span class="add-icon me-5" (click)="addSurroundings()">
+            <svg (click)="additems(i,newItemName.value,newItemDistence.value,surrounding.type_name)" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+          </span>
+          <button class="delete-btn" (click)="deleteSurroundings(i)">Delete</button>
+        <div class="surrounding-item">
+            <span class="item-column" style="text-decoration: underline;" ><strong>{{ surrounding.type_name }}</strong></span>
+          
+         
+         
+         
+        </div>
+        <ul class="item-list" *ngIf="surrounding.items.length > 0">
+          <li style="display: flex; justify-content: space-between;" *ngFor="let item of surrounding.items;let i= index">
+           <span> {{i+1}} </span>
+            <span>{{ item.name }}</span>
+            <span>{{ item. distance_From_Resort }} km</span>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
+  
 
 
 

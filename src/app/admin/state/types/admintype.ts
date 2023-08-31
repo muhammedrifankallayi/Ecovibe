@@ -1,7 +1,7 @@
 export interface Restaurant {
-    restaurant: string;
+    name: string;
     distance:number;
-    completed: boolean;
+    is_list: boolean;
   }
 
   export interface Amenties{
@@ -10,9 +10,15 @@ export interface Restaurant {
     list:boolean;
   }
 
-  export interface Surroundings{
+export interface items{
     name:string;
+    distance_From_Resort:number;
+}
+
+  export interface Surroundings{
+    type_name:string;
     description:string;
-    distance:number;
-    list:boolean;
+
+    items:items[]
+    is_list:boolean;
   }

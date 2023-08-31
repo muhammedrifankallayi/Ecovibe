@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
-import { Restaurant , Amenties ,Surroundings } from '../state/types/admintype';
+import { Component ,OnInit} from '@angular/core';
+import { Restaurant , Amenties ,Surroundings,items } from '../state/types/admintype';
+import { AdminService } from 'src/app/services/admin/admin.service';
 
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
   styleUrls: ['./facilities.component.css']
 })
-export class FacilitiesComponent {
-
+export class FacilitiesComponent  implements OnInit{
+ngOnInit(): void {
+  this.service.getRestaurantData().subscribe((res:any)=>{
+    this.restaurants = res.data
+  })
+  this.service.getSurrounding().subscribe((res:any)=>{
+     this.surroundingArray = res.data
+  })
+}
+  constructor(private service:AdminService){}
 
   action:boolean = true
 
@@ -29,34 +38,41 @@ surrounding:string = ''
 surr_description :string = ''
 surr_distance:number|undefined
 
+//items
+
+place_distance:number|undefined;
+place:string=''
 
 
 
 
 
 
-restaurants: Restaurant[] = [
-  { restaurant: 'Buy groceries',distance:7, completed: false },
-  { restaurant: 'Clean the house',distance:45, completed: true },
-  { restaurant: 'Go for a walk',distance:78, completed: false }
-];
+
+restaurants: Restaurant[] =[]
 
 
 amenties:Amenties[]=[
   {amenti:"swimming",description:"200sqFeet swimming poool",list:true}
 ]
 
-surroundingArray:Surroundings[]=[
-{name:"Water falls",description:"largest water falls in india",distance:10,list:true}
+item:items[]=[]
 
-]
+surroundingArray:Surroundings[]=[]
 
 
 // facilities adding section
 
 addTask() {
   if (this.restaurant.trim() !== '') {
-    this.restaurants.push({ restaurant: this.restaurant,distance:Number(this.distance), completed: false });
+   
+    const data = { restaurant: this.restaurant,distance:Number(this.distance), completed: false }
+this.service.facilityRestaurant(data).subscribe((res:any)=>{
+ this.restaurants = res.data
+ console.log(res.data);
+ 
+  
+})
     this.restaurant = '';
   }
 }
@@ -70,8 +86,23 @@ addAmenties() {
 
 addSurroundings(){
   if(this.surrounding.trim()!==''&&this.surr_description.trim()!==''){
-    this.surroundingArray.push({name:this.surrounding,description:this.surr_description,distance:Number(this.surr_distance),list:true})
+    this.surroundingArray.push({type_name:this.surrounding,description:this.surr_description,is_list:true,items:this.item})
+    const data = {type_name:this.surrounding,description:this.surr_description}
+    this.service.facilitySurroundings(data).subscribe((res:any)=>{
+      alert("goooooooooooood")
+    })
   }
+}
+additems(index:number,name:string,distance:string,surr:string){
+if(name.trim()!==''&&distance!==undefined){
+  
+  this.surroundingArray[index].items.push({name:name,  distance_From_Resort:Number(distance)})
+const data = {name:name,distance_From_Resort:Number(distance),type_name:surr}
+  this.service.facilityItemsSurr(data).subscribe((res)=>[
+    alert("successs")
+  ])
+
+}
 }
 
 // Facility deletion section
