@@ -8,11 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
-
+import { AdminAuthGuard } from '../guards/admin-auth.guard';
 
 
 const route:Routes = [
-  { path:'',component:LoginComponent },
+  { path:'',component:LoginComponent,canActivate:[AdminAuthGuard] },
   {path:'dashboard',component:DashboardComponent},
   {path:'bookings',component:BookingsComponent},
   {path:'about',component:AboutComponent },
