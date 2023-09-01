@@ -8,10 +8,11 @@ import { ResortsComponent } from './resorts/resorts.component';
 import { RequestsComponent } from './requests/requests.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { AddSubsComponent } from './add-subs/add-subs.component';
+import { superAdminAuthGuard } from '../guards/super-admin-auth.guard';
 
 const routes:Routes=[
-{path:'',component:LoginComponent},
-{path:"dashboard",component:DashboardComponent},
+{path:'',component:LoginComponent,canActivate:[superAdminAuthGuard]},
+{path:"dashboard",component:DashboardComponent,canActivate:[superAdminAuthGuard]},
 {path:'users',component:UsersComponent},
 {path:"resorts",component:ResortsComponent},
 {path:"requests",component:RequestsComponent},
