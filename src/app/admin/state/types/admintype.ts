@@ -5,9 +5,9 @@ export interface Restaurant {
   }
 
   export interface Amenties{
-    amenti:string;
+    name:string;
     description:string;
-    list:boolean;
+    is_list:boolean;
   }
 
 export interface items{
@@ -22,3 +22,4 @@ export interface items{
     items:items[]
     is_list:boolean;
   }
+
