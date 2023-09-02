@@ -31,5 +31,9 @@ token = localStorage.getItem("token")
     return  this.http.post(`${serverURL}/newpassword`,{email,password})
   }
 
+  profileImg(file:any){
+    return this.http.post(`${serverURL}/file`,file)
+  }
+
 
 }

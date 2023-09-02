@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { Restaurant ,Amenties} from 'src/app/admin/state/types/admintype';
 
@@ -83,6 +83,31 @@ addAmenties(data:any){
 
 deleteAmenties(data:string){
   return this.http.patch(`${serverURL}/deleteamenties`,{data},{withCredentials:true})
+}
+
+ uploadImage(files: any) {
+ 
+  console.log(files);
+  
+
+  return this.http.post<any>(`${serverURL}/submitimages`,files,{withCredentials:true});
+}
+
+
+getimages(){
+  return this.http.get(`${serverURL}/getimages`,{withCredentials:true})
+}
+
+addToMainImage(index:number){
+  return this.http.patch(`${serverURL}/addToMainImg`,{index},{withCredentials:true})
+}
+
+addAsBanner(index:number){
+  return this.http.patch(`${serverURL}/addAsBanner`,{index},{withCredentials:true})
+}
+
+deleteImg(index:number){
+  return this.http.patch(`${serverURL}/deleteImg`,{index},{withCredentials:true})
 }
 
 

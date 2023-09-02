@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component'
 import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
@@ -50,6 +50,7 @@ import { SetpasswordComponent } from './setpassword/setpassword.component'
   imports: [
     CommonModule,
     UserRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatFormFieldModule,

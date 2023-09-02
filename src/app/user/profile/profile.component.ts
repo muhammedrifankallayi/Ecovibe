@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 import { User } from 'src/app/super-Admin/state/model/user.model';
 
@@ -12,10 +13,12 @@ import { User } from 'src/app/super-Admin/state/model/user.model';
 })
 export class ProfileComponent implements OnInit  {
  
+
+
 ngOnInit(): void {
   this.loadProfile()
 }
-  constructor(private router:Router,private http:HttpClient){}
+  constructor(private router:Router,private http:HttpClient  ,private service:UserService){}
 
 // Set the default active tab
 
@@ -76,6 +79,32 @@ loadProfile(){
    
     
     
+  }
+
+image:any
+
+  imageSubmit(event:any){
+    const file = event.target.files[0]
+this.image = file
+
+  }
+
+  submitImg(){
+const formData = new FormData()
+
+console.log(this.image);
+
+
+
+formData.append("file",this.image)
+
+console.log(formData);
+
+
+this.service.profileImg(formData).subscribe((res)=>{
+  console.log(res);
+  
+})
   }
 }
   

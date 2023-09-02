@@ -85,22 +85,55 @@
                 accept="image/*"
                 multiple
                 (change)="handleFileInput($event)"
-                formControlName="images"
+              
               />
               <span>import Images</span>
             </label>
+            <button   *ngIf="imageSubmitBtnShow" mat-raised-button (click)="OnSubmit()"   color="primary"   >Add images</button>
         </form>
           </div>
-         <div class="row row-cols-1 row-cols-md-2 g-4"  #cardContainer>
-            <div  *ngFor="let cardValue of cardValues" class="col">
+          <h1    *ngIf="imageSubmitBtnShow">Selected Images</h1>
+         <div class="row row-cols-1 row-cols-md-2 g-4 p-2"  #cardContainer>
+            <div  *ngFor="let cardValue of cardValues" class="col-md-4 col-sm-6 col-lg-3 col-12 ">
               <div class="card">
                 <img  [src]="cardValue.url" class="card-img-top"  height="350px" alt="...">
-                
+                 
               </div>
             </div>
          
 
           </div>
+
+          <h1>Gallery Images</h1>
+
+          <div class="row">
+            <div *ngFor="let img of galleryImgs;let i = index"  class="col-md-3 mb-2">
+              <div class="card">
+                <img height="250px" src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
+                <div class="card-img-overlay ">
+                  <div class="dropdown">
+                    <div class="dropdown-toggle dots" data-bs-toggle="dropdown" aria-expanded="false">
+                      &#8226;&#8226;&#8226;
+                    </div>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item "  routerLinkActive="router-link-active" >Add to Main</a></li>
+                      <li><a class="dropdown-item "  routerLinkActive="router-link-active" >Add as Banner</a></li>
+                      <li><a class="dropdown-item text-danger">remove image</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+           
+           
+          </div>
+          
+
+
+
+
           
     </div>
 </div>
+

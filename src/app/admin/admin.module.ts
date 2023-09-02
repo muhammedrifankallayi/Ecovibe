@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { NavComponent } from './nav/nav.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +13,6 @@ import { MatButtonModule  } from "@angular/material/button"
 import { MatSelectModule  } from "@angular/material/select";
 import { GalleryComponent } from './gallery/gallery.component';
 import { FacilitiesComponent } from './facilities/facilities.component'
-import { FormsModule } from '@angular/forms';
 
 
 
@@ -36,11 +35,12 @@ FacilitiesComponent,
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
     MatSelectModule,
-    FormsModule
    
   
   ]

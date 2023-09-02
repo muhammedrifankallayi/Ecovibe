@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {ReactiveFormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -35,7 +35,8 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
     StoreModule.forRoot({users:userReducer,subscription:subscriptionReducer}),
     BrowserAnimationsModule,
     EffectsModule.forRoot([userEffects]),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
    
     
   ],
