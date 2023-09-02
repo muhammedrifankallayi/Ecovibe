@@ -6,17 +6,30 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private route:Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-const token = localStorage.getItem("token");
+
+var token
+const usertoken = localStorage.getItem("token");
 const admintoken = localStorage.getItem("adminToken");
 const superAdminToken = localStorage.getItem("superAdminToken");
+if(this.route.url.includes("/admin")){
+ token = admintoken 
+}else if(this.route.url.includes("/superAdmin")){
+  token = superAdminToken
+}else{
+  token = usertoken
+}
+
+
+
 
 if(token){
   const newReq = request.clone({
@@ -33,7 +46,7 @@ if(token){
 }else if (admintoken) {
   
 const newReq = request.clone({
-  headers:request.headers.set('Authorization','Bearer '+admintoken )
+  headers:request.headers.set('Authorization','Bearer '+token )
 
   
  
@@ -44,7 +57,7 @@ return next.handle(newReq)
 
 }else if(superAdminToken){
   const newReq = request.clone({
-   headers:request.headers.set('Authorisation','Bearer '+superAdminToken )
+   headers:request.headers.set('Authorisation','Bearer '+token )
   })
 
 

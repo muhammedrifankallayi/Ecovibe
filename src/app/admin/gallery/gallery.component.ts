@@ -12,11 +12,15 @@ import Swal from 'sweetalert2';
 export class GalleryComponent implements OnInit {
 
   img = ''
+  showImg=[]
+  banner:string =''
 
   galleryImgs = []
   ngOnInit(): void {
     this.service.getimages().subscribe((res: any) => {
       this.galleryImgs = res.images
+      this.showImg = res.mainImg
+      this.banner = res.banner
     })
   }
   constructor(private service: AdminService, private http: HttpClient) { }
@@ -39,7 +43,9 @@ export class GalleryComponent implements OnInit {
         text: res.message,
         title: "Deleted"
       })
+      this.ngOnInit()
     })
+
   }
 
   addToMainImg(index: number) {
@@ -50,7 +56,9 @@ export class GalleryComponent implements OnInit {
         title: "Added to Main 5",
         text: res.message
       })
+      this.ngOnInit()
     })
+
   }
 
   addAsBanner(index: number) {

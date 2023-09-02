@@ -35,5 +35,9 @@ token = localStorage.getItem("token")
     return this.http.post(`${serverURL}/file`,file)
   }
 
+  getResorts(){
+    return this.http.get(`${serverURL}/getResorts`)
+  }
+
 
 }

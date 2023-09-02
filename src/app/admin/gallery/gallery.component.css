@@ -41,7 +41,10 @@
  cursor: pointer;
   }
 
-
+  .dots:hover {
+    color: #888;
+   
+  }
   
  
  

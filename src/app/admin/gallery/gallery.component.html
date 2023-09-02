@@ -3,7 +3,7 @@
     <div class="container motion-slow"   [style.paddingLeft.px]="action ? 0 : 200"  >
       <p>Banner image</p>
         <div class="card bg-dark text-white mb-3">
-            <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img" alt="...">
+            <img src="http://localhost:4000/public/{{banner}}" class="card-img" alt="...">
             <div class="card-img-overlay">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -17,52 +17,20 @@
             <!-- dummy card -->
             <p>images to show in user side</p>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
+            <div   class="row row-cols-1 row-cols-md-3 g-4">
+                <div   *ngFor="let item of showImg;let i =index" class="col">
                   <div class="card h-100">
-                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
+                    <img height="300px"  src="http://localhost:4000/public/{{item}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">image {{i+1}}</h5>
+
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a short card.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                      <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a short card.</p>
-                      </div>
-                    </div>
-                  </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img  [src]="selectedImage ? selectedImage : dummyImage" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
+                
+                
+               
+                
               </div>
 
             <!-- dummy card end -->
@@ -116,12 +84,13 @@
                       &#8226;&#8226;&#8226;
                     </div>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item "  routerLinkActive="router-link-active" >Add to Main</a></li>
-                      <li><a class="dropdown-item "  routerLinkActive="router-link-active" >Add as Banner</a></li>
-                      <li><a class="dropdown-item text-danger">remove image</a></li>
+                      <li><a class="dropdown-item " (click)="addToMainImg(i)"  routerLinkActive="router-link-active" >Add to Main</a></li>
+                      <li><a class="dropdown-item " (click)="addAsBanner(i)" routerLinkActive="router-link-active" >Add as Banner</a></li>
+                      <li><a   (click)="deleteImage(i)" class="dropdown-item text-danger">remove image</a></li>
                     </ul>
                   </div>
                 </div>
+                <h5 style="text-align: center;" >image {{i+1}}</h5>
               </div>
             </div>
            
