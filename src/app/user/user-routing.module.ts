@@ -13,6 +13,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { UserAuthGuard } from '../guards/user-auth.guard';
 import { ForgetComponent } from './forget/forget.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
+import { SingleviewComponent } from './singleview/singleview.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const route:Routes = [
   {path:"approval",component:SuccessComponent},
   {path:"subscription",component:SubscriptionComponent},
   {path:"forget",component:ForgetComponent},
-  {path:"setpassword",component:SetpasswordComponent}
+  {path:"setpassword",component:SetpasswordComponent},
+  {path:"singleView",component:SingleviewComponent}
 ]
 
 @NgModule({

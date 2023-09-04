@@ -23,7 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { SuccessComponent } from './success/success.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ForgetComponent } from './forget/forget.component';
-import { SetpasswordComponent } from './setpassword/setpassword.component'
+import { SetpasswordComponent } from './setpassword/setpassword.component';
+import { SingleviewComponent } from './singleview/singleview.component'
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { SetpasswordComponent } from './setpassword/setpassword.component'
     SuccessComponent,
     SubscriptionComponent,
     ForgetComponent,
-    SetpasswordComponent
+    SetpasswordComponent,
+    SingleviewComponent
    
    
    

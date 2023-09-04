@@ -11,11 +11,11 @@
 
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card">
-        <img width="200px" height="250px" src="https://www.travelandleisure.com/thmb/hQypIH5Lfa2GRW-Vj_AJvPcXAg8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/best-india-resort-hotel-the-oberoi-udaivilas-udaipur-00-INRESHOTWB21-aa03123e4cc540af80b5c1287ee12e55.jpg" class="card-img-top" alt="...">
+    <div  *ngFor="let item of resorts" class="col">
+      <div  (click)="showDetails()"  class="card">
+        <img width="200px" height="250px" src="http://localhost:4000/public/{{item.Banner_img}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h3 class="card-title"> <strong>{{item.resortName}}</strong>  <span style="font-size: small;"> {{item.location}} </span></h3>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
       </div>

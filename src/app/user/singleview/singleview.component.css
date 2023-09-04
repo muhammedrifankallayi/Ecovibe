@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.main-image {
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.side-images {
+    width: 30%;
+    height: 50%;
+    object-fit: cover;
+}
+section{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUNWcSBHaF8D-TpwDxIp7PAeIqnR8H8kIg8Q&usqp=CAU);
+   
+}
+img{
+    border-radius: 5px;
+    box-shadow: grey;
+}
+
+.banner-div{
+    width: 100%;
+     padding: 10px 100px 10px 100px; 
+}

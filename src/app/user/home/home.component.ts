@@ -1,6 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,10 +14,19 @@ constructor(private service:UserService){
 
 }
 
-
+  resorts:any
 
   ngOnInit(): void {
-    
+    this.service.getResorts().subscribe((res:any)=>{
+  this.resorts = res.data
+
+    })
+  }
+
+
+  showDetails(){
+
+    alert("ll")
   }
 
  
