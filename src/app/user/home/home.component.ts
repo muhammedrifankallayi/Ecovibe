@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
 
-constructor(private service:UserService){
+constructor(private service:UserService, private route:Router){
 
 }
 
@@ -24,9 +24,10 @@ constructor(private service:UserService){
   }
 
 
-  showDetails(){
-
-    alert("ll")
+  showDetails(id:string){
+    const queryParams = {id:id}
+    this.route.navigate(['/singleView'],{queryParams:queryParams})
+   
   }
 
  

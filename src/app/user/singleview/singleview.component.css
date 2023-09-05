@@ -17,8 +17,7 @@
     object-fit: cover;
 }
 section{
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUNWcSBHaF8D-TpwDxIp7PAeIqnR8H8kIg8Q&usqp=CAU);
-   
+background-color: black;   
 }
 img{
     border-radius: 5px;
@@ -28,4 +27,9 @@ img{
 .banner-div{
     width: 100%;
      padding: 10px 100px 10px 100px; 
+}
+
+.date-input{
+    width: 200px;
+    height: 40px;
 }

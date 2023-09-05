@@ -39,5 +39,9 @@ token = localStorage.getItem("token")
     return this.http.get(`${serverURL}/getResorts`)
   }
 
+  getSingleView(id:string){
+ return  this.http.get(`${serverURL}/getSingleView?id=${id}`)
+  }
+
 
 }
