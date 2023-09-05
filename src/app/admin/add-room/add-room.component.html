@@ -2,7 +2,7 @@
 
 
 
-<form >
+<form  [formGroup]="FormData"  (ngSubmit)="OnSubmit()" >
     <div class="form-group">
       <label for="roomNumber">Room Number</label>
       <input type="text" id="roomNumber" formControlName="roomNumber" class="form-control" required>
@@ -27,11 +27,36 @@
       <label for="amenities">Amenities (comma-separated)</label>
       <input type="text" id="amenities" formControlName="amenities" class="form-control">
     </div>
-  
     <div class="form-group">
-      <label for="available">Available</label>
-      <input type="checkbox" id="available" formControlName="available" class="form-check-input">
+      
+      </div>
+   
+<!-- ff -->
+
+<div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label for="adults">Maximum Adults</label>
+        <input type="number" id="adults" formControlName="adults" class="form-control" required>
+      </div>
     </div>
+    <div class="col">
+      <div class="form-outline">
+        <label for="childrens">Maximum Childs</label>
+        <input type="number" id="childrens" formControlName="childrens" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+<!-- mm -->
+
+
+
+      <div class="form-group">
+        <label for="beds">Total beds</label>
+        <input type="number" id="beds" forbedsmControlName="beds" class="form-control" required>
+      </div>
+      
   
     <button type="submit" class="btn btn-primary">Add Room</button>
   </form>
