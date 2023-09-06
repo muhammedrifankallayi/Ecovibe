@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { Restaurant ,Amenties} from 'src/app/admin/state/types/admintype';
+import { Restaurant ,Amenties ,roomType} from 'src/app/admin/state/types/admintype';
+
 
 
 const serverURL = "http://localhost:4000/admin"
@@ -108,6 +109,14 @@ addAsBanner(index:number){
 
 deleteImg(index:number){
   return this.http.patch(`${serverURL}/deleteImg`,{index},{withCredentials:true})
+}
+
+submitRoom(data:any):Observable<roomType[]>{
+  return this.http.post<roomType[]>(`${serverURL}/roomsubmit`,{data},{withCredentials:true})
+}
+
+getRooms(){
+  return this.http.get(`${serverURL}/getroomdata`,{withCredentials:true})
 }
 
 

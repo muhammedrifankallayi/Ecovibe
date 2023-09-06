@@ -23,3 +23,14 @@ export interface items{
     is_list:boolean;
   }
 
+  export interface roomType{
+    roomNumber?:number |undefined;
+    roomType?:string;
+    capacity?:number;
+    pricePerNight?:number;
+    amenties?:string;
+    adults?:number;
+    childrens?:number;
+    beds?:number;
+  }
+

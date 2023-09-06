@@ -16,6 +16,7 @@ constructor(private activeRoute:ActivatedRoute ,private route:Router ,private se
 id:string=''
 data:any
 showImg:any
+rooms:any
 
 
 
@@ -41,7 +42,9 @@ datas(){
     this.data = res.data
     console.log(res.data);
     this.showImg = res.mainImg
+    this.rooms = res.rooms
    })
+   
 
    
 }
