@@ -24,6 +24,7 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+   
   
   ],
   imports: [

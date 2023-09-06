@@ -24,7 +24,8 @@ import { SuccessComponent } from './success/success.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ForgetComponent } from './forget/forget.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
-import { SingleviewComponent } from './singleview/singleview.component'
+import { SingleviewComponent } from './singleview/singleview.component';
+import { TextPipe } from '../pipes/text.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SingleviewComponent } from './singleview/singleview.component'
     SubscriptionComponent,
     ForgetComponent,
     SetpasswordComponent,
-    SingleviewComponent
+    SingleviewComponent,
+    TextPipe
    
    
    

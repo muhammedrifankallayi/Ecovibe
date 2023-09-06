@@ -15,7 +15,7 @@
       <div  (click)="showDetails(item._id)"  class="card">
         <img width="200px" height="250px" src="http://localhost:4000/public/{{item.Banner_img}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h3 class="card-title"> <strong>{{item.resortName}}</strong>  <span style="font-size: small;"> {{item.location}} </span></h3>
+          <h3 class="card-title"> <strong>{{item.resortName | text }}</strong>  <span style="font-size: small;"> {{item.location}} </span></h3>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
       </div>
@@ -53,6 +53,28 @@
 
 
 </section>
+
+<section>
+
+  <div class="card mb-3 container" >
+    <div *ngFor="let item of resorts " (click)="showDetails(item._id)" class="row g-3 mb-2">
+      <div class="col-md-4">
+        <img height="350px" width="100%" src="http://localhost:4000/public/{{item.Banner_img}}" class="rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+</section>
+
 
 <!-- second section -->
 

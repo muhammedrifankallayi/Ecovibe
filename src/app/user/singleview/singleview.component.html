@@ -1,31 +1,45 @@
 <section>
     <div class="container pt-2">
-       <div   class="banner-div"  >
-        <img src="http://localhost:4000/public/{{data.Banner_img}}" alt="" class="w-100">
-
-       </div>
-       <div class="container mt-5">
-        <h1 class="text-center">4-in-a-Row Game</h1>
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div  *ngFor="let img of showImg" class="col text-center">
-                                <img  src="http://localhost:4000/public/{{img}}" alt="Image 1" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div  style="height: 30% ;" class="card bg-dark text-white mb-3">
+            <img   src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img" alt="..."  >
+            <div class="card-img-overlay">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Last updated 3 mins ago</p>
             </div>
+          </div>
+    
+
+
+<!-- oo -->
+
+<div   class="row row-cols-1 row-cols-md-3 g-4">
+    <div  *ngFor="let img of showImg; let i=index" class="col">
+      <div class="card h-100">
+        <img height="300px"  src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">image {{i+1}}</h5>
+
         </div>
+      </div>
     </div>
+    
+    
+   
+    
+  </div>
+
+<!-- oo -->
 
       
     </div>
 </section>
 
-<section>
+
+
+<!-- room selecting  section in resort -->
+<!-- checking  lenght here -->
+<section *ngIf="rooms.length!==0" >  
     <h1 class="text-center">Resort Booking</h1>
 
     <div class="container mt-5">
@@ -49,7 +63,7 @@
        
          <button mat-raised-button  color>search availablity</button>
       
-        <table class="table table-bordered mt-2">
+        <table  class="table table-bordered mt-2">
             <thead>
                 <tr>
                     <th>Room Number</th>

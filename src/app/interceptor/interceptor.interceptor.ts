@@ -16,7 +16,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
 
-var token
+var token 
 const usertoken = localStorage.getItem("token");
 const admintoken = localStorage.getItem("adminToken");
 const superAdminToken = localStorage.getItem("superAdminToken");

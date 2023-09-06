@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { Restaurant ,Amenties ,roomType} from 'src/app/admin/state/types/admintype';
+import { environment } from 'src/environments/environment.development';
 
 
-
-const serverURL = "http://localhost:4000/admin"
+const serverURL = environment.adminApiUrl
 
 
 

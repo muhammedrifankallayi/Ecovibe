@@ -68,6 +68,7 @@ export class GalleryComponent implements OnInit {
         timer: 1000,
         title: "Added as a Banner"
       })
+      this.ngOnInit()
     })
   }
 
@@ -121,6 +122,8 @@ export class GalleryComponent implements OnInit {
         timer: 1000,
         title: "Uploaded"
       })
+
+      this.ngOnInit()
 
     })
 
