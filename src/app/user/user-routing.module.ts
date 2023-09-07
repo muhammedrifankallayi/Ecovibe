@@ -14,6 +14,7 @@ import { UserAuthGuard } from '../guards/user-auth.guard';
 import { ForgetComponent } from './forget/forget.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { SingleviewComponent } from './singleview/singleview.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,7 +30,8 @@ const route:Routes = [
   {path:"subscription",component:SubscriptionComponent},
   {path:"forget",component:ForgetComponent},
   {path:"setpassword",component:SetpasswordComponent},
-  {path:"singleView",component:SingleviewComponent}
+  {path:"singleView",component:SingleviewComponent},
+  {path:"checkout",component:CheckoutComponent}
 ]
 
 @NgModule({

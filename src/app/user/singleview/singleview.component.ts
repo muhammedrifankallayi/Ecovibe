@@ -1,6 +1,6 @@
 import { Component ,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router  } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
@@ -115,9 +115,20 @@ checkout(){
 
   const room = this.selectedRoomData
 
-   alert(room._id)
+  const room_id = room._id
+  const resort_id = this.id
 
-
+  const navigationExtras: NavigationExtras = {
+    queryParams: {
+      room_id: room_id,
+      resort_id: resort_id
+    }
+  };
+  
+  // Use the Router to navigate to the /checkout route with the parameters
+  this.route.navigate(['/checkout'], navigationExtras);
+ 
+  
 }
 
 }

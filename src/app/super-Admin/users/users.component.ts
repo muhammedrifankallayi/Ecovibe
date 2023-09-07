@@ -20,7 +20,6 @@ export class UsersComponent implements OnInit  {
   this.store.dispatch(loaduser())
 
   this.getUsers()
-   
  }
 constructor(private service:SuperAdminService, private toaster:ToastrService ,private store:Store ,private http:HttpClient){}
 

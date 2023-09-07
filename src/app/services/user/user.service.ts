@@ -47,6 +47,10 @@ token = localStorage.getItem("token")
     return this.http.post(`${serverURL}/availability`,{data})
   }
 
+getRoomData(resort_id:string,room_id:string){
+  return this.http.get(`${serverURL}/getroom?resort_id=${resort_id}&room_id=${room_id}`)
+}
+
 
 
 }
