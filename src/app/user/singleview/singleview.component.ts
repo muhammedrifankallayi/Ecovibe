@@ -1,6 +1,8 @@
 import { Component ,OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-singleview',
@@ -77,6 +79,45 @@ decreaseAdults(){
 
 }
 
+FormData = new FormGroup({
+  checkin:new FormControl("",[Validators.required]),
+  checkout:new FormControl("",[Validators.required])
+})
 
+Availability(){
+  const checkin = this.FormData.value.checkin
+  const checkout = this.FormData.value.checkout
+  const data = {checkin:checkin,checkout:checkout,adults:this.adults,childrens:this.children,resort_id:this.id}
+  this.service.availability(data).subscribe((res:any)=>{
+    this.rooms = res.rooms
+   
+  },(err)=>{
+    Swal.fire({
+      title:"Sorry",
+      text:err.error.message,
+      confirmButtonText:"ok",
+      icon:"error",
+
+    })
+  })
+}
+
+
+
+selectedRoomData:any
+
+selectedRoom(item:any){
+this.selectedRoomData= item
+}
+
+checkout(){
+
+
+  const room = this.selectedRoomData
+
+   alert(room._id)
+
+
+}
 
 }

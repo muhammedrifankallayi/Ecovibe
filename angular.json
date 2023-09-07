@@ -111,9 +111,11 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+           
           }
         }
       }

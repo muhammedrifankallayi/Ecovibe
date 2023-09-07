@@ -14,8 +14,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { AddSubsComponent } from './add-subs/add-subs.component'
-
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,8 @@ import { AddSubsComponent } from './add-subs/add-subs.component'
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
-    MatDialogModule 
+    MatDialogModule ,
+    ToastrModule
   ]
 })
 export class SuperAdminModule { }

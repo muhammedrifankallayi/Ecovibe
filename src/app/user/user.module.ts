@@ -26,6 +26,7 @@ import { ForgetComponent } from './forget/forget.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { SingleviewComponent } from './singleview/singleview.component';
 import { TextPipe } from '../pipes/text.pipe';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { TextPipe } from '../pipes/text.pipe';
     ForgetComponent,
     SetpasswordComponent,
     SingleviewComponent,
-    TextPipe
+    TextPipe,
+    CheckoutComponent
    
    
    

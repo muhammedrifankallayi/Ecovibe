@@ -45,8 +45,10 @@
     <div class="container mt-5">
       
        
-            
-         <input class="date-input" type="date">    <input class="date-input" type="date">
+            <form  [formGroup]="FormData" >
+              <input class="date-input" type="date"  formControlName="checkin" >    <input class="date-input" formControlName="checkout" type="date">
+
+            </form>
          <div class="input-group-append" style="padding-left: 10px;" >
             <button disabled  class="btn btn-outline-secondary" >Adults : {{adults}} </button>
            <button class="btn btn-outline-secondary" type="button" (click)="increaseAdults()">+</button>
@@ -61,7 +63,7 @@
            <button class="btn btn-outline-secondary" type="button" (click)="decreaseChildren()">-</button>
          </div>
        
-         <button mat-raised-button  color>search availablity</button>
+         <button mat-raised-button  color  (click)="Availability()" >search availablity</button>
       
         <table  class="table table-bordered mt-2">
             <thead>
@@ -76,16 +78,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of rooms">
+                    
                     <td>{{ item.roomNumber }}</td>
                     <td>{{ item.roomType }}</td>
                     <td>$ {{ item.pricePerNight }}</td>
                     <td>{{ item.amenities }}</td>
+                    <td><input type="checkbox" (change)="selectedRoom(item)"></td>
                   </tr>
               
             </tbody>
         </table>
 <div  style="display: flex; justify-items: center;" >
-    <button type="submit" class="btn btn-primary">Book Now</button>
+    <button  (click)="checkout()" type="submit" class="btn btn-primary">Book Now</button>
 </div>
      
     </div>

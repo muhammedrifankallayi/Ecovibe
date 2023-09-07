@@ -43,6 +43,9 @@ token = localStorage.getItem("token")
  return  this.http.get(`${serverURL}/getSingleView?id=${id}`)
   }
 
+  availability(data:any){
+    return this.http.post(`${serverURL}/availability`,{data})
+  }
 
 
 
