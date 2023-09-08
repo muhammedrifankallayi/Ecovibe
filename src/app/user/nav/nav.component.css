@@ -42,3 +42,18 @@ nav{
     .dropdown-menu a.dropdown-item {
       color: black; /* Change this to your desired text color */
     }
+    .show-later{
+        display: none;
+    }
+
+
+    nav{
+        @media (max-width: 992px) {
+            .hide {
+              display: none;
+            }
+            .show-later{
+                display: contents;
+            }
+          }
+    }

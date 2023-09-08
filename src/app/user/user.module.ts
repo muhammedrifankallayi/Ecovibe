@@ -27,6 +27,7 @@ import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { SingleviewComponent } from './singleview/singleview.component';
 import { TextPipe } from '../pipes/text.pipe';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { DividePipe } from '../pipes/divide.pipe';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SetpasswordComponent,
     SingleviewComponent,
     TextPipe,
-    CheckoutComponent
+    CheckoutComponent,
+    DividePipe
    
    
    
@@ -63,7 +65,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatInputModule,GoogleMapsModule,
     MatButtonModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
 
 
   ]

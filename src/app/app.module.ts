@@ -25,6 +25,7 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
   declarations: [
     AppComponent,
    
+   
   
   ],
   imports: [
