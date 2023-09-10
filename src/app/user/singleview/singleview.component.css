@@ -16,9 +16,7 @@
     height: 50%;
     object-fit: cover;
 }
-section{
-background-color: black;   
-}
+
 img{
     border-radius: 5px;
     box-shadow: grey;
@@ -33,3 +31,6 @@ img{
     width: 200px;
     height: 40px;
 }
+
+
+  

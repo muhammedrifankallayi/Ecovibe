@@ -1,33 +1,26 @@
 <section>
     <div class="container pt-2">
-        <div  style="height: 30% ;" class="card bg-dark text-white mb-3">
-            <img   src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img" alt="..."  >
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
-            </div>
-          </div>
-    
+      <div>
+      
+
+      </div>
+      
+      <img   src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img m-3" height="500px" width="100%" alt="...">
 
 
 <!-- oo -->
 
-<div   class="row row-cols-1 row-cols-md-3 g-4">
-    <div  *ngFor="let img of showImg; let i=index" class="col">
-      <div class="card h-100">
-        <img height="300px"  src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">image {{i+1}}</h5>
-
-        </div>
+<div class="row">
+  <div *ngFor="let img of showImg; let i=index" class="col-md-3">
+    <div class="card h-100">
+      <img height="300px" src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">image {{i+1}}</h5>
       </div>
     </div>
-    
-    
-   
-    
   </div>
+</div>
+
 
 <!-- oo -->
 
@@ -40,32 +33,69 @@
 <!-- room selecting  section in resort -->
 <!-- checking  lenght here -->
 <section *ngIf="rooms.length!==0" >  
-    <h1 class="text-center">Resort Booking</h1>
 
-    <div class="container mt-5">
-      
-       
-            <form  [formGroup]="FormData" >
-              <input class="date-input" type="date"  formControlName="checkin" >    <input class="date-input" formControlName="checkout" type="date">
 
-            </form>
-         <div class="input-group-append" style="padding-left: 10px;" >
-            <button disabled  class="btn btn-outline-secondary" >Adults : {{adults}} </button>
-           <button class="btn btn-outline-secondary" type="button" (click)="increaseAdults()">+</button>
-           <button class="btn btn-outline-secondary" type="button" (click)="decreaseAdults()">-</button>
-         </div>
-       
+<div style="display: flex;justify-content: center;align-items: center;" >
+
+<div>
+  <h1><strong>Book your room</strong></h1>
+ <div>
+  <form  [formGroup]="FormData" >
+  <div style="width: 50%; float: left;" >
+    <label for="checkin">Checkin</label>
+    <input style="width: 100%;" class="date-input" type="date" id="checkin"  formControlName="checkin" >
+  </div>
+  <div style="width: 50%; float: left;" >
+    <label for="checkout">Checkout</label>
+        <input  style="width: 100%;" class="date-input" id="checkout" formControlName="checkout" type="date">
+  </div>
+   
+  </form>
+ </div>
+
+ <div>
+  <div class="input-group-append"  >
+    <button disabled  class="btn btn-outline-secondary" style="width: 100%;" >Adults : {{adults}} </button>
+    <div  >
+      <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="increaseAdults()">+</button>
+      <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="decreaseAdults()">-</button>
+    </div>
+   
+ </div>
+
+
+
+ <div class="input-group-append " >
+   <button disabled  class="btn btn-outline-secondary" style="width: 100%;" >children :  {{children}} </button>
+   <div>
+    <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="increaseChildren()">+</button>
+    <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="decreaseChildren()">-</button>
+   </div>
+  
+ </div>
+ </div>
+
+<div  >
+  <button  style="width: 100%;" mat-raised-button  color="primary" (click)="Availability()" >search availablity</button>
+</div>
+
+
+</div>
+
+</div>
+
+   
+
+    <div class="container mt-2 ">
       
        
-         <div class="input-group-append " style="padding-left: 10px;">
-           <button disabled  class="btn btn-outline-secondary" >children :  {{children}} </button>
-           <button class="btn btn-outline-secondary" type="button" (click)="increaseChildren()">+</button>
-           <button class="btn btn-outline-secondary" type="button" (click)="decreaseChildren()">-</button>
-         </div>
+          
+        
        
-         <button mat-raised-button  color  (click)="Availability()" >search availablity</button>
       
-        <table  class="table table-bordered mt-2">
+        <h2 style="text-align: center;" >Available rooms</h2>
+        <table  class="table table-bordered bg-primary mt-2">
+        
             <thead>
                 <tr>
                     <th>Room Number</th>

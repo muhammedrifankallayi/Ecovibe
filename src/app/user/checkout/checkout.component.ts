@@ -122,8 +122,8 @@ this.service.placeBooking(data).subscribe((res:any)=>{
   
           Swal.fire({
             icon: 'success',
-            title: 'Subscription Redeemed!',
-            text: 'Congratulations! Your subscription has been successfully redeemed.',
+            title: 'Payment successfull!',
+            text: 'Congratulations! Your ' +res.message,
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK'
         })
