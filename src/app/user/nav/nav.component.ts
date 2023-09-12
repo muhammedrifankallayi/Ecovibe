@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 @Component({
@@ -7,8 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
-  constructor(private router: Router) {}
+export class NavComponent implements OnInit{
+  notifications:number=0
+
+ngOnInit(): void {
+  this.service.getNotifyLength().subscribe((res:any)=>{
+    this.notifications = res.count
+  })
+}
+
+  constructor(private router: Router, private service:UserService) {}
   shouldShowNav(): boolean {
     // Get the current route URL
     const currentUrl = this.router.url;

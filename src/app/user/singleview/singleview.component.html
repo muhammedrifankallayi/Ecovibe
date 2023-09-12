@@ -2,41 +2,51 @@
 
 
 <section>
-    <div class="container ">
-    
-      <img   src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img m-3" height="500px" width="100%" alt="...">
+  <div class="container ">
+
+    <img src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img m-3" height="500px" width="100%"
+      alt="...">
 
 
-<!-- oo -->
+    <!-- oo -->
 
-<div class="row">
-  <div *ngFor="let img of showImg; let i=index" class="col-md-3">
-    <div class="card h-100">
-      <img height="300px" src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">image {{i+1}}</h5>
+    <div class="row">
+      <div *ngFor="let img of showImg; let i=index" class="col-md-3">
+        <div class="card h-100">
+          <img height="300px" src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">image {{i+1}}</h5>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <!-- oo -->
+
+
   </div>
-</div>
-
-
-<!-- oo -->
-
-      
-    </div>
 </section>
 
 
-<section class="mb-3" >
+<section class="mb-3">
 
-<div class="container">
-  <h1><strong>About our Resort</strong></h1>
+  <div class="container">
+    <h1><strong>About our Resort</strong></h1>
 
-<p>"Lorum ipsum" is a placeholder text commonly used in the printing and typesetting industry. It's often used as dummy text when the actual content is not yet available or to demonstrate the visual presentation of a document or design. The correct term is "Lorem ipsum," and here's a sample of it:
+    <p>"Lorum ipsum" is a placeholder text commonly used in the printing and typesetting industry. It's often used as
+      dummy text when the actual content is not yet available or to demonstrate the visual presentation of a document or
+      design. The correct term is "Lorem ipsum," and here's a sample of it:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
-</div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit
+      amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
+      congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl
+      sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque
+      congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede.
+      Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
+      fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+  </div>
 
 
 </section>
@@ -44,159 +54,173 @@
 
 <!-- room selecting  section in resort -->
 <!-- checking  lenght here -->
-<section *ngIf="rooms.length!==0" >  
+<section *ngIf="rooms.length!==0">
 
 
-<div style="display: flex;justify-content: center;align-items: center;" >
+  <div style="display: flex;justify-content: center;align-items: center;">
 
-<div>
-  <h1><strong>Book your room</strong></h1>
- <div>
-  <form  [formGroup]="FormData" >
-  <div style="width: 50%; float: left;" >
-    <label for="checkin">Checkin</label>
-    <input style="width: 100%;" class="date-input" type="date" id="checkin"  formControlName="checkin" >
-  </div>
-  <div style="width: 50%; float: left;" >
-    <label for="checkout">Checkout</label>
-        <input  style="width: 100%;" class="date-input" id="checkout" formControlName="checkout" type="date">
-  </div>
-   
-  </form>
- </div>
+    <div>
+      <h1><strong>Book your room</strong></h1>
+      <div>
+        <form [formGroup]="FormData">
+          <div style="width: 50%; float: left;">
+            <label for="checkin">Checkin</label>
+            <input style="width: 100%;" class="date-input" type="date" id="checkin" formControlName="checkin">
+          </div>
+          <div style="width: 50%; float: left;">
+            <label for="checkout">Checkout</label>
+            <input style="width: 100%;" class="date-input" id="checkout" formControlName="checkout" type="date">
+          </div>
 
- <div>
-  <div class="input-group-append"  >
-    <button disabled  class="btn btn-outline-secondary" style="width: 100%;" >Adults : {{adults}} </button>
-    <div  >
-      <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="increaseAdults()">+</button>
-      <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="decreaseAdults()">-</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="input-group-append">
+          <button disabled class="btn btn-outline-secondary" style="width: 100%;">Adults : {{adults}} </button>
+          <div>
+            <button class="btn btn-outline-secondary" style="width: 50%;" type="button"
+              (click)="increaseAdults()">+</button>
+            <button class="btn btn-outline-secondary" style="width: 50%;" type="button"
+              (click)="decreaseAdults()">-</button>
+          </div>
+
+        </div>
+
+
+
+        <div class="input-group-append ">
+          <button disabled class="btn btn-outline-secondary" style="width: 100%;">children : {{children}} </button>
+          <div>
+            <button class="btn btn-outline-secondary" style="width: 50%;" type="button"
+              (click)="increaseChildren()">+</button>
+            <button class="btn btn-outline-secondary" style="width: 50%;" type="button"
+              (click)="decreaseChildren()">-</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <button style="width: 100%;" mat-raised-button color="primary" (click)="Availability()">search
+          availablity</button>
+      </div>
+
+
     </div>
-   
- </div>
+
+  </div>
 
 
 
- <div class="input-group-append " >
-   <button disabled  class="btn btn-outline-secondary" style="width: 100%;" >children :  {{children}} </button>
-   <div>
-    <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="increaseChildren()">+</button>
-    <button class="btn btn-outline-secondary" style="width: 50%;" type="button" (click)="decreaseChildren()">-</button>
-   </div>
-  
- </div>
- </div>
-
-<div  >
-  <button  style="width: 100%;" mat-raised-button  color="primary" (click)="Availability()" >search availablity</button>
-</div>
+  <div class="container mt-2 ">
 
 
-</div>
 
-</div>
 
-   
 
-    <div class="container mt-2 ">
-      
-       
-          
-        
-       
-      
-        <h2 style="text-align: center;" >Available rooms</h2>
-        <table  class="table table-bordered  mt-2">
-        
-            <thead>
-                <tr>
-                    <th>Room Number</th>
-                    <th>Room Type</th>
-                    <th>Price Per Night</th>
-                    <th>Amenities</th>
-                  
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of rooms">
-                    
-                    <td>{{ item.roomNumber }}</td>
-                    <td>{{ item.roomType }}</td>
-                    <td>$ {{ item.pricePerNight }}</td>
-                    <td>{{ item.amenities }}</td>
-                    <td><input type="checkbox" (change)="selectedRoom(item)"></td>
-                  </tr>
-              
-            </tbody>
-        </table>
-<div  style="display: flex; justify-items: center;" >
-    <button  (click)="checkout()" type="submit" class="btn btn-primary">Book Now</button>
-</div>
-     
+
+    <h2 style="text-align: center;">Available rooms</h2>
+    <table class="table table-bordered  mt-2">
+
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Room Type</th>
+          <th>Price Per Night</th>
+          <th>Amenities</th>
+          <th>Select</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of rooms">
+
+          <td>{{ item.roomNumber }}</td>
+          <td>{{ item.roomType }}</td>
+          <td>$ {{ item.pricePerNight }}</td>
+          <td>{{ item.amenities }}</td>
+          <td><input type="checkbox" (change)="selectedRoom(item)"></td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div style="display: flex; justify-items: center;">
+      <button (click)="checkout()" type="submit" class="btn btn-primary">Book Now</button>
     </div>
+
+  </div>
 
 
 </section>
 <hr>
 <section>
-<!-- amenties -->
-<div class="container mt-3">
- <ul>
- <h3><strong>Amenties</strong></h3>
-  <li *ngFor="let item of data.amenities ; let i = index" ><span class="me-3" > {{item.name}} </span> <span  > {{item.description}} </span> </li>
- </ul>
-</div>
-
-<hr>
-
-<!-- restaurants -->
-<div class="container" >
-  
-  <ul>
-    <h3><strong>Restaurants nearby</strong></h3>
-    <li *ngFor="let item of data.restaurants" style="display: flex; justify-content: space-between;" > <span  > {{item.name}} </span> <span> {{item.distance}}km </span> </li>
-  </ul>
-</div>
-<hr>
-
-<div class="container" >
-  <h3  ><strong>Surrounding</strong></h3>
-  
-      </div>
-  
-<div class="container  "  >
-
-
-   
-      <div *ngFor="let item of data.surroundings"  >
- 
-        <li class="m-2" > <strong>{{item.type_name}}</strong> </li>
-      
-      
-<!-- jj -->
-<div class="card-group" >
-<div   class="card">
-  
-  <div  *ngFor="let surr of item.items" class="card-body">
+  <!-- amenties -->
+  <div class="container mt-3">
     <ul>
-      <li  ><span class="me-3" > {{surr.name   }} </span> <span>   <strong> {{surr.distance_From_Resort}} km</strong></span></li> 
-
+      <h3><strong>Amenties</strong></h3>
+      <li *ngFor="let item of data.amenities ; let i = index"><span class="me-3"> {{item.name}} </span> <span>
+          {{item.description}} </span> </li>
     </ul>
   </div>
-</div>
-<!-- kk -->
+
+  <hr>
+
+  <!-- restaurants -->
+  <div class="container">
+
+    <ul>
+      <h3><strong>Restaurants nearby</strong></h3>
+      <li *ngFor="let item of data.restaurants" style="display: flex; justify-content: space-between;"> <span>
+          {{item.name}} </span> <span> {{item.distance}}km </span> </li>
+    </ul>
+  </div>
+  <hr>
+
+  <div class="container">
+    <h3><strong>Surrounding</strong></h3>
+
+  </div>
+
+  <div class="container  ">
+
+
+
+    <div *ngFor="let item of data.surroundings">
+
+      <li class="m-2" style="text-decoration: underline;" > <strong>{{item.type_name}}</strong> </li>
+
+
+      <!-- jj -->
+      <div class="card-group">
+        <div class="card" style="border: none;" >
+
+          <div *ngFor="let surr of item.items" class="card-body  " >
+          
+              <li    style="display: flex;justify-content: space-between;" ><span class="me-5" > {{surr.name }} </span> <span> <strong> {{surr.distance_From_Resort}}
+                    km</strong></span></li>
+
+           
+          </div>
+        </div>
+
+        <!-- kk -->
 
 
       </div>
 
     </div>
- 
-
-</div>
 
 
-<!-- xx -->
+  </div>
+
+
+  <!-- xx -->
 
 
 </section>
+
+
+
+<app-footer></app-footer>

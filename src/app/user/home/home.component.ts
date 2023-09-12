@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 constructor(private service:UserService, private route:Router){
 
 }
-
+CopyText:string=''
   resorts:any
 
   ngOnInit(): void {
@@ -22,6 +22,8 @@ constructor(private service:UserService, private route:Router){
   this.resorts = res.data
 
     })
+
+   
   }
 
 

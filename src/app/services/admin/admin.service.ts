@@ -19,15 +19,7 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
 login(data:any){
- return  this.http.post("http://localhost:4000/admin/login",{data}).pipe(catchError((error:HttpErrorResponse)=>{
-     this.erroMessage  = "an error occured";
-      if(error.error instanceof ErrorEvent){
-        this.erroMessage = error.error.message
-      }else{
-        this.erroMessage = error.error.message || 'server error'
-      }
-      return throwError(this.erroMessage);
-    }))
+ return  this.http.post("http://localhost:4000/admin/login",{data})
 }
 
 

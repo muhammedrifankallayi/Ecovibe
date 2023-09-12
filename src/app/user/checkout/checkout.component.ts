@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
@@ -23,6 +23,8 @@ export class CheckoutComponent implements OnInit {
   room_id: any
   resortData: any = []
   roomData: any = []
+checkout:any
+checkin:any
 
 
 
@@ -31,6 +33,8 @@ export class CheckoutComponent implements OnInit {
 
       this.room_id = params.get('room_id');
       this.resort_id = params.get('resort_id');
+       this.checkin = params.get("checkin");
+       this.checkout = params.get("checkout")
     });
 
     this.getResortdata()
@@ -103,7 +107,7 @@ this.service.placeBooking(data).subscribe((res:any)=>{
   
   const options = {
     key: 'rzp_test_EPM97YtygusiKT',
-    amount: 444 * 100, // Amount in paise (1 INR = 100 paise)
+    amount: this.roomData.pricePerNight, // Amount in paise (1 INR = 100 paise)
     currency: 'INR',
     name: 'Ecovibe',
     description: 'Booking advance amount',
@@ -127,8 +131,14 @@ this.service.placeBooking(data).subscribe((res:any)=>{
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'OK'
         })
+        const navigationExtras:NavigationExtras = {
+          queryParams:{
+            checkout:this.checkout,
+            checkin:this.checkin
+          }
+        }
           this.toaster.success(res.message)
-          this.router.navigate(['profile'])
+          this.router.navigate(['/bookingdone'],navigationExtras);
           this.toaster.success('Payment successful!');
   
         },(err:any)=>{

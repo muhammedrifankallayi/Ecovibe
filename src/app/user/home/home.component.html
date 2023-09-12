@@ -1,4 +1,17 @@
 <app-nav></app-nav>
+<section class="container search-bar" >
+  <mat-form-field appearance="outline" class="example-full-width" width="100%">
+    <mat-label>search</mat-label>
+    <input [(ngModel)]="CopyText"  matInput >
+   
+  </mat-form-field>
+  <button mat-raised-button color="primary" style="height: 55px; margin-bottom: 25px;" >Search</button>
+  
+ 
+  
+</section>
+
+
 <section class="container main-body" >
 
 <div>
@@ -11,7 +24,7 @@
 
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div  *ngFor="let item of resorts" class="col">
+    <div  *ngFor="let item of (resorts | search: CopyText )" class="col">
       <div  (click)="showDetails(item._id)"  class="card">
         <img width="200px" height="250px" src="http://localhost:4000/public/{{item.Banner_img}}" class="card-img-top" alt="...">
         <div class="card-body">

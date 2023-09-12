@@ -9,14 +9,14 @@
             <strong>{{ item.title }}</strong>
           </h3>
           <h1 style="text-align: center; color: rgb(240, 240, 245);"><strong>₹{{ item.price }}</strong></h1>
-          <h2 style="text-align: center;" class="text-light">{{ item.duration }}</h2>
+          <h2 *ngIf="item.type==='Monthly'" style="text-align: center;" class="text-light">{{ item.duration }} Month</h2>
+          <h2 *ngIf="item.type!=='Monthly'" style="text-align: center;" class="text-light">{{ item.duration }} Year</h2>
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{ item.cardTitle }}</h5>
-          <p class="card-text">{{ item.cardText }}</p>
+          <h5 class="card-title">{{ item.description }}</h5>
         </div>
         <div class="card-footer">
-          <button mat-raised-button color="primary">Subscribe</button>
+          <button mat-raised-button color="primary"  (click)="makeSubcription(item._id,item.price)" >Subscribe</button>
         </div>
       </div>
     </div>

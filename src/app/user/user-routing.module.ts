@@ -15,6 +15,8 @@ import { ForgetComponent } from './forget/forget.component';
 import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { SingleviewComponent } from './singleview/singleview.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { BookingDoneComponent } from './booking-done/booking-done.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -31,7 +33,9 @@ const route:Routes = [
   {path:"forget",component:ForgetComponent},
   {path:"setpassword",component:SetpasswordComponent},
   {path:"singleView",component:SingleviewComponent},
-  {path:"checkout",component:CheckoutComponent}
+  {path:"checkout",component:CheckoutComponent},
+  {path:"bookingdone",component:BookingDoneComponent},
+  {path:"notification",component:NotificationsComponent}
 ]
 
 @NgModule({

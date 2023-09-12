@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { paydata } from 'src/app/user/state/userType/user.type';
+
 const serverURL = 'http://localhost:4000'
 
 @Injectable({
@@ -19,7 +21,7 @@ token = localStorage.getItem("token")
 
   saveReq(data:any){
     const token = this.token
-    return this.http.post('http://localhost:4000/hoster-req',{data,token})
+    return this.http.post(`${serverURL}/hoster-req`,{data},{withCredentials:true})
   }
 
 
@@ -59,5 +61,24 @@ confirmBooking(data:any){
   return this.http.patch(`${serverURL}/confirmbooking`,{data},{withCredentials:true})
 }
 
+getSubscriptionData(){
+  return this.http.get(`${serverURL}/getsubscription`)
+}
+
+pusrchaseSubcription(data:paydata){
+  return this.http.patch(`${serverURL}/subscriptionpurchase`,{data},{withCredentials:true})
+}
+
+isAdmin(id:string){
+  return this.http.get(`${serverURL}/isAdmin?id=${id}`,{withCredentials:true})
+}
+getNotification(){
+  return this.http.get(`${serverURL}/notifications`,{withCredentials:true})
+}
+getNotifyLength(){
+  return this.http.get(`${serverURL}/getnotificationlength`,{withCredentials:true})
+}
 
 }
+
+

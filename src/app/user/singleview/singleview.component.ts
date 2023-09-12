@@ -112,6 +112,15 @@ this.selectedRoomData= item
 
 checkout(){
 
+ if(!this.FormData.valid){
+  Swal.fire({
+   title:"Warning!",
+   text:'please select checkin and checkout ',
+   icon:"warning",
+   confirmButtonText:"Ok"
+   
+  });
+ }else{
 
   const room = this.selectedRoomData
 
@@ -121,14 +130,21 @@ checkout(){
   const navigationExtras: NavigationExtras = {
     queryParams: {
       room_id: room_id,
-      resort_id: resort_id
+      resort_id: resort_id,
+    checkin:this.FormData.value.checkin,
+    checkout:this.FormData.value.checkout
     }
   };
   
   // Use the Router to navigate to the /checkout route with the parameters
   this.route.navigate(['/checkout'], navigationExtras);
+
+ }
+ 
  
   
 }
+
+
 
 }

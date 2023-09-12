@@ -27,7 +27,14 @@ import { SetpasswordComponent } from './setpassword/setpassword.component';
 import { SingleviewComponent } from './singleview/singleview.component';
 import { TextPipe } from '../pipes/text.pipe';
 import { CheckoutComponent } from './checkout/checkout.component';
+//pipes
 import { DividePipe } from '../pipes/divide.pipe';
+import { SearchPipe } from '../pipes/search.pipe';
+
+
+import { BookingDoneComponent } from './booking-done/booking-done.component';
+import { FooterComponent } from './footer/footer.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
@@ -49,7 +56,12 @@ import { DividePipe } from '../pipes/divide.pipe';
     SingleviewComponent,
     TextPipe,
     CheckoutComponent,
-    DividePipe
+    DividePipe,
+BookingDoneComponent,
+FooterComponent,
+SearchPipe,
+NotificationsComponent
+
    
    
    
