@@ -35,6 +35,7 @@ import { SearchPipe } from '../pipes/search.pipe';
 import { BookingDoneComponent } from './booking-done/booking-done.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { DateDistancePipe } from '../pipes/date-distance.pipe';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 BookingDoneComponent,
 FooterComponent,
 SearchPipe,
-NotificationsComponent
+NotificationsComponent,
+DateDistancePipe
 
    
    
