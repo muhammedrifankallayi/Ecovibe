@@ -14,12 +14,14 @@ import { SearchComponent } from './search/search.component'
 import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
 import {  MatButtonModule} from "@angular/material/button"
+import {  MatIconModule} from "@angular/material/icon"
 import {MatFormFieldModule}  from "@angular/material/form-field"
 import {  MatCardModule } from "@angular/material/card"
 import{ GoogleMapsModule } from "@angular/google-maps";
 import { OtpComponent } from './otp/otp.component';
 import { HosterReqComponent } from './hoster-req/hoster-req.component'
 import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
 import { SuccessComponent } from './success/success.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ForgetComponent } from './forget/forget.component';
@@ -36,6 +38,10 @@ import { BookingDoneComponent } from './booking-done/booking-done.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { DateDistancePipe } from '../pipes/date-distance.pipe';
+import { ChatpageComponent } from './chatpage/chatpage.component';
+import { ChatsComponent } from './chats/chats.component';
+
+
 
 
 @NgModule({
@@ -62,7 +68,9 @@ BookingDoneComponent,
 FooterComponent,
 SearchPipe,
 NotificationsComponent,
-DateDistancePipe
+DateDistancePipe,
+ChatpageComponent,
+ChatsComponent
 
    
    
@@ -80,6 +88,9 @@ DateDistancePipe
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
+    MatIconModule,
+    MatBadgeModule
+    
 
 
   ]

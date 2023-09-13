@@ -17,6 +17,8 @@ import { SingleviewComponent } from './singleview/singleview.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BookingDoneComponent } from './booking-done/booking-done.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { ChatpageComponent } from './chatpage/chatpage.component';
+import { ChatsComponent } from './chats/chats.component';
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -35,7 +37,9 @@ const route:Routes = [
   {path:"singleView",component:SingleviewComponent},
   {path:"checkout",component:CheckoutComponent},
   {path:"bookingdone",component:BookingDoneComponent},
-  {path:"notification",component:NotificationsComponent}
+  {path:"notification",component:NotificationsComponent},
+  {path:"chatpage",component:ChatpageComponent},
+  {path:"chats",component:ChatsComponent}
 ]
 
 @NgModule({
