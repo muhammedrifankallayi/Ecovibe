@@ -1,0 +1,15 @@
+<app-nav></app-nav>
+
+<div class="chat-list">
+    <h2><strong>CHATS</strong></h2>
+    <div *ngFor="let item of chatList"  class="chat" (click)="singleChat(item.user_id,item.admin_id._id)" >
+        <img  src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User 1" class="profile-pic">
+        <div class="chat-info">
+            <h3 class="user-name"> {{item.admin_id.resortName}} </h3>
+            <p class="last-message">{{item.lastmessage}}</p>
+            <span class="timestamp">{{item.updatedAt  }}</span>
+        </div>
+    </div>
+  
+    <!-- Add more chat items here -->
+</div>

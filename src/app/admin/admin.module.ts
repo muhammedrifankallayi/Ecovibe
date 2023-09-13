@@ -11,11 +11,14 @@ import { ProfileComponent } from './profile/profile.component'
 import { MatFormFieldModule  } from "@angular/material/form-field"
 import { MatButtonModule  } from "@angular/material/button"
 import { MatSelectModule  } from "@angular/material/select";
+import { MatIconModule  } from "@angular/material/icon";
 import { GalleryComponent } from './gallery/gallery.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { RoomsComponent } from './rooms/rooms.component'
 import { MatDialogModule } from '@angular/material/dialog';
+import { ChatListComponent } from './chat-list/chat-list.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -34,6 +37,9 @@ GalleryComponent,
 FacilitiesComponent,
 AddRoomComponent,
 RoomsComponent,
+ChatListComponent,
+ChatComponent,
+
 
 
   ],
@@ -41,7 +47,7 @@ RoomsComponent,
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-
+    MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,

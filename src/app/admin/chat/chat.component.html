@@ -1,6 +1,8 @@
-<app-nav class="sticky-top" ></app-nav>
+<div class="wrapper">
+    <app-nav></app-nav>
+<div class="container" >
 
-<div class="container bootstrap snippets bootdey">
+    <div class="container bootstrap snippets bootdey">
     <div >
       
         
@@ -63,26 +65,26 @@
                     </li>
                 </ul>
             </div>
-    <div *ngFor="let msg of chatdata" >
-        <div  *ngIf="msg.fromId!=userId" class="message-feed media">
+    <div *ngFor="let item of chatdata"  >
+        <div  *ngIf="item.fromId!=adminId"  class="message-feed media">
             <div class="pull-left">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-avatar">
             </div>
             <div class="media-body">
                 <div class="mf-content">
-                    {{msg.message}}
+                {{item.message}}
                 </div>
                 <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:00</small>
             </div>
         </div>
         
-        <div *ngIf="msg.fromId==userId" class="message-feed right">
+        <div  *ngIf="item.fromId==adminId"  class="message-feed right">
             <div class="pull-right">
                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="img-avatar">
             </div>
             <div class="media-body">
                 <div class="mf-content">
-                   {{msg.message}}
+                {{item.message}}
                 </div>
                 <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:30</small>
             </div>
@@ -107,3 +109,7 @@
         </div>
     </div>
 </div>
+
+</div>
+
+

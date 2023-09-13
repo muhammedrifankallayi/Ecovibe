@@ -18,7 +18,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { BookingDoneComponent } from './booking-done/booking-done.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ChatpageComponent } from './chatpage/chatpage.component';
-import { ChatsComponent } from './chats/chats.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
+
 
 const route:Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,7 +40,7 @@ const route:Routes = [
   {path:"bookingdone",component:BookingDoneComponent},
   {path:"notification",component:NotificationsComponent},
   {path:"chatpage",component:ChatpageComponent},
-  {path:"chats",component:ChatsComponent}
+  {path:"chatlist",component:ChatListComponent}
 ]
 
 @NgModule({

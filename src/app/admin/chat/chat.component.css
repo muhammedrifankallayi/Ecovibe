@@ -214,7 +214,7 @@ body {
 
 .bar-item-row {
     position: fixed;
-    top: 110px;
+    top: 50px;
     width: 83%;
    
     display: flex;

@@ -11,6 +11,8 @@ import { FacilitiesComponent } from './facilities/facilities.component';
 import { AdminAuthGuard } from '../guards/admin-auth.guard';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
 
 
 const route:Routes = [
@@ -22,7 +24,9 @@ const route:Routes = [
   {path:"gallery",component:GalleryComponent},
   {path:"facilities",component:FacilitiesComponent},
   {path:"addroom",component:AddRoomComponent},
-  {path:"rooms",component:RoomsComponent}
+  {path:"rooms",component:RoomsComponent},
+  {path:"chat",component:ChatComponent},
+  {path:"chatlist",component:ChatListComponent}
 
 ]
 

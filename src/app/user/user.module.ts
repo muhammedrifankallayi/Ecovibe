@@ -39,7 +39,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { DateDistancePipe } from '../pipes/date-distance.pipe';
 import { ChatpageComponent } from './chatpage/chatpage.component';
-import { ChatsComponent } from './chats/chats.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
 
 
 
@@ -68,9 +68,11 @@ BookingDoneComponent,
 FooterComponent,
 SearchPipe,
 NotificationsComponent,
-DateDistancePipe,
+
 ChatpageComponent,
-ChatsComponent
+DateDistancePipe,
+ChatListComponent,
+
 
    
    

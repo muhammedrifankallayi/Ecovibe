@@ -112,6 +112,18 @@ getRooms(){
 }
 
 
+getChatData (id:string){
+  return this.http.get(`${serverURL}/adminchatview?id=${id}`,{withCredentials:true})
+}
+
+getChatList(){
+  return this.http.get(`${serverURL}/adminchatlist`,{withCredentials:true})
+}
+
+submitChatMsg(data:any){
+  return this.http.post(`${serverURL}/adminchatsubmit`,{data},{withCredentials:true})
+}
+
 
 
 

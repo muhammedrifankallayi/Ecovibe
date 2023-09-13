@@ -87,6 +87,11 @@ submitMsg(data:msg){
 }
 
 
+userChatList(){
+  return this.http.get(`${serverURL}/userchatlist`,{withCredentials:true})
+}
+
+
 
 }
 

@@ -16,6 +16,7 @@ import { userEffects, } from './super-Admin/state/user/user.effects';
 
 import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 
+import { SocketIoModule } from 'ngx-socket-io';
 
 
 
@@ -26,6 +27,7 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+  
   
 
    
@@ -42,7 +44,8 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
     BrowserAnimationsModule,
     EffectsModule.forRoot([userEffects]),
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    SocketIoModule.forRoot({url:"http://localhost:4000"})
    
     
   ],
