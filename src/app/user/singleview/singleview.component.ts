@@ -145,6 +145,16 @@ checkout(){
   
 }
 
+viewChat(){
+const navigationExtras:NavigationExtras={
+  queryParams:{
+    adminId:this.id
+  }
+}
+this.route.navigate(['/chatpage'],navigationExtras)
+}
+
+
 
 
 }

@@ -79,6 +79,21 @@ getNotifyLength(){
   return this.http.get(`${serverURL}/getnotificationlength`,{withCredentials:true})
 }
 
+viewChat(id:string){
+  return this.http.get(`${serverURL}/chatview?id=${id}`,{withCredentials:true})
+}
+submitMsg(data:msg){
+  return this.http.post(`${serverURL}/submitmsg`,{data},{withCredentials:true})
+}
+
+
+
+}
+
+export interface msg{
+  
+  text:string
+  id:string
 }
 
 

@@ -126,8 +126,11 @@
             </div>
             
             <div class="msb-reply">
-               <input type="text"  class="form-control"  placeholder="text anything...." >
-                <button  mat-raised-button  ><mat-icon> near_me</mat-icon></button>
+               <form [formGroup]="FormData" (ngSubmit)="submit()" >
+                    <input type="text"  class="form-control" formControlName="text"  placeholder="text anything...." >
+                    <button  mat-raised-button [disabled]="FormData.invalid"  color="primary" ><mat-icon> near_me</mat-icon></button>
+              
+                </form>
 
             </div>
         </div>

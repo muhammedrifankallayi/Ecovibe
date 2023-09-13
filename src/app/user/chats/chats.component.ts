@@ -26,7 +26,7 @@ const navigationExtras:NavigationExtras = {
     adminId:admin_id
   }
 }
-this.router.navigate(['chatpage'],navigationExtras)
+this.router.navigate(['/chatpage'],navigationExtras)
 
 
 
