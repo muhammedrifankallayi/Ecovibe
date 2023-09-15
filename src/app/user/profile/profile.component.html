@@ -6,12 +6,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                    <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <input type="file"  (change)="imageSubmit($event)"   name="file"/>
-                        <button  (click)="submitImg()" >submit</button>
-                    </div>
+                    <img [src]="src" alt=""/>
+                   
                    
                 </div>
             </div>
@@ -83,10 +79,9 @@
                                         <p> {{userData.is_verified}} </p>
                                     </div>
                                 </div>
-                                <input type="file"  (change)="imageSubmit($event)"   name="file"/>
-                                <button  (click)="submitImg()" >submit</button>
+                            
                     </div>
-                   
+                  
                     <div *ngIf="activeTab === 'timeline'" id="profile" >
                        
                                 <div class="row">
@@ -140,9 +135,11 @@
             </div>
         </div>
         <div class="edit-save-btn col-md-2 ">
-            <!-- <a class="btn btn-primary" routerLink="edit" >Edit profile</a> -->
+            <button class="btn btn-success"  routerLink="/profile/edit" > edit</button>
+     
         </div>
-    </form>           
+    </form>  
+  
 </div>
 
 
@@ -218,20 +215,14 @@
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div  class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>User Id</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><input type="text" value="   {{userData._id}}" disabled ></p>
-                                    </div>
-                                </div>
+
+                               <form  [formGroup]="FormData"  >
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><input type="text" value="{{userData.name}}" ></p>
+                                        <p><input   formControlName="name" type="text" value="{{userData.name}}" ></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -239,7 +230,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><input type="text" value="{{userData.email}}" ></p>
+                                        <p><input formControlName="email" type="text" value="{{userData.email}}" ></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -247,9 +238,18 @@
                                         <label>Phone</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><input type="text" value="{{userData.mobile}}" ></p>
+                                        <p><input   formControlName="mobile" type="text" value="{{userData.mobile}}" ></p>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>age</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><input   formControlName="age" type="text"  placeholder="age not set yet" ></p>
+                                    </div>
+                                </div>
+                              
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Profession</label>
@@ -258,6 +258,7 @@
                                         <p><input type="text" value="Web Developer and Designer" ></p>
                                     </div>
                                 </div>
+                            </form>
                     </div>
                    
                     
@@ -266,7 +267,8 @@
         </div>
         <div class="edit-save-btn col-md-2">
             <a class="btn btn-success me-2" routerLink="/profile">Back</a>
-            <input type="submit" class="btn btn-success" name="btnAddMore" value="Save"/>
+            <input  (click)="editSubmit()" type="submit" class="btn btn-success" name="btnAddMore" value="Save"/>
+           
         </div>
     </form>           
 </div>

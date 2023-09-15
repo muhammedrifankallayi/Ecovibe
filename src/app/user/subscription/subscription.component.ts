@@ -75,6 +75,10 @@ this.service.getSubscriptionData().subscribe((res:any)=>{
           })
         
             this.toaster.success(res.message)
+            if(this.adminId){
+              this.router.navigate(['/admin']);
+              this.toaster.success('Payment successful!');
+            }
             this.router.navigate(['/bookingdone']);
             this.toaster.success('Payment successful!');
     

@@ -17,46 +17,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Resort A</td>
-              <td>Location X</td>
-              <td>John Doe</td>
-              <td>123-456-7890</td>
-              <td><button class="btn btn-danger">Block</button></td>
+            <tr *ngFor="let item of resortData;let i= index" >
+              <td> {{i+1}} </td>
+              <td> {{item.resortName}} </td>
+              <td>{{item.location}} </td>
+              <td> {{item.hoster_id.name}} </td>
+              <td> {{item.mobile}} </td>
+              <td *ngIf="item.is_approved===true" ><button   (click)="blockResort(item._id)" class="btn btn-danger">Block</button></td>
+              <td *ngIf="item.is_approved===false" ><button   (click)="unblockResort(item._id)" class="btn btn-success">unblock</button></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Resort B</td>
-              <td>Location Y</td>
-              <td>Jane Smith</td>
-              <td>987-654-3210</td>
-              <td><button class="btn btn-danger">Block</button></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Resort C</td>
-              <td>Location Z</td>
-              <td>Michael Johnson</td>
-              <td>555-123-4567</td>
-              <td><button class="btn btn-danger">Block</button></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Resort D</td>
-              <td>Location W</td>
-              <td>Susan Lee</td>
-              <td>222-333-4444</td>
-              <td><button class="btn btn-danger">Block</button></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Resort E</td>
-              <td>Location V</td>
-              <td>David Brown</td>
-              <td>777-888-9999</td>
-              <td><button class="btn btn-danger">Block</button></td>
-            </tr>
+            
           </tbody>
         </table>
         </div>

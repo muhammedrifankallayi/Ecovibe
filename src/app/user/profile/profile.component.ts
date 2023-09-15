@@ -1,9 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
-
 import { User } from 'src/app/super-Admin/state/model/user.model';
+import Swal from 'sweetalert2';
+
+
 
 
 @Component({
@@ -13,10 +16,16 @@ import { User } from 'src/app/super-Admin/state/model/user.model';
 })
 export class ProfileComponent implements OnInit  {
  
-
+src:any
 
 ngOnInit(): void {
   this.loadProfile()
+
+
+
+
+
+
 }
   constructor(private router:Router,private http:HttpClient  ,private service:UserService){}
 
@@ -48,7 +57,7 @@ shouldShowEdit(): boolean {
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
-
+ this.image = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -59,17 +68,21 @@ shouldShowEdit(): boolean {
     }
   }
 
-showw(){
-  console.log("hhooolloo");
-  
-}
+
 
 loadProfile(){
 
-  this.http.get<User>("http://localhost:4000/getUser", { withCredentials:true }).subscribe(
+  this.service.getProfile().subscribe(
   (res: User) => {
     this.userData = res.user; // Assign the whole response to userData
     console.log(this.userData);
+    this.FormData.patchValue({
+      name:this.userData.name,
+      email:this.userData.email,
+      mobile:this.userData.mobile,
+      age:this.userData.age
+    })
+this.src = this.userData.profile_img? `http://localhost:4000/public/${this.userData.profile_img}`:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
   },
   (error) => {
     console.error("Error fetching user data:", error);
@@ -83,30 +96,74 @@ loadProfile(){
 
 image:any
 
-  imageSubmit(event:any){
-    const file = event.target.files[0]
-this.image = file
+  
 
-  }
 
   submitImg(){
 const formData = new FormData()
 
-console.log(this.image);
-
-
-
 formData.append("file",this.image)
-
-console.log(formData);
+console.log(formData , this.image);
 
 
 this.service.profileImg(formData).subscribe((res)=>{
   console.log(res);
+  this.router.navigate(['/profile'])
   
 })
   }
+
+
+
+
+FormData= new FormGroup({
+  name:new FormControl("",[Validators.required]),
+  email:new FormControl("",[Validators.required]),
+  mobile:new FormControl("",[Validators.required]),
+  age:new FormControl("",[Validators.max(2)])
+})
+
+editSubmit(){
+  console.log("opp");
+  
+if(this.FormData.valid){
+  console.log(this.FormData.value);
+  
+  const data = this.FormData.value
+  this.service.profileEdit(data).subscribe((res:any)=>{
+    Swal.fire({
+      timer:900,
+      title:res.message,
+      icon:"success"
+    })
+   
+      if(this.image){
+        this.submitImg()
+      }
+     
+    
+    
+  },(err)=>{
+    console.log(err.error.message);
+    
+  })
+}else{
+  Swal.fire({
+    icon:"error",
+    title:"Invalid",
+    text:"your data not valid",
+    confirmButtonText:"OK"
+  })
 }
+
+
+
+}
+
+
+}
+
+
   
 
 

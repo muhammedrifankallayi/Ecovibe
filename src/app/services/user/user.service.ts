@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from 'src/app/super-Admin/state/model/user.model';
 
 import { paydata } from 'src/app/user/state/userType/user.type';
 
@@ -90,6 +91,15 @@ submitMsg(data:msg){
 userChatList(){
   return this.http.get(`${serverURL}/userchatlist`,{withCredentials:true})
 }
+
+getProfile(){
+  return this.http.get<User>(`${serverURL}/getUser`)
+}
+
+profileEdit(data:any){
+  return this.http.put(`${serverURL}/editprofile`,{data},{withCredentials:true})
+}
+
 
 
 

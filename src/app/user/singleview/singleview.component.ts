@@ -120,6 +120,13 @@ checkout(){
    confirmButtonText:"Ok"
    
   });
+ }else if(!this.selectedRoomData){
+  Swal.fire({
+    title:"warning",
+    text:"Please select a room",
+    icon:"warning",
+    confirmButtonText:"ok"
+  })
  }else{
 
   const room = this.selectedRoomData

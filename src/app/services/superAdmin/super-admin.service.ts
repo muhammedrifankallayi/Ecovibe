@@ -67,6 +67,20 @@ export class SuperAdminService {
   }
 
 
+  getResorts(){
+    return this.http.get(`${serverURL}/getresorts`)
+  }
+  blockResort(id:string){
+    return this.http.patch(`${serverURL}/blockresort`,{id})
+  }
+
+  unblockResort(id:string){
+    return this.http.patch(`${serverURL}/unblockresort`,{id})
+  }
+
+  getChartData(){
+    return this.http.get(`${serverURL}/getChartdata`)
+  }
 
 
 

@@ -18,7 +18,7 @@ import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 
 import { SocketIoModule } from 'ngx-socket-io';
 
-
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -45,8 +45,8 @@ import { SocketIoModule } from 'ngx-socket-io';
     EffectsModule.forRoot([userEffects]),
     ToastrModule.forRoot(),
     FormsModule,
-    SocketIoModule.forRoot({url:"http://localhost:4000"})
-   
+    SocketIoModule.forRoot({url:"http://localhost:4000"}),
+    NgChartsModule
     
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }],
