@@ -145,6 +145,20 @@ export class FacilitiesComponent implements OnInit {
 
 
 
+  //edits
+
+  editSurroudings(index:number,name:string){
+    const data = {index,name}
+  this.service.editSurroundings(data).subscribe((res)=>{
+    alert("updated surr")
+  })
+
+  }
+
+  editRestaurant(index:number,name:string){
+          
+  }
+
 
 
 }

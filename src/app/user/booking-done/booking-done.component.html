@@ -1,4 +1,5 @@
 <app-nav></app-nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -14,6 +15,52 @@
                     <p>checkin  :  {{checkIn}} </p>
                     <p>checkout :  {{checkOut}} </p>
                 </div>
+                <h3 style=" text-align: center;" ><strong>RATE US</strong></h3>
+                <div class="container d-flex justify-content-center mt-200">
+	
+                   
+                    <div class="row">
+                    
+                        <div class="col-md-12">
+                    
+                            <div class="stars">
+                    
+                      <form   >
+                    
+                        <input  (click)="rate(5)" class="star star-5" id="star-5" type="radio" name="star"/>
+                    
+                        <label class="star star-5" for="star-5"></label>
+                    
+                        <input (click)="rate(4)" class="star star-4" id="star-4" type="radio" name="star"/>
+                    
+                        <label  class="star star-4" for="star-4"></label>
+                    
+                        <input  (click)="rate(3)" class="star star-3" id="star-3" type="radio" name="star"/>
+                    
+                        <label class="star star-3" for="star-3"></label>
+                    
+                        <input  (click)="rate(2)" class="star star-2" id="star-2" type="radio" name="star"/>
+                    
+                        <label class="star star-2" for="star-2"></label>
+                    
+                        <input (click)="rate(1)"  class="star star-1" id="star-1" type="radio" name="star"/>
+                    
+                        <label class="star star-1" for="star-1"></label>
+                       
+                      </form>
+                    
+                    </div>
+                    
+                    
+                            
+                        </div>
+                        
+                    
+                    </div>
+                    
+                    </div>
+
+
                 <div class="card-footer">
                     <a routerLink="/home"   class="btn btn-primary">Back to Home</a>
                 </div>

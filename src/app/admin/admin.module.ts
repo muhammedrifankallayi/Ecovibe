@@ -19,6 +19,7 @@ import { RoomsComponent } from './rooms/rooms.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { ChatComponent } from './chat/chat.component';
+import { EditFacilityComponent } from './edit-facility/edit-facility.component';
 
 
 
@@ -39,6 +40,7 @@ AddRoomComponent,
 RoomsComponent,
 ChatListComponent,
 ChatComponent,
+EditFacilityComponent,
 
 
 

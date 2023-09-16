@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
   roomData: any = []
 checkout:any
 checkin:any
-
+review_id:any
 
 
   ngOnInit(): void {
@@ -35,6 +35,7 @@ checkin:any
       this.resort_id = params.get('resort_id');
        this.checkin = params.get("checkin");
        this.checkout = params.get("checkout")
+       this.review_id = params.get("review_id")
     });
 
     this.getResortdata()
@@ -134,7 +135,8 @@ this.service.placeBooking(data).subscribe((res:any)=>{
         const navigationExtras:NavigationExtras = {
           queryParams:{
             checkout:this.checkout,
-            checkin:this.checkin
+            checkin:this.checkin,
+            review_id:this.review_id
           }
         }
           this.toaster.success(res.message)

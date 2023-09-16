@@ -1,6 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router  } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class SingleviewComponent implements OnInit {
 
-constructor(private activeRoute:ActivatedRoute ,private route:Router ,private service:UserService){
+constructor(private activeRoute:ActivatedRoute ,private route:Router ,private service:UserService , private toaster:ToastrService){
  
 }
 
@@ -19,6 +20,7 @@ id:string=''
 data:any
 showImg:any
 rooms:any
+reviews:any
 
 
 
@@ -45,6 +47,9 @@ datas(){
     console.log(res.data);
     this.showImg = res.mainImg
     this.rooms = res.rooms
+    this.reviews = res.reviews
+    this.reviews.reverse()
+
    })
    
 
@@ -139,7 +144,8 @@ checkout(){
       room_id: room_id,
       resort_id: resort_id,
     checkin:this.FormData.value.checkin,
-    checkout:this.FormData.value.checkout
+    checkout:this.FormData.value.checkout,
+    review_id:this.latestReview
     }
   };
   
@@ -155,11 +161,38 @@ checkout(){
 viewChat(){
 const navigationExtras:NavigationExtras={
   queryParams:{
-    adminId:this.id
+    adminId:this.id,
+   
   }
 }
 this.route.navigate(['/chatpage'],navigationExtras)
 }
+
+
+// rating area  
+
+
+
+latestReview:any
+
+commetForm = new FormGroup({
+  comment:new FormControl("",[Validators.required])
+})
+
+commentSubmit(){
+  const comment = this.commetForm.value.comment
+  const data = {comment,resort_id:this.data._id}
+this.service.submitComment(data).subscribe((res:any)=>{
+this.toaster.success("comment posted")
+console.log(res);
+this.latestReview = res._id
+this.reviews.unshift(res)
+this.commetForm.reset()
+})
+
+}
+
+
 
 
 

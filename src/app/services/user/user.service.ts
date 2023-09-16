@@ -103,6 +103,16 @@ profileEdit(data:any){
 
 
 
+submitComment(data:any){
+  return this.http.post(`${serverURL}/commentsubmit`,{data})
+}
+
+submitRating(data:any){
+  return this.http.patch(`${serverURL}/submitrating`,{data})
+}
+
+
+
 }
 
 export interface msg{

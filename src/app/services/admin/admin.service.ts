@@ -125,7 +125,19 @@ submitChatMsg(data:any){
 }
 
 
+resortCharts(){
+  return this.http.get(`${serverURL}/resortcharts`)
+}
 
+editSurroundings(data:any){
+return this.http.patch(`${serverURL}/editsurroundingd`,{data})
+}
+editRestaurant(data:any){
+  return this.http.patch(`${serverURL}/editrestaurant`,{data})
+  }
+  editAmenties(data:any){
+    return this.http.patch(`${serverURL}/editamenties`,{data})
+    }
 
 
 

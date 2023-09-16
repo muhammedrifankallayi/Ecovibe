@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <section>
   <div class="container ">
@@ -228,42 +228,75 @@
 
 
 </section>
+<hr>
 
+<section class="container mt-3">
+ <div>
+  <h2  style="text-align: center;" >Rate our resort</h2>
+ </div>
+  <div class="container review-div ">
+	  <div class="comment-rating-box">
+      <h3>Add Comment and Rating</h3>
+      <form  [formGroup]="commetForm" (ngSubmit)="commentSubmit()" >
+       
+        <div class="form-group mb-4">
+          <label for="comment">Comment:</label>
+          <div style="display: flex; justify-content: end;" >
+            <button type="submit"  mat-raised-button color="primary" >Post</button>
+          </div>
+          <textarea
+            id="comment"
+            name="comment"
+          formControlName="comment"
+            rows="2"
+            cols="50"
+            required
+          ></textarea>
+        </div>
+      
+        <!-- Add Bootstrap classes for button styling -->
+      </form>
+  
+  
+  <div *ngIf="reviews.length!=0"  style="height: 300px; overflow-y: scroll;" >
+    <div  *ngFor="let items of reviews" class="container" style="display: flex; flex-direction: column;" >
+  
+      <h5> {{items.user_id.name}} </h5>
+    
+      <p> {{items.comment}} </p>
+      </div>
+        </div>
+  </div>
+<!-- card -->
+<div class="content text-center">
 
-<section>
-  <div class="comment-rating-box">
-    <h3>Add Comment and Rating</h3>
-    <form  >
-      <div class="form-group">
-        <label for="comment">Comment:</label>
-        <textarea
-          id="comment"
-          name="comment"
-        
-          #comment="ngModel"
-          rows="4"
-          cols="50"
-          required
-        ></textarea>
+  <div class="ratings">
+
+      <span class="product-rating">4.6</span><span>/5</span>
+      <div class="stars">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
       </div>
-      <div class="form-group">
-        <label for="rating">Rating:</label>
-        <input
-          type="number"
-          id="rating"
-          name="rating"
-        
-         
-          min="1"
-          max="5"
-          required
-        />
+
+      <div class="rating-text">
+          
+          <span>46 ratings & 15 reviews</span>
+
       </div>
-      <button type="submit">Submit</button>
-    </form>
+      
   </div>
   
+</div>
+<!-- card -->
+
+    </div>
+
+
+ 
 </section>
+
 
 
 <app-footer></app-footer>
