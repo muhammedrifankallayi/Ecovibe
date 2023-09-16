@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Restaurant, Amenties, Surroundings, items } from '../state/types/admintype';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditFacilityComponent } from '../edit-facility/edit-facility.component';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,6 +11,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./facilities.component.css']
 })
 export class FacilitiesComponent implements OnInit {
+
+
+  constructor(private service: AdminService ,private dialog:MatDialog) { }
+
+
   ngOnInit(): void {
     this.service.getRestaurantData().subscribe((res: any) => {
       this.restaurants = res.data
@@ -17,7 +24,6 @@ export class FacilitiesComponent implements OnInit {
 
   this.service.getAmenties().subscribe((res:any)=>{  this.amenties = res.data  })
   }
-  constructor(private service: AdminService) { }
 
   action: boolean = true
 
@@ -149,14 +155,23 @@ export class FacilitiesComponent implements OnInit {
 
   editSurroudings(index:number,name:string){
     const data = {index,name}
-  this.service.editSurroundings(data).subscribe((res)=>{
-    alert("updated surr")
-  })
+     
 
   }
 
-  editRestaurant(index:number,name:string){
-          
+  editRestaurant(data:any){
+    
+    this.dialog.open(EditFacilityComponent,{
+      width:"650px",
+      data:{data,restaurant:true}
+     })
+  }
+
+  editAmenties(data:any){
+    this.dialog.open(EditFacilityComponent,{
+      width:"650px",
+      data:{data,Amenties:true}
+     })
   }
 
 

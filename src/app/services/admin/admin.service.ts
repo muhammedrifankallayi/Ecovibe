@@ -132,11 +132,11 @@ resortCharts(){
 editSurroundings(data:any){
 return this.http.patch(`${serverURL}/editsurroundingd`,{data})
 }
-editRestaurant(data:any){
-  return this.http.patch(`${serverURL}/editrestaurant`,{data})
+editRestaurant(data:any,id:any){
+  return this.http.patch(`${serverURL}/editrestaurant`,{data,id})
   }
-  editAmenties(data:any){
-    return this.http.patch(`${serverURL}/editamenties`,{data})
+  editAmenties(data:any,id:string){
+    return this.http.patch(`${serverURL}/editamenties`,{data,id})
     }
 
 
