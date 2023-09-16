@@ -30,7 +30,7 @@ export class LoginComponent {
     const data = this.formData.value
 
 this.service.login(data).subscribe((res:any)=>{
-      console.log(res.message);
+      console.log(res.message,"PPO");
  
       localStorage.setItem("adminToken",res.token)
 

@@ -17,7 +17,7 @@ import { ChatListComponent } from './chat-list/chat-list.component';
 
 const route:Routes = [
   { path:'',component:LoginComponent,canActivate:[AdminAuthGuard] },
-  {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AdminAuthGuard]},
   {path:'bookings',component:BookingsComponent},
   {path:'about',component:AboutComponent },
   {path:"profile",component:ProfileComponent},

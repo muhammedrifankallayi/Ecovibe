@@ -17,8 +17,9 @@
   <section id="stats-subtitle">
   <div class="row">
     <div class="col-12 mt-3 mb-1">
-      <h4 class="text-uppercase">Statistics With Subtitle</h4>
-      <p>Statistics on minimal cards with Title &amp; Sub Title.</p>
+      <h1 style="text-align: center;" >ADMIN DASHBOARD</h1>
+      <h4 class="text-uppercase">Statistics of Data</h4>
+      <p>Statistics on users ,resorts and sales &amp; with Graph.</p>
     </div>
   </div>
 
@@ -37,7 +38,7 @@
                 <span>Yearly wise report</span>
               </div>
               <div class="align-self-center">
-                <h1>18,000</h1>
+                <h1> {{userLenght}} </h1>
               </div>
             </div>
           </div>
@@ -51,14 +52,14 @@
           <div class="card-body cleartfix">
             <div class="media align-items-stretch">
               <div class="align-self-center">
-                <i class="icon-speech warning font-large-2 mr-2"></i>
+                <i class="icon-pointer warning font-large-2 mr-2"></i>
               </div>
               <div class="media-body">
-                <h4>Feedback</h4>
-                <span>Users feedback count</span>
+                <h4>Resorts</h4>
+                <span>Total resorts approved by Admin</span>
               </div>
               <div class="align-self-center"> 
-                <h1>84,695</h1>
+                <h1>{{resortLenght}}</h1>
               </div>
             </div>
           </div>
@@ -74,11 +75,11 @@
           <div class="card-body cleartfix">
             <div class="media align-items-stretch">
               <div class="align-self-center">
-                <h1 class="mr-1">$76,456.00</h1>
+                <h1 class="mr-2"  > {{saleLenght}} Items </h1>
               </div>
               <div class="media-body">
-                <h4>Resorts</h4>
-                <span>Total registered resorts</span>
+                <h4  >Sales</h4>
+                <span>Total count sales this year</span>
               </div>
               <div class="align-self-center">
                 <i class="icon-graph danger font-large-2 ml-1"></i>
@@ -95,11 +96,11 @@
           <div class="card-body cleartfix">
             <div class="media align-items-stretch">
               <div class="align-self-center">
-                <h1 class="mr-2">$36,000.00</h1>
+                <h1 class="mr-2">₹ {{salesAmount}} </h1>
               </div>
               <div class="media-body">
-                <h4>Total Cost</h4>
-                <span>Monthly Cost</span>
+                <h4>Total Profit</h4>
+                <span>Sale amount till now</span>
               </div>
               <div class="align-self-center">
                 <i class="icon-wallet success font-large-2"></i>
@@ -116,18 +117,24 @@
     
     
       <!-- dummy data -->
-<div  class="row"  >
+<div  class="row "  >
 
-      <div class="col-md-6"  >
+      <div class="col-md-6 borderline"  >
         
         <canvas id="myChart" width="400" height="200"></canvas>
       
       </div>
     
-      <div  class="col-md-6 " >
+      <div  class="col-md-6  borderline" >
        
       
         <canvas id="myChart2" width="400" height="200"></canvas>
+      </div>
+      <div  class="col-md-6 borderline mb-3 " >
+        <canvas id="myChart3" width="400" height="200"></canvas>
+      </div>
+      <div  class="col-md-6 borderline mb-3" >
+        <canvas id="myChart4" width="400" height="200"></canvas>
       </div>
     
     </div>

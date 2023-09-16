@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component'
 import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
 import {  MatButtonModule} from "@angular/material/button"
+import {  MAT_DIALOG_DATA} from "@angular/material/dialog"
 import {  MatIconModule} from "@angular/material/icon"
 import {MatFormFieldModule}  from "@angular/material/form-field"
 import {  MatCardModule } from "@angular/material/card"
@@ -91,7 +92,8 @@ ChatListComponent,
     MatCardModule,
     MatSelectModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    
     
 
 

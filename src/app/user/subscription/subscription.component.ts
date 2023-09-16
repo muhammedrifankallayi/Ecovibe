@@ -1,4 +1,4 @@
-import { Component ,OnInit } from '@angular/core';
+import { Component ,OnInit ,NgZone} from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
@@ -19,9 +19,10 @@ declare const  Razorpay : any
 
 export class SubscriptionComponent implements  OnInit{
 
-  constructor(private service:UserService ,private toaster:ToastrService ,private router:Router ,private activatedRoute:ActivatedRoute){}
+  constructor(private service:UserService ,private toaster:ToastrService ,private router:Router ,private activatedRoute:ActivatedRoute,private ngzone:NgZone){}
 
   cardItems: any[] = [];
+  FromAdmin:boolean= false
 
   adminId:any
  
@@ -32,6 +33,9 @@ this.service.getSubscriptionData().subscribe((res:any)=>{
      this.cardItems = res.data
      this.activatedRoute.queryParamMap.subscribe((params)=>{
     this.adminId = params.get("id")
+   if(params.get("id")){
+    this.FromAdmin = true
+   }
      })
 })
 
@@ -75,12 +79,17 @@ this.service.getSubscriptionData().subscribe((res:any)=>{
           })
         
             this.toaster.success(res.message)
-            if(this.adminId){
-              this.router.navigate(['/admin']);
+            if(this.FromAdmin){
+              this.ngzone.run(()=>{
+                this.router.navigate(['/admin/dashboard']);
+                this.toaster.success('Payment successful!');
+              })
+             
+            }else{
+              this.router.navigate(['/bookingdone']);
               this.toaster.success('Payment successful!');
             }
-            this.router.navigate(['/bookingdone']);
-            this.toaster.success('Payment successful!');
+           
     
           },(err:any)=>{
             Swal.fire({
