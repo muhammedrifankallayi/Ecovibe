@@ -10,11 +10,7 @@
                     <i class="fa fa-bars"></i>
                 </div>
                 
-                <div class="bar-item-row">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="img-avatar m-r-10 me-3">
-                   
-                    <span class="user-name">David Parbell</span>
-                  </div>
+              
                   
                  
                 <ul class="ah-actions actions">
@@ -72,7 +68,7 @@
                 <div class="mf-content">
                     {{msg.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:00</small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance}} </small>
             </div>
         </div>
         
@@ -84,7 +80,7 @@
                 <div class="mf-content">
                    {{msg.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:30</small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance}}</small>
             </div>
         </div>
     </div>
@@ -100,7 +96,7 @@
                <form [formGroup]="FormData" (ngSubmit)="submit()" >
                     <input type="text"  class="form-control" formControlName="text"  placeholder="text anything...." >
                     <button  mat-raised-button [disabled]="FormData.invalid"  color="primary" ><mat-icon> near_me</mat-icon></button>
-              
+             
                 </form>
 
             </div>

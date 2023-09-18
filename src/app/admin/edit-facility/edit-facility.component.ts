@@ -1,6 +1,6 @@
-import { Component ,OnInit ,Inject} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA ,MatDialogRef} from '@angular/material/dialog';
+import { Component ,OnInit ,Inject, ElementRef, ViewChild ,NgZone} from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA ,MatDialogRef ,MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { AdminService } from 'src/app/services/admin/admin.service';
@@ -11,14 +11,28 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 })
 export class EditFacilityComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any , private service:AdminService ,private dialogref:MatDialogRef<EditFacilityComponent>,private router:Router){}
+  
+
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any ,
+   private service:AdminService ,private dialogref:MatDialogRef<EditFacilityComponent>,
+   private router:Router,private fb: FormBuilder, private dialog:MatDialog, private ngZone:NgZone){
+  
+
+ 
+
+  }
 ngOnInit(): void {
   console.log(this.data.data.name);
 this.patchValue()
   
 }
 
-
+itemForm = new FormGroup({
+  name:new FormControl("",[Validators.required]),
+  distance_From_Resort:new FormControl("",[Validators.required]),
+  id:new FormControl("")
+})
 
 FormDataRestaurant = new FormGroup({
   name:new FormControl("",[Validators.required]),
@@ -38,7 +52,18 @@ patchValue(){
     name:this.data.data.name,
     distance:this.data.data.distance
   })
+
+  this.itemForm.patchValue({
+    name:this.data.data.name,
+    distance_From_Resort:this.data.data.distance_From_Resort,
+    id:this.data.data._id
+  })
 }
+
+
+
+
+
 
 
 submit(){
@@ -49,7 +74,7 @@ submit(){
 
       this.dialogref.close()
   })
-  }else{
+  }else if(this.data.Amenties){
     const formdata = this.FormDataAmentis.value
     const id = this.data.data._id 
     this.service.editAmenties(formdata,id).subscribe((res)=>{
@@ -57,9 +82,30 @@ submit(){
       this.dialogref.close()
 
     })
+  }else{
+const data = this.itemForm.value
+console.log(data);
+
+
+  this.service.editSurroundings(data).subscribe((res)=>{
+    this.dialogref.close()
+   
+  })
+    
   }
+
+
 }
 
+
+editItem(data:any){
+  this.dialog.open(EditFacilityComponent,{
+    width:"600px",
+    data:{data,item:true,parent_id:this.data.data._id}
+  }).afterClosed().subscribe(()=>{
+    this.dialogref.close()
+  })
+}
 
 
 

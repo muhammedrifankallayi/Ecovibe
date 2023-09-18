@@ -1,6 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
 
-constructor(private service:UserService, private route:Router){
+constructor(private service:UserService, private route:Router , private toaster:ToastrService){
 
 }
 CopyText:string=''
@@ -31,6 +32,17 @@ CopyText:string=''
     const queryParams = {id:id}
     this.route.navigate(['/singleView'],{queryParams:queryParams})
    
+  }
+
+  addToWhishlist(id:string){
+
+this.service.addToWishList(id).subscribe((res)=>{
+  this.toaster.success("added to whishlist")
+  
+},(err)=>{
+  this.toaster.error(err.error.message)
+})
+
   }
 
  

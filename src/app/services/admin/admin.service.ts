@@ -130,7 +130,7 @@ resortCharts(){
 }
 
 editSurroundings(data:any){
-return this.http.patch(`${serverURL}/editsurroundingd`,{data})
+return this.http.patch(`${serverURL}/editSurroundings`,{data})
 }
 editRestaurant(data:any,id:any){
   return this.http.patch(`${serverURL}/editrestaurant`,{data,id})

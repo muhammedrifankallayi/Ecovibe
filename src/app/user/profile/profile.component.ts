@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import { User } from 'src/app/super-Admin/state/model/user.model';
 import Swal from 'sweetalert2';
@@ -21,13 +22,13 @@ src:any
 ngOnInit(): void {
   this.loadProfile()
 
-
+this.wishLists()
 
 
 
 
 }
-  constructor(private router:Router,private http:HttpClient  ,private service:UserService){}
+  constructor(private router:Router,private http:HttpClient  ,private service:UserService,private toaster:ToastrService){}
 
 // Set the default active tab
 
@@ -159,6 +160,32 @@ if(this.FormData.valid){
 
 
 }
+
+wishlistData:any
+
+wishLists(){
+  this.service.getWishList().subscribe((res)=>{
+this.wishlistData = res
+console.log(res);
+
+  })
+}
+
+
+
+
+RemoveFromWish(id:string){
+   this.service.removeWishlist(id).subscribe((res:any)=>{
+    this.toaster.show(res.message)
+    this.ngOnInit()
+   })
+}
+
+singleView(id:string){
+  const queryParams = {id:id}
+  this.router.navigate(['/singleView'],{queryParams:queryParams})
+}
+
 
 
 }

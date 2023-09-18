@@ -52,6 +52,7 @@ review_id:any
       
       this.toaster.success("Done")
     })
+  
   }
   
   
@@ -63,8 +64,9 @@ FormData = new FormGroup({
   address :  new FormControl("",[Validators.required]),
   mobile: new FormControl("",[Validators.required]),
   resort_id  : new FormControl(),
-  room_id: new FormControl()
- 
+  room_id: new FormControl(),
+  price:new FormControl("")
+  
 })
 
 
@@ -116,7 +118,7 @@ this.service.placeBooking(data).subscribe((res:any)=>{
     handler: (response: any) => {
       if (response.razorpay_payment_id) {
         const paydata={
-          amount:res.amount,
+          amount:res.amount*100,
           booking_id : res._id,
           paymentId:response.razorpay_payment_id
         }

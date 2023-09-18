@@ -1,8 +1,8 @@
 <div class="wrapper">
    <app-nav></app-nav>
-   <div class="container" >
+   <div class="container mb-3" >
 
-
+      
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
       <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
@@ -19,40 +19,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12"> 
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="align-self-center">
-                        <i class="icon-pencil primary font-large-2 float-left"></i>
-                      </div>
-                      <div class="media-body text-right">
-                        <h3>278</h3>
-                        <span>New Posts</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="align-self-center">
-                        <i class="icon-speech warning font-large-2 float-left"></i>
-                      </div>
-                      <div class="media-body text-right">
-                        <h3>156</h3>
-                        <span>New Comments</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
+            
+           
+          </div>
+        
+          <div class="row">
             <div class="col-xl-3 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
@@ -62,8 +34,8 @@
                         <i class="icon-graph success font-large-2 float-left"></i>
                       </div>
                       <div class="media-body text-right">
-                        <h3>64.89 %</h3>
-                        <span>Bounce Rate</span>
+                        <h3> <span><strong>4.1</strong></span> /5</h3>
+                        <span>AVG Rating </span>
                       </div>
                     </div>
                   </div>
@@ -79,28 +51,25 @@
                         <i class="icon-pointer danger font-large-2 float-left"></i>
                       </div>
                       <div class="media-body text-right">
-                        <h3>423</h3>
-                        <span>Total Visits</span>
+                        <h3> {{resort}} </h3>
+                        <span>Location</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        
-          <div class="row">
             <div class="col-xl-3 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
                   <div class="card-body">
                     <div class="media d-flex">
-                      <div class="media-body text-left">
-                        <h3 class="danger">278</h3>
-                        <span>New Projects</span>
-                      </div>
                       <div class="align-self-center">
-                        <i class="icon-rocket danger font-large-2 float-right"></i>
+                        <i class="icon-speech warning font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>{{totalBookings}} </h3>
+                        <span>Total Bookings</span>
                       </div>
                     </div>
                   </div>
@@ -113,8 +82,8 @@
                   <div class="card-body">
                     <div class="media d-flex">
                       <div class="media-body text-left">
-                        <h3 class="success">156</h3>
-                        <span>New Clients</span>
+                        <h3 class="success">2</h3>
+                        <span>Visited Clients</span>
                       </div>
                       <div class="align-self-center">
                         <i class="icon-user success font-large-2 float-right"></i>
@@ -131,8 +100,8 @@
                   <div class="card-body">
                     <div class="media d-flex">
                       <div class="media-body text-left">
-                        <h3 class="warning">64.89 %</h3>
-                        <span>Conversion Rate</span>
+                        <h3 class="warning"> {{resortData.subcription_End | date }} </h3>
+                        <span>SubscriptionEnd</span>
                       </div>
                       <div class="align-self-center">
                         <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -159,17 +128,14 @@
                 </div>
               </div>
             </div>
-          </div>
-        
-          <div class="row">
             <div class="col-xl-3 col-sm-6 col-12">
               <div class="card">
                 <div class="card-content">
                   <div class="card-body">
                     <div class="media d-flex">
                       <div class="media-body text-left">
-                        <h3 class="primary">278</h3>
-                        <span>New Posts</span>
+                        <h3 class="primary"> {{totalPictures}} </h3>
+                        <span>Gallery pictures</span>
                       </div>
                       <div class="align-self-center">
                         <i class="icon-book-open primary font-large-2 float-right"></i>
@@ -188,11 +154,11 @@
                   <div class="card-body">
                     <div class="media d-flex">
                       <div class="media-body text-left">
-                        <h3 class="warning">156</h3>
-                        <span>New Comments</span>
+                        <h3 class="warning"> {{totalreviews}} </h3>
+                        <span>Reviews</span>
                       </div>
                       <div class="align-self-center">
-                        <i class="icon-bubbles warning font-large-2 float-right"></i>
+                        <i class=" icon-direction danger font-large-2 float-right"></i>
                       </div>
                     </div>
                     <div class="progress mt-1 mb-0" style="height: 7px;">
@@ -202,48 +168,10 @@
                 </div>
               </div>
             </div>
-        
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="media-body text-left">
-                        <h3 class="success">64.89 %</h3>
-                        <span>Bounce Rate</span>
-                      </div>
-                      <div class="align-self-center">
-                        <i class="icon-cup success font-large-2 float-right"></i>
-                      </div>
-                    </div>
-                    <div class="progress mt-1 mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="media-body text-left">
-                        <h3 class="danger">423</h3>
-                        <span>Total Visits</span>
-                      </div>
-                      <div class="align-self-center">
-                        <i class="icon-direction danger font-large-2 float-right"></i>
-                      </div>
-                    </div>
-                    <div class="progress mt-1 mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
+        
+       
         </section>
         
         <section id="stats-subtitle">
@@ -264,8 +192,8 @@
                       <i class="icon-pencil primary font-large-2 mr-2"></i>
                     </div>
                     <div class="media-body">
-                      <h4>Total Posts</h4>
-                      <span>Monthly blog posts</span>
+                      <h4>FAQ</h4>
+                      <span>quesions asked by users</span>
                     </div>
                     <div class="align-self-center">
                       <h1>18,000</h1>
@@ -282,14 +210,14 @@
                 <div class="card-body cleartfix">
                   <div class="media align-items-stretch">
                     <div class="align-self-center">
-                      <i class="icon-speech warning font-large-2 mr-2"></i>
+                      <i class="icon-bubbles warning font-large-2 mr-2"></i>
                     </div>
                     <div class="media-body">
-                      <h4>Total Comments</h4>
-                      <span>Monthly blog comments</span>
+                      <h4>Chats </h4>
+                      <span>connections with users</span>
                     </div>
                     <div class="align-self-center"> 
-                      <h1>84,695</h1>
+                      <h1>0</h1>
                     </div>
                   </div>
                 </div>
@@ -305,11 +233,11 @@
                 <div class="card-body cleartfix">
                   <div class="media align-items-stretch">
                     <div class="align-self-center">
-                      <h1 class="mr-2">$76,456.00</h1>
+                      <h1 class="mr-2">4 Likes</h1>
                     </div>
                     <div class="media-body">
-                      <h4>Total Sales</h4>
-                      <span>Monthly Sales Amount</span>
+                      <h4>Total whishes</h4>
+                      <span>Total likes by users</span>
                     </div>
                     <div class="align-self-center">
                       <i class="icon-heart danger font-large-2"></i>
@@ -326,11 +254,11 @@
                 <div class="card-body cleartfix">
                   <div class="media align-items-stretch">
                     <div class="align-self-center">
-                      <h1 class="mr-2">$36,000.00</h1>
+                      <h1 class="mr-2">₹{{totalSaleAmount}} </h1>
                     </div>
                     <div class="media-body">
-                      <h4>Total Cost</h4>
-                      <span>Monthly Cost</span>
+                      <h4>Total salesAmount</h4>
+                      <span>Yearly Amount</span>
                     </div>
                     <div class="align-self-center">
                       <i class="icon-wallet success font-large-2"></i>
@@ -346,9 +274,25 @@
 
 
 
+      <!-- charts -->
 
+      <div  class="row  "  >
 
+        <div class="col-md-6 borderline">
+          
+          <canvas id="myChart" width="400" height="200"></canvas>
+        
+        </div>
+      
+        <div  class="col-md-6  borderline" >
+         
+        
+          <canvas id="myChart2" width="400" height="200"></canvas>
+        </div>
+       
+      
 
+      </div>
    </div>
 </div>
 

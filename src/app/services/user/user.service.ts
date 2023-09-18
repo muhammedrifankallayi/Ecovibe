@@ -112,6 +112,18 @@ submitRating(data:any){
 }
 
 
+addToWishList(id:string){
+  return this.http.post(`${serverURL}/addtowishlist`,{id})
+}
+getWishList(){
+  return this.http.get(`${serverURL}/getwishlist`)
+}
+
+removeWishlist(id:string){
+  return this.http.patch(`${serverURL}/removefromwish`,{id})
+}
+
+
 
 }
 

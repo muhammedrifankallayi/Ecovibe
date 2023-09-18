@@ -153,8 +153,13 @@ export class FacilitiesComponent implements OnInit {
 
   //edits
 
-  editSurroudings(index:number,name:string){
-    const data = {index,name}
+  editSurroudings(data:any){
+  this.dialog.open(EditFacilityComponent,{
+    width:"700px",
+    data:{data,surrounding:true}
+  }).afterClosed().subscribe(()=>{
+    location.reload()
+  })
      
 
   }
@@ -164,6 +169,8 @@ export class FacilitiesComponent implements OnInit {
     this.dialog.open(EditFacilityComponent,{
       width:"650px",
       data:{data,restaurant:true}
+     }).afterClosed().subscribe(()=>{
+      location.reload()
      })
   }
 
@@ -171,6 +178,8 @@ export class FacilitiesComponent implements OnInit {
     this.dialog.open(EditFacilityComponent,{
       width:"650px",
       data:{data,Amenties:true}
+     }).afterClosed().subscribe(()=>{
+      location.reload()
      })
   }
 

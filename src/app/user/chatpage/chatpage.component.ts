@@ -1,4 +1,4 @@
-import { Component ,OnInit } from '@angular/core';
+import { Component ,ElementRef,OnInit, ViewChild ,AfterViewChecked } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,8 +9,13 @@ import  {Socket} from "ngx-socket-io"
   templateUrl: './chatpage.component.html',
   styleUrls: ['./chatpage.component.css']
 })
-export class ChatpageComponent implements OnInit {
+export class ChatpageComponent implements OnInit ,AfterViewChecked  {
 constructor(private activatedRoute:ActivatedRoute,private service:UserService,private toaster:ToastrService ,private socket:Socket){}
+  ngAfterViewChecked(): void {
+   this.scrollToBottom()
+  }
+  
+ 
 
 adminId:any
 chatdata:any
@@ -20,7 +25,9 @@ ngOnInit(): void {
   this.activatedRoute.queryParamMap.subscribe((param)=>{
     this.adminId = param.get("adminId")
      this.userId = param.get("userId")
+  
   })
+  
 
   this.getChatData()
   this.socket.emit('setup',this.userId)
@@ -31,9 +38,9 @@ ngOnInit(): void {
       }
    
     this.chatdata.push(newMessage);
-
-})
   
+})
+
 }
 
 
@@ -44,6 +51,7 @@ getChatData(){
    this.socket.emit('join',res.cId)
    this.chatdata = res.data
    this.userId = res.id
+
   })
 }
 
@@ -60,7 +68,18 @@ submit(){
    this.socket.emit('chatMessage',res.data)
    this.chatdata.push(res.data)
    this.FormData.reset()
+   
   })
+}
+
+
+  @ViewChild('messagesContainer')
+  private messagesContainer!: ElementRef;
+
+
+scrollToBottom() {
+  this.toaster.success("scroll")
+  this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
 }
 
 

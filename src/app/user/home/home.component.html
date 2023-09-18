@@ -1,4 +1,27 @@
 <app-nav></app-nav>
+
+
+<section   class="banner_img " >
+
+  <div class="card bg-dark text-white">
+    <img src="https://images.unsplash.com/photo-1618396755206-ff25b5737b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" class="card-img" alt="...">
+    <div class="card-img-overlay text-center">
+      <h1 class="card-titles"><strong>Seaside Serenity <br>  Awaits: Explore Our Coastal Haven</strong></h1>
+      <p class="card-text  card-contents">Discover an oasis of relaxation, adventure, and luxury at [Resort Name]. Nestled in the heart of [Location], our resort offers a one-of-a-kind escape from the ordinary. Whether you're seeking a romantic getaway, a family vacation, or a memorable event venue, we have everything you need to make your stay truly exceptional.</p>
+	  <div class="container-button">
+		<div class="btn me-2">
+			<span>Explore  now</span>
+		</div>
+		<div class="btn">
+			<span>Contact now</span>
+		</div>
+	</div>
+    </div>
+  </div>
+
+</section>
+
+
 <section class="container search-bar" >
   <mat-form-field appearance="outline" class="example-full-width" width="100%">
     <mat-label>search</mat-label>
@@ -12,74 +35,30 @@
 </section>
 
 
-<section class="container main-body" >
-
-<div>
-
-<h1>Top Resort in Dubai</h1>
-
-</div>
 
 
-
-
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div  *ngFor="let item of (resorts | search: CopyText )"   class="col">
-      <div  (click)="showDetails(item._id)"   class="card">
-        <img width="200px" height="250px" src="http://localhost:4000/public/{{item.Banner_img}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h3 class="card-title"> <strong>{{item.resortName | text }}</strong>  <span style="font-size: small;"> {{item.location}} </span></h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img width="200px" height="250px" src="https://img.traveltriangle.com/blog/wp-content/uploads/2021/10/Luxury-resorts-in-the-world.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img width="200px" height="250px" src="https://img.traveltriangle.com/blog/wp-content/uploads/2021/10/Luxury-resorts-in-the-world.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img width="200px" height="250px" src="https://www.travelandleisure.com/thmb/hQypIH5Lfa2GRW-Vj_AJvPcXAg8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/best-india-resort-hotel-the-oberoi-udaivilas-udaipur-00-INRESHOTWB21-aa03123e4cc540af80b5c1287ee12e55.jpg" class="card-img-top" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-</section>
 
 <section>
 
   <div class="card mb-3 container" >
-    <div *ngFor="let item of resorts "  (click)="showDetails(item._id)" class="row g-3 mb-2">
-      <div class="col-md-4">
+    <div *ngFor="let item of (resorts | search: CopyText ) "   class="row g-3 mb-2">
+      <div class="col-md-4" (click)="showDetails(item._id)" >
         <img height="350px" width="100%" src="http://localhost:4000/public/{{item.Banner_img}}" class="rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <div style="display: flex; justify-content: end; " >
+            <button mat-raised-button color="warn" (click)="addToWhishlist(item._id)" >Add to Vishlist   </button>
+         </div>
+          <h3 class="card-title"> {{item.resortName}} </h3>
+          <h5> {{item.resort_type}}  resort</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <P><strong>RATING  </strong> 3.5/5</P>
+          <button mat-raised-button  color="primary" (click)="showDetails(item._id)" >Visit</button>
+          
         </div>
+       
       </div>
     </div>
   </div>
@@ -95,53 +74,152 @@
 
   <div>
   
-  <h1>Beach resort</h1>
+  <h1>Resort Types</h1>
   
   </div>
   
   
   
   
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card">
-          <img width="200px" height="250px" src="https://www.travelandleisure.com/thmb/hQypIH5Lfa2GRW-Vj_AJvPcXAg8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/best-india-resort-hotel-the-oberoi-udaivilas-udaipur-00-INRESHOTWB21-aa03123e4cc540af80b5c1287ee12e55.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img width="200px" height="250px" src="https://img.traveltriangle.com/blog/wp-content/uploads/2021/10/Luxury-resorts-in-the-world.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img width="200px" height="250px" src="https://img.traveltriangle.com/blog/wp-content/uploads/2021/10/Luxury-resorts-in-the-world.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img width="200px" height="250px" src="https://www.travelandleisure.com/thmb/hQypIH5Lfa2GRW-Vj_AJvPcXAg8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/best-india-resort-hotel-the-oberoi-udaivilas-udaipur-00-INRESHOTWB21-aa03123e4cc540af80b5c1287ee12e55.jpg" class="card-img-top" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="weather-card one">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">Beach Resorts</h1>
+						<h3 class="location">Typical Beach resorts</h3>
+						<p class="temp">
+							<span class="temp-value">20</span>
+							<span class="deg">Resorts</span>
+						
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+							<li class="active">
+								<span class="date">A beach resort is a type of vacation destination typically located along the coastlines of oceans, seas, or even lakes.</span>
+								<span class="lnr lnr-sun condition">
+									<span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+								</span>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="weather-card rain">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">SPA Resorts</h1>
+						<h3 class="location">Most people choosing Resort</h3>
+						<p class="temp">
+							<span class="temp-value">37</span>
+							<span class="deg">Resorts</span>
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+							<li class="active">
+								<span class="date">Spa resorts are specialized vacation destinations that focus on health, relaxation, and rejuvenation through a variety of spa and wellness services</span>
+							
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="row">
+		<div class="col">
+			<div class="weather-card one">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">Moutain Resorts</h1>
+						<h3 class="location">Enjoy your in highest destination</h3>
+						<p class="temp">
+							<span class="temp-value">  20</span>
+							<span class="deg">Resorts</span>
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+							<li class="active">
+								<span class="date">Enjoy your Vacation with moutain arease hunding and water falls and also private water walls are available</span>
+								<span class="lnr lnr-sun condition">
+									<span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+								</span>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="weather-card rain">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">Greenary Resorts</h1>
+						<h3 class="location">Enjoy your vecation with nature</h3>
+						<p class="temp">
+							<span class="temp-value">16</span>
+							<span class="deg">Resorts</span>
+						
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+							<li class="active">
+								<span class="date">greenary tourist areas in south india like kerala , tamilnadu and lakshadeeps , must visit places </span>
+								<span class="lnr lnr-sun condition">
+								</span>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
   
   
   
   
   </section>
+
+  <app-footer></app-footer>
