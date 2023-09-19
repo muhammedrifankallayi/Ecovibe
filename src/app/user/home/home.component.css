@@ -48,11 +48,11 @@ body {
 }
 .weather-card .top .wrapper .mynav .lnr-chevron-left {
   display: inline-block;
-  float: left;
+  
 }
 .weather-card .top .wrapper .mynav .lnr-cog {
   display: inline-block;
-  float: right;
+ 
 }
 .weather-card .top .wrapper .heading {
   margin-top: 20px;
@@ -136,7 +136,7 @@ body {
 .weather-card .bottom .wrapper .forecast li .condition {
   display: inline-block;
   vertical-align: middle;
-  float: right;
+ 
   font-size: 25px;
 }
 .weather-card .bottom .wrapper .forecast li .condition .temp {

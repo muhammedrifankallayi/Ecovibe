@@ -1,10 +1,10 @@
-<div class="wrapper">
+<div    class="wrapper">
     <app-nav></app-nav>
-<div class="container" >
+<div   class="container" >
 
-    <div class="container bootstrap snippets bootdey">
+    <div  #chatContainer class="container bootstrap snippets bootdey pb-5">
     <div >
-      
+       <button (click)="scrollToBottom()" >click</button>
         
         <div class="ms-body">
             <div class="action-header clearfix">
@@ -74,7 +74,7 @@
                 <div class="mf-content">
                 {{item.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:00</small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i>{{item.createdAt | adminDistence }} </small>
             </div>
         </div>
         
@@ -86,7 +86,7 @@
                 <div class="mf-content">
                 {{item.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:30</small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i>{{item.createdAt | adminDistence }} </small>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
         <div class="chat-info">
             <h3 class="user-name"> {{item.user_id.name}} </h3>
             <p class="last-message">{{item.lastmessage}}</p>
-            <span class="timestamp">{{item.updatedAt }}</span>
+            <span class="timestamp">{{item.createdAt | adminDistence }}</span>
         </div>
     </div>
   

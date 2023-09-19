@@ -5,7 +5,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SearchComponent } from './search/search.component';
 import { OtpComponent } from './otp/otp.component';
 import { HosterReqComponent } from './hoster-req/hoster-req.component';
 import { SuccessComponent } from './success/success.component';
@@ -19,6 +18,7 @@ import { BookingDoneComponent } from './booking-done/booking-done.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ChatpageComponent } from './chatpage/chatpage.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const route:Routes = [
@@ -28,7 +28,7 @@ const route:Routes = [
   { path:'home',component:HomeComponent,canActivate:[UserAuthGuard]},
   {path:'profile',component:ProfileComponent},
   { path:'profile/edit',component:ProfileComponent },
-  {path:"search",component:SearchComponent},
+  {path:"settings",component:SettingsComponent},
   {path:"otp",component:OtpComponent},
   {path:"hoster-req",component:HosterReqComponent},
   {path:"approval",component:SuccessComponent},

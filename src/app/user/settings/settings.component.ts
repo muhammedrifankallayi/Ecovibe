@@ -1,11 +1,11 @@
 import { Component, ElementRef, Input, ViewChild ,OnInit ,AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.css']
 })
-export class SearchComponent  implements OnInit ,AfterViewInit {
+export class SettingsComponent  implements OnInit ,AfterViewInit {
   @ViewChild('inputField')
   inputField!: ElementRef;
 

@@ -24,9 +24,11 @@ import { NgChartsModule } from 'ng2-charts';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+   
   
   
 
@@ -46,10 +48,13 @@ import { NgChartsModule } from 'ng2-charts';
     ToastrModule.forRoot(),
     FormsModule,
     SocketIoModule.forRoot({url:"http://localhost:4000"}),
-    NgChartsModule
+    NgChartsModule,
+    
+  
     
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

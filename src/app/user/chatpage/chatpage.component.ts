@@ -1,4 +1,4 @@
-import { Component ,ElementRef,OnInit, ViewChild ,AfterViewChecked } from '@angular/core';
+import { Component ,OnInit ,AfterViewInit, HostListener, ViewChild, ElementRef} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,13 +9,11 @@ import  {Socket} from "ngx-socket-io"
   templateUrl: './chatpage.component.html',
   styleUrls: ['./chatpage.component.css']
 })
-export class ChatpageComponent implements OnInit ,AfterViewChecked  {
+export class ChatpageComponent implements OnInit  {
 constructor(private activatedRoute:ActivatedRoute,private service:UserService,private toaster:ToastrService ,private socket:Socket){}
-  ngAfterViewChecked(): void {
-   this.scrollToBottom()
-  }
-  
- 
+  @ViewChild('chatContainer')
+  chatContainer!: ElementRef;
+
 
 adminId:any
 chatdata:any
@@ -25,7 +23,6 @@ ngOnInit(): void {
   this.activatedRoute.queryParamMap.subscribe((param)=>{
     this.adminId = param.get("adminId")
      this.userId = param.get("userId")
-  
   })
   
 
@@ -38,12 +35,14 @@ ngOnInit(): void {
       }
    
     this.chatdata.push(newMessage);
+    setTimeout(() => {
+      this.scrollToBottom()
+    });
   
 })
-
 }
 
-
+// getting chated data
 
 getChatData(){
   this.service.viewChat(this.adminId).subscribe((res:any)=>{
@@ -51,11 +50,13 @@ getChatData(){
    this.socket.emit('join',res.cId)
    this.chatdata = res.data
    this.userId = res.id
-
+   setTimeout(() => {
+    this.scrollToBottom();
+  });
   })
 }
 
-
+// chat input form
 FormData = new FormGroup({
   text:new FormControl("",[Validators.required])
 })
@@ -68,21 +69,18 @@ submit(){
    this.socket.emit('chatMessage',res.data)
    this.chatdata.push(res.data)
    this.FormData.reset()
+
+   setTimeout(()=>{
+    this.scrollToBottom()
+   })
    
   })
 }
 
 
-  @ViewChild('messagesContainer')
-  private messagesContainer!: ElementRef;
-
 
 scrollToBottom() {
-  this.toaster.success("scroll")
-  this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
+  window.scrollTo(0, document.body.scrollHeight)
 }
-
-
-
 
 }

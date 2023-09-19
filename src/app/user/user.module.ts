@@ -10,7 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
-import { SearchComponent } from './search/search.component'
+
 import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
 import {  MatButtonModule} from "@angular/material/button"
@@ -41,6 +41,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { DateDistancePipe } from '../pipes/date-distance.pipe';
 import { ChatpageComponent } from './chatpage/chatpage.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -54,7 +55,7 @@ import { ChatListComponent } from './chat-list/chat-list.component';
     HomeComponent,
     NavComponent,
     ProfileComponent,
-    SearchComponent,
+    SettingsComponent,
     OtpComponent,
     HosterReqComponent,
     SuccessComponent,

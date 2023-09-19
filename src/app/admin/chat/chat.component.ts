@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +13,11 @@ import { Socket } from "ngx-socket-io";
 })
 export class ChatComponent  implements OnInit {
 constructor(private service:AdminService , private activatedRoute:ActivatedRoute ,public toaster:ToastrService , private socket:Socket){}
+
+@ViewChild('chatContainer')
+chatContainer!: ElementRef;
+
+
 userId:any
 ngOnInit(): void {
   this.activatedRoute.queryParamMap.subscribe((param)=>{
@@ -26,6 +31,9 @@ ngOnInit(): void {
       this.chatdata=[]
     }
     this.chatdata.push(message)
+    setTimeout(() => {
+      this.scrollToBottom()
+    } );
   })
  
 }
@@ -40,7 +48,9 @@ getChatdata(){
     this.socket.emit('join',res.cId) 
     console.log(res);
     this.toaster.success("history recored")
-    
+    setTimeout(()=>{
+      this.scrollToBottom()
+    })
   })
 }
 
@@ -57,9 +67,17 @@ submit(){
     this.chatdata.push(res.data)
     this.FormData.reset()
     this.toaster.success("sent")
+    setTimeout(() => {
+      this.scrollToBottom()
+    } );
   },(err:any)=>{
     this.toaster.error(err.error.message)
   })
+}
+
+
+scrollToBottom() {
+  window.scrollTo(0, document.body.scrollHeight)
 }
 
 }

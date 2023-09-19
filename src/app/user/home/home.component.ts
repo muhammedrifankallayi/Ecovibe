@@ -45,5 +45,18 @@ this.service.addToWishList(id).subscribe((res)=>{
 
   }
 
+
+
+  scrollBy100px() {
+
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const scrollAmount = (120 / 100) * windowHeight;
+
+    // Scroll by the calculated pixel value
+    window.scrollBy(0, scrollAmount);
+    
+  }
+
+
  
 }
