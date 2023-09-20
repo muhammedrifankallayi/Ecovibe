@@ -19,6 +19,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ChatpageComponent } from './chatpage/chatpage.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 const route:Routes = [
@@ -40,7 +41,8 @@ const route:Routes = [
   {path:"bookingdone",component:BookingDoneComponent},
   {path:"notification",component:NotificationsComponent},
   {path:"chatpage",component:ChatpageComponent},
-  {path:"chatlist",component:ChatListComponent}
+  {path:"chatlist",component:ChatListComponent},
+  {path:"resetpassword",component:ResetPasswordComponent}
 ]
 
 @NgModule({

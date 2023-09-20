@@ -43,6 +43,13 @@ import { ChatpageComponent } from './chatpage/chatpage.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { SettingsComponent } from './settings/settings.component';
 
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { BookingsComponent } from './bookings/bookings.component';
+
+
 
 
 
@@ -74,6 +81,9 @@ NotificationsComponent,
 ChatpageComponent,
 DateDistancePipe,
 ChatListComponent,
+ResetPasswordComponent,
+BookingsComponent,
+
 
 
    
@@ -94,6 +104,9 @@ ChatListComponent,
     MatSelectModule,
     MatIconModule,
     MatBadgeModule,
+    MatDividerModule,
+    MatListModule,
+    MatSlideToggleModule
     
     
 

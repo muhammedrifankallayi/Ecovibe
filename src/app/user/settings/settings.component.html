@@ -1,1 +1,31 @@
-<h1>hai</h1>
+<app-nav></app-nav>
+
+<div class="container" >
+<h2 style="display: flex; align-items: center; font-family:monospace ;" > <mat-icon class="me-1 " >settings</mat-icon>
+    <strong>Settings</strong></h2>
+
+    <mat-list>
+        <div routerLink="/resetpassword"  class="align-center">
+            <mat-icon class="me-2 " matSuffix>key_reset</mat-icon>
+            <mat-list-item   >    <span >Reset Password</span> </mat-list-item>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="align-center" >
+            <mat-icon class="me-2" >check_circle</mat-icon>
+            <mat-list-item> Confirm Password</mat-list-item>
+        </div>
+      
+       
+      
+        <mat-divider></mat-divider>
+
+        <div class="align-center" >
+            <mat-icon class="me-2" >notifications_off</mat-icon>
+            <mat-list-item> Notification   <mat-slide-toggle [(ngModel)]="status"  (click)="statusChange()" > {{statusText}} </mat-slide-toggle  > </mat-list-item>
+           
+        </div>
+
+      </mat-list>
+      
+
+</div>

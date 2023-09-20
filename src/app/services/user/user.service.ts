@@ -123,6 +123,14 @@ removeWishlist(id:string){
   return this.http.patch(`${serverURL}/removefromwish`,{id})
 }
 
+checkPassword(data:any){
+  return this.http.post(`${serverURL}/checkpassword`,{data})
+}
+
+updatePassword(data:any){
+  return this.http.patch(`${serverURL}/updatepassword`,{data})
+}
+
 
 
 }
