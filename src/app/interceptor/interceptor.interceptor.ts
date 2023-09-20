@@ -5,13 +5,14 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user/user.service';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private route:Router) {}
+  constructor(private route:Router , public service:UserService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -37,10 +38,21 @@ if(token){
   })
   console.log(admintoken);
   console.log(token);
+  this.service.isLoading.next(true)
   
   
 
-  return next.handle(newReq);
+  return next.handle(newReq).pipe(
+    finalize(
+      ()=>{
+        setTimeout(()=>{
+
+          this.service.isLoading.next(false)
+
+        },600)
+      }
+    )
+  )
 
 
 }else if (admintoken) {

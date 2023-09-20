@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Room List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Room Type</th>
+          <th>Capacity</th>
+          <th>Price Per Night</th>
+          <th>Amenities</th>
+          <th>Adults</th>
+          <th>Children</th>
+          <th>Beds</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through your room data and display each room -->
+        <tr>
+          <td>{{ room.roomNumber }}</td>
+          <td>{{ room.roomType }}</td>
+          <td>{{ room.capacity }}</td>
+          <td>{{ room.pricePerNight }}</td>
+          <td>{{ room.amenities }}</td>
+          <td>{{ room.adults }}</td>
+          <td>{{ room.childrens }}</td>
+          <td>{{ room.beds }}</td>
+          <td>{{ room.available ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

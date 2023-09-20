@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/super-Admin/state/model/user.model';
 
 import { paydata } from 'src/app/user/state/userType/user.type';
@@ -10,6 +11,8 @@ const serverURL = 'http://localhost:4000'
   providedIn: 'root'
 })
 export class UserService {
+
+public isLoading:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http : HttpClient) { }
 
@@ -131,7 +134,17 @@ updatePassword(data:any){
   return this.http.patch(`${serverURL}/updatepassword`,{data})
 }
 
+getBookings(){
+  return this.http.get(`${serverURL}/getuserbookings`)
+}
 
+viewRoom(resortId:string,roomId:string){
+  return this.http.get(`${serverURL}/viewroom?roomId=${roomId}&resortId=${resortId}`)
+}
+
+CancelBooking(id:string){
+  return this.http.patch(`${serverURL}/cancelbooking`,{id})
+}
 
 }
 

@@ -14,7 +14,7 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { MatToolbarModule }  from "@angular/material/toolbar"
 import { MatInputModule } from '@angular/material/input'
 import {  MatButtonModule} from "@angular/material/button"
-import {  MAT_DIALOG_DATA} from "@angular/material/dialog"
+import {   MatDialogModule} from "@angular/material/dialog"
 import {  MatIconModule} from "@angular/material/icon"
 import {MatFormFieldModule}  from "@angular/material/form-field"
 import {  MatCardModule } from "@angular/material/card"
@@ -46,8 +46,13 @@ import { SettingsComponent } from './settings/settings.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { RoomViewComponent } from './room-view/room-view.component';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -83,6 +88,8 @@ DateDistancePipe,
 ChatListComponent,
 ResetPasswordComponent,
 BookingsComponent,
+RoomViewComponent,
+
 
 
 
@@ -106,7 +113,11 @@ BookingsComponent,
     MatBadgeModule,
     MatDividerModule,
     MatListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
+   
     
     
 

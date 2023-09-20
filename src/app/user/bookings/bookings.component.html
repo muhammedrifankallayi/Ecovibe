@@ -1,3 +1,43 @@
-<app-nav>
-    
-</app-nav>
+<app-nav> </app-nav>
+<div class="container"  *ngIf="!roomShow" >
+    <div  class="mt-2"  *ngFor="let  item of bookingData;let i =index" >
+
+        <mat-card   class="mt-2" >
+            <mat-card-title> Booking {{i+1}} </mat-card-title>
+            <div style="display: flex;align-items: center;" ><mat-card-header class="col-md-6" >
+              
+                <mat-card-subtitle>Booked date  : {{item.date| date}}</mat-card-subtitle>
+                <mat-card-subtitle>Resort  : {{item.resoert_id.resortName}}</mat-card-subtitle>
+                <mat-card-subtitle>Location  : {{item.resoert_id.location}}</mat-card-subtitle>
+                
+              </mat-card-header>
+              <mat-card-header  class="col-md-6" >
+               
+                  <mat-card-subtitle>check In   : {{item.checkIn| date}}</mat-card-subtitle>
+                  <mat-card-subtitle>check Out  : {{item.checkOut | date}}</mat-card-subtitle>
+                  <mat-card-subtitle>Paid amount  : {{item.paid}}</mat-card-subtitle>
+                  
+                </mat-card-header></div>
+            <mat-card-actions style="display: flex;justify-content: end; " >
+                <button mat-raised-button  color="basic" (click)="viewResort(item.resoert_id._id)"  > view Resort </button>
+              <button mat-raised-button color="primary" (click)="ViewRoomdata(item.room_id,item.resoert_id._id)"  >Room Details</button>
+              <button mat-button  color="warn"  (click)="Cancel(item._id)"  >Cancel</button>
+            </mat-card-actions>
+          </mat-card>
+
+
+    </div>
+</div>
+
+
+<div *ngIf="roomShow" >
+    <mat-card>
+        <mat-card-header class="col-md-6" >
+              
+            <mat-card-subtitle>fdsajkv</mat-card-subtitle>
+            <mat-card-subtitle>Resort  </mat-card-subtitle>
+            <mat-card-subtitle>Location  </mat-card-subtitle>
+            
+          </mat-card-header>
+    </mat-card>
+</div>

@@ -1,4 +1,6 @@
 import { Component ,OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -58,5 +60,6 @@ this.service.addToWishList(id).subscribe((res)=>{
   }
 
 
+  
  
 }

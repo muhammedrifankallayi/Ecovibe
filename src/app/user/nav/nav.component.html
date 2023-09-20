@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Bookings</a>
+          <a class="nav-link" routerLink="/bookings"  >Bookings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  routerLink="/chatlist" >Chats</a>
@@ -50,3 +50,10 @@
 
   </div>
 </nav>
+
+
+<section *ngIf="service.isLoading | async"  class="progressDiv">
+ 
+	<mat-spinner></mat-spinner>
+
+  </section>

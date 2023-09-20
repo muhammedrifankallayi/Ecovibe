@@ -1,6 +1,10 @@
 import { Component ,OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressBarMode } from '@angular/material/progress-bar';
+
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,7 +21,7 @@ ngOnInit(): void {
   })
 }
 
-  constructor(private router: Router, private service:UserService) {}
+  constructor(private router: Router, public service:UserService) {}
   shouldShowNav(): boolean {
     // Get the current route URL
     const currentUrl = this.router.url;
@@ -27,9 +31,26 @@ ngOnInit(): void {
   }
 
 Logout(){
-  localStorage.removeItem("token")
-  this.router.navigate(["/login"])
+
+Swal.fire({
+  title:'Logout?',
+  text:"want to logout??",
+  confirmButtonText:"Logout",
+  showCancelButton:true,
+  icon:"question"
+
+}).then((result)=>{
+  if(result.isConfirmed){
+    localStorage.removeItem("token")
+ 
+    this.router.navigate(["/login"])
+  }
+})
+
+ 
 }
+
+
 
 
 }

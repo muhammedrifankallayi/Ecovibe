@@ -57,3 +57,13 @@ nav{
             }
           }
     }
+
+    .progressDiv{
+        position: fixed;
+        width: 100%;
+        top: 50%;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
