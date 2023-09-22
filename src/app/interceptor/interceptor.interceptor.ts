@@ -45,11 +45,11 @@ if(token){
   return next.handle(newReq).pipe(
     finalize(
       ()=>{
-        setTimeout(()=>{
+       
 
           this.service.isLoading.next(false)
 
-        },600)
+    
       }
     )
   )

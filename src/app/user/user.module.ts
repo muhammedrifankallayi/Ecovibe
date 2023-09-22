@@ -52,6 +52,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { RoomViewComponent } from './room-view/room-view.component';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CategoryWiseComponent } from './category-wise/category-wise.component';
 
 
 
@@ -89,6 +90,7 @@ ChatListComponent,
 ResetPasswordComponent,
 BookingsComponent,
 RoomViewComponent,
+CategoryWiseComponent,
 
 
 

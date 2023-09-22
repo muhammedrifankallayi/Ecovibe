@@ -60,6 +60,11 @@ this.service.addToWishList(id).subscribe((res)=>{
   }
 
 
+  categoryView(category:string){
+    const queryParams = {category:category}
+
+    this.route.navigate(['/categorywise'],{queryParams:queryParams})
+  }
   
  
 }

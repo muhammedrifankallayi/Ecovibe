@@ -3,8 +3,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError ,Observable } from 'rxjs';
 import { User } from 'src/app/super-Admin/state/model/user.model';
 import  { subscription } from "src/app/super-Admin/model/adminModel"
+import { environment } from 'src/environments/environment.development';
  
-const serverURL = "http://localhost:4000/superAdmin"
+const serverURL = environment.superAdminUrl
 @Injectable({
   providedIn: 'root'
 })

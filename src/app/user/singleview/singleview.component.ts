@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationExtras, Router  } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
+import { message } from '../state/userType/user.type';
 
 @Component({
   selector: 'app-singleview',
@@ -134,24 +135,8 @@ checkout(){
   })
  }else{
 
-  const room = this.selectedRoomData
-
-  const room_id = room._id
-  const resort_id = this.id
-
-  const navigationExtras: NavigationExtras = {
-    queryParams: {
-      room_id: room_id,
-      resort_id: resort_id,
-    checkin:this.FormData.value.checkin,
-    checkout:this.FormData.value.checkout,
-    review_id:this.latestReview
-    }
-  };
   
-  // Use the Router to navigate to the /checkout route with the parameters
-  this.route.navigate(['/checkout'], navigationExtras);
-
+this.checkRoomAvailable()
  }
  
  
@@ -193,8 +178,64 @@ this.commetForm.reset()
 }
 
 
+dropQuestion(){
+  Swal.fire({
+    title:"Drop question",
+    text:"ask questions to improve our side",
+    input:'text',
+    showConfirmButton:true,
+    showCancelButton:true
+  }).then((result)=>{
+    if(result.isConfirmed){
+      const question = result.value
+     const data ={question:question,id:this.id}
+      this.service.dropQuestions(data).subscribe((res:any)=>{
+        this.toaster.success(res.message)
+      })
 
+    }
+  })
+}
 
+scrollBottom(){
+  window.scrollTo(0,document.body.scrollHeight)
+}
+
+checkRoomAvailable(){
+  const resortId  = this.id
+  const roomId  = this.selectedRoomData._id
+  const data  = {resortId:resortId,roomId:roomId,checkIn:this.FormData.value.checkin,checkOut:this.FormData.value.checkout}
+this.service.checkAvailableOnDate(data).subscribe((res:any)=>{
+  this.toaster.success(res.message)
+
+  const room = this.selectedRoomData
+
+  const room_id = room._id
+  const resort_id = this.id
+
+  const navigationExtras: NavigationExtras = {
+    queryParams: {
+      room_id: room_id,
+      resort_id: resort_id,
+    checkin:this.FormData.value.checkin,
+    checkout:this.FormData.value.checkout,
+    review_id:this.latestReview
+    }
+  };
+  
+  // Use the Router to navigate to the /checkout route with the parameters
+  this.route.navigate(['/checkout'], navigationExtras);
+
+},(err)=>{
+  Swal.fire({
+    text:err.error.message,
+    icon:"warning",
+    confirmButtonText:"Ok"
+  })
+})
+
+}
 
 
 }
+

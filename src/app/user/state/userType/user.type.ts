@@ -4,3 +4,12 @@ export interface paydata{
     userId:string
     paymentId:string
   }
+
+  export interface question{
+    id:string;
+    question:string
+  }
+
+  export interface message{
+    message:string
+  }

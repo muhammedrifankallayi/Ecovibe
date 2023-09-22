@@ -19,7 +19,7 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
 login(data:any){
- return  this.http.post("http://localhost:4000/admin/login",{data})
+ return  this.http.post(`${serverURL}/login`,{data})
 }
 
 

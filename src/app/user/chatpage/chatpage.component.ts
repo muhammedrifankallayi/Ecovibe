@@ -67,6 +67,7 @@ submit(){
   this.service.submitMsg(data).subscribe((res:any)=>{
    this.toaster.success("message sent")
    this.socket.emit('chatMessage',res.data)
+ 
    this.chatdata.push(res.data)
    this.FormData.reset()
 

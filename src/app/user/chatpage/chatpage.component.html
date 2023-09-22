@@ -15,7 +15,7 @@
                 <div class="mf-content">
                     {{msg.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance}} </small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance }} </small>
             </div>
         </div>
         
@@ -27,7 +27,7 @@
                 <div class="mf-content">
                    {{msg.message}}
                 </div>
-                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance}}</small>
+                <small class="mf-date"><i class="fa fa-clock-o"></i> {{msg.createdAt | dateDistance  }}</small>
             </div>
         </div>
     </div>
@@ -49,4 +49,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div  *ngIf="!chatdata" class="container">
+    <h4 style="text-align: center;" >lets start your chattings with resort admin</h4>
 </div>

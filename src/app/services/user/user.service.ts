@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/super-Admin/state/model/user.model';
 
-import { paydata } from 'src/app/user/state/userType/user.type';
+import { paydata, question } from 'src/app/user/state/userType/user.type';
+import { environment } from 'src/environments/environment.development';
 
-const serverURL = 'http://localhost:4000'
+const serverURL = environment.userApiUrl
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ public isLoading:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 token = localStorage.getItem("token")
 
  userVerify(data:any){
-    return this.http.post('http://localhost:4000/verify',{data})
+    return this.http.post(`${serverURL}/verify`,{data})
   }
 
 
@@ -145,6 +146,20 @@ viewRoom(resortId:string,roomId:string){
 CancelBooking(id:string){
   return this.http.patch(`${serverURL}/cancelbooking`,{id})
 }
+
+dropQuestions(data:question){
+  return this.http.post(`${serverURL}/dropquestion`,{data})
+}
+
+
+checkAvailableOnDate(data:any){
+  return this.http.post(`${serverURL}/getavailableondate`,{data})
+}
+
+categoryWise(category:string){
+return this.http.get(`${serverURL}/categorywise?category=${category}`)
+}
+
 
 }
 

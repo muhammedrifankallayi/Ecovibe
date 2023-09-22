@@ -65,8 +65,9 @@ FormData = new FormGroup({
   mobile: new FormControl("",[Validators.required]),
   resort_id  : new FormControl(),
   room_id: new FormControl(),
-  price:new FormControl("")
-  
+  price:new FormControl(""),
+  checkin: new FormControl(""),
+  checkout: new FormControl(""),
 })
 
 
@@ -93,6 +94,11 @@ get termsControl(){
   
 
   OnSubmit() {
+
+    this.FormData.patchValue({
+      checkin:this.checkin,
+      checkout:this.checkout
+    })
     console.log(this.resort_id);
 const data = this.FormData.value
 
@@ -164,11 +170,19 @@ this.service.placeBooking(data).subscribe((res:any)=>{
 
 
   
+},(err:any)=>{
+  this.toaster.error(err.error.message)
+  Swal.fire({
+    title:"Cant book",
+    text:err.error.message,
+    icon:"info",
+    confirmButtonText:"OK"
+  })
 })
 
 
 
-// 
+
 
 
 

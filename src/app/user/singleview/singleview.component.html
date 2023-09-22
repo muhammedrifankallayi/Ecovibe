@@ -5,8 +5,8 @@
   <div class="container ">
  <div style="margin-left: auto; " class="pt-3" >
 
-  <button  mat-raised-button color="" >Reviews</button>
-  <button mat-raised-button color="warn"  class="me-2" >Drop question</button>
+  <button  mat-raised-button color="" (click)="scrollBottom()"  >Reviews</button>
+  <button mat-raised-button color="warn"  class="me-2"  (click)="dropQuestion()"  >Drop question</button>
   <a  >
     <button mat-raised-button color="primary"  (click)="viewChat()"  > Chat </button>
   </a>
