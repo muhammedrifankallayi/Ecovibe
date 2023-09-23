@@ -1,7 +1,7 @@
 <app-nav> </app-nav>
 <div class="container"  *ngIf="!roomShow" >
     <div  class="mt-2"  *ngFor="let  item of bookingData;let i =index" >
-
+<!-- booking ditailess show -->
         <mat-card   class="mt-2" >
             <mat-card-title> Booking {{i+1}} </mat-card-title>
             <div style="display: flex;align-items: center;" ><mat-card-header class="col-md-6" >
@@ -23,6 +23,7 @@
               <button mat-raised-button color="primary" (click)="ViewRoomdata(item.room_id,item.resoert_id._id)"  >Room Details</button>
               <button mat-button  color="warn"  (click)="Cancel(item._id)"  >Cancel</button>
             </mat-card-actions>
+
           </mat-card>
 
 
