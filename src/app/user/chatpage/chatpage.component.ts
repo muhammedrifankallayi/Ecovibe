@@ -27,12 +27,12 @@ ngOnInit(): void {
   
 
   this.getChatData()
-  this.socket.emit('setup',this.userId)
   this.socket.on('message recieved',(newMessage:any)=>{   
 
       if(!this.chatdata){
         this.chatdata = []
       }
+   console.log(newMessage + 'datamessa');
    
     this.chatdata.push(newMessage);
     setTimeout(() => {
@@ -46,7 +46,9 @@ ngOnInit(): void {
 
 getChatData(){
   this.service.viewChat(this.adminId).subscribe((res:any)=>{
-   this.toaster.info("history recovered")
+   this.toaster.info("history recovered"+this.userId)
+  this.socket.emit('setup',this.userId)
+
    this.socket.emit('join',res.cId)
    this.chatdata = res.data
    this.userId = res.id

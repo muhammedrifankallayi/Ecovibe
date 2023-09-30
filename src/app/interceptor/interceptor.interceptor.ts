@@ -36,8 +36,7 @@ if(token){
   const newReq = request.clone({
     headers:request.headers.set( 'Authorization', 'Bearer '+token)
   })
-  console.log(admintoken);
-  console.log(token);
+ 
   this.service.isLoading.next(true)
   
   

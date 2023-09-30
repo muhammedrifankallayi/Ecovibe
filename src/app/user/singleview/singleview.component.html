@@ -12,7 +12,7 @@
   </a>
  
  </div>
-    <img src="http://localhost:4000/public/{{data.Banner_img}}" class="card-img m-3" height="500px" width="100%"
+    <img src="https://ecovibe.online/public/{{data.Banner_img}}" class="card-img m-3" height="500px" width="100%"
       alt="...">
 
 
@@ -21,7 +21,7 @@
     <div class="row">
       <div *ngFor="let img of showImg; let i=index" class="col-md-3">
         <div class="card h-100">
-          <img height="300px" src="http://localhost:4000/public/{{img}}" class="card-img-top" alt="...">
+          <img height="300px" src="https://ecovibe.online/public/{{img}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">image {{i+1}}</h5>
           </div>
@@ -73,14 +73,29 @@
         <form [formGroup]="FormData">
           <div style="width: 50%; float: left;">
             <label for="checkin">Checkin</label>
-            <input style="width: 100%;" class="date-input" type="date" id="checkin" formControlName="checkin">
+            <input
+              style="width: 100%;"
+              class="date-input"
+              type="date"
+              id="checkin"
+              formControlName="checkin"
+              [min]="minCheckinDate"
+              (change)="updateMinCheckoutDate()"
+            />
           </div>
           <div style="width: 50%; float: left;">
             <label for="checkout">Checkout</label>
-            <input style="width: 100%;" class="date-input" id="checkout" formControlName="checkout" type="date">
+            <input
+              style="width: 100%;"
+              class="date-input"
+              id="checkout"
+              formControlName="checkout"
+              type="date"
+              [min]="minCheckoutDate"
+            />
           </div>
-
         </form>
+        
       </div>
 
       <div>
@@ -119,7 +134,8 @@
 
   </div>
 
-
+  
+  
 
   <div class="container mt-2 ">
 

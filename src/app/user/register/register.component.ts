@@ -2,6 +2,7 @@ import { Component ,OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms'
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 function validatePhoneNumberLength(control: FormControl): { [key: string]: boolean } | null {
@@ -37,14 +38,14 @@ loginForm = new FormGroup({
   
 })
 
-constructor(private http:HttpClient,private route:Router){}
+constructor(private http:HttpClient,private route:Router ,private service:UserService){}
 onSubmit(){
    
   if(this.loginForm.valid){
   if(this.loginForm.value.password===this.loginForm.value.re_password){
     const formData = this.loginForm.value
     
-    this.http.post('http://localhost:4000/userRegister',formData).subscribe((res:any)=>{
+    this.service.userRegister(formData).subscribe((res:any)=>{
       const navigationExtras = {
         queryParams: {
           otp: JSON.stringify(res.otp),

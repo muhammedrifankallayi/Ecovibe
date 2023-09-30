@@ -53,7 +53,7 @@ import { RoomViewComponent } from './room-view/room-view.component';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CategoryWiseComponent } from './category-wise/category-wise.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -118,8 +118,9 @@ CategoryWiseComponent,
     MatSlideToggleModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
-   
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+   MatInputModule
     
     
 

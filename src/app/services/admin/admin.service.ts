@@ -141,4 +141,23 @@ editRestaurant(data:any,id:any){
 
 
 
+
+    adminProfile(){
+      return this.http.get(`${serverURL}/getAdmin`)
+    }
+
+getBooking(){
+  return this.http.get(`${serverURL}/getbookings`)
+}
+
+cancelBooking(id:string){
+  return this.http.patch(`${serverURL}/cancelbooking`,{id})
+
+}
+
+saveProfile(data:any){
+  return this.http.post(`${serverURL}/saveprofile`,{data})
+}
+
+
 }

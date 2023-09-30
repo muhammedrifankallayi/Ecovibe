@@ -1,10 +1,11 @@
 import { Component ,OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router  } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 import { message } from '../state/userType/user.type';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-singleview',
@@ -12,9 +13,24 @@ import { message } from '../state/userType/user.type';
   styleUrls: ['./singleview.component.css']
 })
 export class SingleviewComponent implements OnInit {
+  FormData: FormGroup;
+  minCheckinDate: string;
+  minCheckoutDate: string;
 
-constructor(private activeRoute:ActivatedRoute ,private route:Router ,private service:UserService , private toaster:ToastrService){
+constructor(private activeRoute:ActivatedRoute ,private route:Router ,private service:UserService , private toaster:ToastrService ,private fb:FormBuilder ){
  
+  const today = new Date();
+  // Format the current date as "YYYY-MM-DD".
+  this.minCheckinDate = today.toISOString().split('T')[0];
+  // Initialize the form with empty values.
+  this.FormData = this.fb.group({
+    checkin: ['', [Validators.required]],
+    checkout: ['', [Validators.required]]
+  });
+  // Initialize the minCheckoutDate to the same value as minCheckinDate.
+  this.minCheckoutDate = this.minCheckinDate;
+ 
+
 }
 
 id:string=''
@@ -22,7 +38,7 @@ data:any
 showImg:any
 rooms:any
 reviews:any
-
+userId=''
 
 
   ngOnInit(): void {
@@ -35,11 +51,21 @@ reviews:any
 
 this.datas()
 
-
-
-
-
   }
+
+
+
+  updateMinCheckoutDate() {
+    const checkinDate = new Date(this.FormData.value.checkin);
+    checkinDate.setDate(checkinDate.getDate() + 1); // Minimum checkout date is one day after checkin.
+    this.minCheckoutDate = checkinDate.toISOString().split('T')[0];
+    // Reset the checkout date value if it's less than the new minimum date.
+    if (this.FormData.value.checkout < this.minCheckoutDate) {
+      this.FormData.patchValue({ checkout: this.minCheckoutDate });
+    }
+  }
+
+
 
 
 datas(){
@@ -50,7 +76,8 @@ datas(){
     this.rooms = res.rooms
     this.reviews = res.reviews
     this.reviews.reverse()
-
+     this.userId= res.userId
+     
    })
    
 
@@ -85,10 +112,7 @@ decreaseAdults(){
 
 }
 
-FormData = new FormGroup({
-  checkin:new FormControl("",[Validators.required]),
-  checkout:new FormControl("",[Validators.required])
-})
+
 
 Availability(){
   const checkin = this.FormData.value.checkin
@@ -147,6 +171,7 @@ viewChat(){
 const navigationExtras:NavigationExtras={
   queryParams:{
     adminId:this.id,
+    userId:this.userId
    
   }
 }
@@ -199,6 +224,8 @@ dropQuestion(){
 
 scrollBottom(){
   window.scrollTo(0,document.body.scrollHeight)
+ 
+  
 }
 
 checkRoomAvailable(){
@@ -235,6 +262,9 @@ this.service.checkAvailableOnDate(data).subscribe((res:any)=>{
 })
 
 }
+
+
+
 
 
 }

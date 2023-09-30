@@ -25,7 +25,7 @@ token = localStorage.getItem("token")
 
 
   saveReq(data:any){
-    const token = this.token
+   
     return this.http.post(`${serverURL}/hoster-req`,{data},{withCredentials:true})
   }
 
@@ -33,6 +33,15 @@ token = localStorage.getItem("token")
   forgetOtp(email:any){
     return  this.http.get(`${serverURL}/forget-otp?email=${email}`)
   }
+
+
+  userLogin(FormData:any){
+    console.log('koi');
+    
+    return this.http.post(`${serverURL}/userLogin`,{FormData})
+  }
+
+
 
   newPassword(email:string,password:any){
     return  this.http.post(`${serverURL}/newpassword`,{email,password})
@@ -158,6 +167,12 @@ checkAvailableOnDate(data:any){
 
 categoryWise(category:string){
 return this.http.get(`${serverURL}/categorywise?category=${category}`)
+}
+
+
+
+userRegister(formdata:any){
+return this.http.post(`${serverURL}/userRegister`,formdata)
 }
 
 

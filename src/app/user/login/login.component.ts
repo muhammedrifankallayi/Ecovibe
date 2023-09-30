@@ -2,6 +2,7 @@ import { HttpClient ,HttpHeaders } from '@angular/common/http';
 import { Component ,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
    
   }
-  constructor(private route:Router , private http:HttpClient){}
+  constructor(private route:Router , private http:HttpClient ,private service:UserService){}
 title = 'Ecovibe'
   loginData = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -27,7 +28,7 @@ title = 'Ecovibe'
     const FormData = this.loginData.value
    
     
-this.http.post("http://localhost:4000/userLogin",{FormData}).subscribe((res:any)=>{
+this.service.userLogin(FormData).subscribe((res:any)=>{
  localStorage.setItem("token",res.token)
  
  

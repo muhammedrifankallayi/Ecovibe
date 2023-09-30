@@ -121,11 +121,11 @@ FormData= new FormGroup({
   name:new FormControl("",[Validators.required]),
   email:new FormControl("",[Validators.required]),
   mobile:new FormControl("",[Validators.required]),
-  age:new FormControl("",[Validators.max(2)])
+  age:new FormControl("",[Validators.maxLength(2)])
 })
 
 editSubmit(){
-  console.log("opp");
+ 
   
 if(this.FormData.valid){
   console.log(this.FormData.value);
@@ -170,6 +170,7 @@ console.log(res);
 
   })
 }
+
 
 
 

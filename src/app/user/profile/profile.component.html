@@ -18,11 +18,11 @@
                             </h4>
                            
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active"  id="home-tab" data-toggle="tab" (click)="switchTab('about')" [ngClass]="{ 'active': activeTab === 'about' }" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        <li class="nav-item"   (click)="switchTab('about')">
+                            <a class="nav-link active"  id="home-tab" data-toggle="tab" [ngClass]="{ 'active': activeTab === 'about' }" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab"(click)="switchTab('timeline')" [ngClass]="{ 'active': activeTab === 'timeline' }" role="tab" aria-controls="profile" aria-selected="false">whishlist</a>
+                        <li class="nav-item"  (click)="switchTab('timeline')" >
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" [ngClass]="{ 'active': activeTab === 'timeline' }" role="tab" aria-controls="profile" aria-selected="false">whishlist</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                    
                    
                     <p>Booking Info</p>
-                    <a class="btn btn-success btn-side">Booking History</a><br/>
+                    <a class="btn btn-success btn-side" routerLink="/bookings" >Booking History</a><br/>
                     
                 </div>
             </div>
@@ -66,7 +66,27 @@
                                     <div class="col-md-6">
                                         <p> {{userData.mobile}} </p>
                                     </div>
+
+
+
+                                   
                                 </div>
+
+                                <div *ngIf="userData.age" class="row">
+                                    <div class="col-md-6">
+                                        <label>age</label>
+                                    </div>
+                                    <div  class="col-md-6">
+                                        <p> {{userData.age}} years old </p>
+                                    </div>
+
+
+
+                                   
+                                </div>
+
+
+                               
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>is_verified</label>
@@ -82,7 +102,7 @@
                        
                         <div *ngFor="let item of wishlistData  "   class="row g-3 mb-2">
                             <div class="col-md-4"  >
-                              <img height="350px" width="100%" src="http://localhost:4000/public/{{item.resortId.Banner_img}}" class="rounded-start" alt="...">
+                              <img height="350px" width="100%" src="https://ecovibe.online/public/{{item.resortId.Banner_img}}" class="rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">

@@ -72,10 +72,10 @@ FormData = new FormGroup({
 
 
 get nameControl(){
-  return this.FormData.get("name")
+  return this.FormData.get("name")?.valid
 }
 get ageControl(){
-  return this.FormData.get("age")
+  return this.FormData.get("age")?.valid
 }
 get emailControl(){
   return this.FormData.get("email")
@@ -107,11 +107,18 @@ data.room_id = this.room_id
 
 console.log(data);
 
-
+if(this.FormData.invalid){
+  Swal.fire({
+    title:"Your form data isn't valid",
+    confirmButtonText:"OK",
+    icon:"error"
+  })
+  return
+}
 this.service.placeBooking(data).subscribe((res:any)=>{
 
 
-  
+
   
   
   const options = {
