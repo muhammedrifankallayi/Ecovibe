@@ -83,7 +83,7 @@ loadProfile(){
       mobile:this.userData.mobile,
       age:this.userData.age
     })
-this.src = this.userData.profile_img? `http://localhost:4000/public/${this.userData.profile_img}`:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+this.src = this.userData.profile_img? `https://ecovibe.online/public/${this.userData.profile_img}`:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
   },
   (error) => {
     console.error("Error fetching user data:", error);
